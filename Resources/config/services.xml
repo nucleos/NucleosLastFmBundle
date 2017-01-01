@@ -2,14 +2,58 @@
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <parameters>
     <parameter key="core23.lastfm.connection.class">Core23\LastFm\Connection\HTTPlugConnection</parameter>
+    <parameter key="core23.lastfm.crawler.eventinfo.class">Core23\LastFm\Crawler\EventInfoCrawler</parameter>
+    <parameter key="core23.lastfm.crawler.eventlist.class">Core23\LastFm\Crawler\EventListCrawler</parameter>
+    <parameter key="core23.lastfm.service.album.class">Core23\LastFm\Service\AlbumService</parameter>
+    <parameter key="core23.lastfm.service.artist.class">Core23\LastFm\Service\ArtistService</parameter>
+    <parameter key="core23.lastfm.service.auth.class">Core23\LastFm\Service\AuthService</parameter>
+    <parameter key="core23.lastfm.service.chart.class">Core23\LastFm\Service\ChartService</parameter>
+    <parameter key="core23.lastfm.service.geo.class">Core23\LastFm\Service\GeoService</parameter>
+    <parameter key="core23.lastfm.service.library.class">Core23\LastFm\Service\LibraryService</parameter>
+    <parameter key="core23.lastfm.service.tag.class">Core23\LastFm\Service\TagService</parameter>
+    <parameter key="core23.lastfm.service.track.class">Core23\LastFm\Service\TrackService</parameter>
+    <parameter key="core23.lastfm.service.user.class">Core23\LastFm\Service\UseryService</parameter>
   </parameters>
   <services>
-    <service id="core23.lastfm.connection" class="%core23.lastfm.connection.class%">
+    <service id="core23.lastfm.connection" class="%core23.lastfm.connection.class%" public="false">
       <argument type="service" id="core23.lastfm.http.client"/>
       <argument type="service" id="core23.lastfm.http.message_factory"/>
       <argument>%core23.lastfm.api.app_id%</argument>
       <argument>%core23.lastfm.api.shared_secret%</argument>
       <argument>%core23.lastfm.api.endpoint%</argument>
+    </service>
+    <service id="core23.lastfm.crawler.eventinfo" class="%core23.lastfm.crawler.eventinfo.class%">
+      <argument type="service" id="core23.lastfm.connection"/>
+    </service>
+    <service id="core23.lastfm.crawler.eventlist" class="%core23.lastfm.crawler.eventlist.class%">
+      <argument type="service" id="core23.lastfm.connection"/>
+    </service>
+    <service id="core23.lastfm.service.album" class="%core23.lastfm.service.album.class%">
+      <argument type="service" id="core23.lastfm.connection"/>
+    </service>
+    <service id="core23.lastfm.service.artist" class="%core23.lastfm.service.artist.class%">
+      <argument type="service" id="core23.lastfm.connection"/>
+    </service>
+    <service id="core23.lastfm.service.auth" class="%core23.lastfm.service.auth.class%">
+      <argument type="service" id="core23.lastfm.connection"/>
+    </service>
+    <service id="core23.lastfm.service.chart" class="%core23.lastfm.service.chart.class%">
+      <argument type="service" id="core23.lastfm.connection"/>
+    </service>
+    <service id="core23.lastfm.service.geo" class="%core23.lastfm.service.geo.class%">
+      <argument type="service" id="core23.lastfm.connection"/>
+    </service>
+    <service id="core23.lastfm.service.library" class="%core23.lastfm.service.library.class%">
+      <argument type="service" id="core23.lastfm.connection"/>
+    </service>
+    <service id="core23.lastfm.service.tag" class="%core23.lastfm.service.tag.class%">
+      <argument type="service" id="core23.lastfm.connection"/>
+    </service>
+    <service id="core23.lastfm.service.track" class="%core23.lastfm.service.track.class%">
+      <argument type="service" id="core23.lastfm.connection"/>
+    </service>
+    <service id="core23.lastfm.service.user" class="%core23.lastfm.service.user.class%">
+      <argument type="service" id="core23.lastfm.connection"/>
     </service>
   </services>
 </container>
