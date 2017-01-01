@@ -3,7 +3,6 @@ What is LastFmBundle?
 [![Latest Stable Version](https://poser.pugx.org/core23/lastfm-bundle/v/stable)](https://packagist.org/packages/core23/lastfm-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/core23/lastfm-bundle/v/unstable)](https://packagist.org/packages/core23/lastfm-bundle)
 [![Build Status](http://img.shields.io/travis/core23/LastFmBundle.svg)](http://travis-ci.org/core23/LastFmBundle)
-[![Dependency Status](https://www.versioneye.com/php/core23:lastfm-bundle/badge.svg)](https://www.versioneye.com/php/core23:lastfm-bundle)
 [![License](http://img.shields.io/packagist/l/core23/lastfm-bundle.svg)](https://packagist.org/packages/core23/lastfm-bundle)
 
 
