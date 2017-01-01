@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <parameters>
+    <parameter key="core23.lastfm.connection.class">Core23\LastFm\Connection\HTTPlugConnection</parameter>
+  </parameters>
+  <services>
+    <service id="core23.lastfm.connection" class="%core23.lastfm.connection.class%">
+      <argument type="service" id="core23.lastfm.http.client"/>
+      <argument type="service" id="core23.lastfm.http.message_factory"/>
+      <argument>%core23.lastfm.api.app_id%</argument>
+      <argument>%core23.lastfm.api.shared_secret%</argument>
+      <argument>%core23.lastfm.api.endpoint%</argument>
+    </service>
+  </services>
+</container>

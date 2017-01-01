@@ -1,0 +1,53 @@
+{
+  "name": "core23/lastfm-bundle",
+  "type": "symfony-bundle",
+  "description": "This bundle provides services for using the last.fm API inside the symfony.",
+  "keywords": [
+    "symfony",
+    "bundle",
+    "last.fm",
+    "api",
+    "crawler",
+    "webservice client"
+  ],
+  "homepage": "https://core23.de",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Christian Gripp",
+      "email": "mail@core23.de"
+    }
+  ],
+  "require": {
+    "php": "^7.0",
+    "core23/lastfm-api": "^0.1",
+    "php-http/httplug-bundle": "^1.1"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.0",
+    "php-http/mock-client": "^0.3",
+    "phpunit/phpunit": "^5.4",
+    "sllh/php-cs-fixer-styleci-bridge": "^2.0",
+    "symfony/phpunit-bridge": "^2.8 || ^3.0"
+  },
+  "suggest": {
+    "php-http/buzz-adapter": "Buzz HTTP client implementation",
+    "php-http/guzzle6-adapter": "Guzzle HTTP client implementation"
+  },
+  "autoload": {
+    "psr-4": {
+      "Core23\\LastFmBundle\\": ""
+    },
+    "exclude-from-classmap": [
+        "/Tests/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": { "Core23\\LastFmBundle\\Tests\\": "Tests/" }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
+    }
+  }
+}
