@@ -9,7 +9,7 @@ What is LastFmBundle?
 [![Donate to this project using Flattr](https://img.shields.io/badge/flattr-donate-yellow.svg)](https://flattr.com/profile/core23)
 [![Donate to this project using PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://paypal.me/gripp)
 
-This bundle provides a wrapper for using the [Last.fm API] inside the symfony sonata-project.
+This bundle provides a wrapper for using the [Last.fm API] inside symfony.
 
 ### Installation
 
