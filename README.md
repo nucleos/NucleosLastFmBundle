@@ -58,6 +58,11 @@ Define a [HTTPlug] client in your configuration.
             message_factory: Http\Message\MessageFactory\GuzzleMessageFactory
             uri_factory: Http\Message\UriFactory\GuzzleUriFactory
             stream_factory: Http\Message\StreamFactory\GuzzleStreamFactory
+    clients:
+        default:
+            # ...
+            plugins:
+                - httplug.plugin.redirect # plugin is needed for the webcrawler
 ```
 
 This bundle is available under the [MIT license](LICENSE.md).
