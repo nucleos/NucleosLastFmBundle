@@ -12,7 +12,7 @@
     <parameter key="core23.lastfm.service.library.class">Core23\LastFm\Service\LibraryService</parameter>
     <parameter key="core23.lastfm.service.tag.class">Core23\LastFm\Service\TagService</parameter>
     <parameter key="core23.lastfm.service.track.class">Core23\LastFm\Service\TrackService</parameter>
-    <parameter key="core23.lastfm.service.user.class">Core23\LastFm\Service\UseryService</parameter>
+    <parameter key="core23.lastfm.service.user.class">Core23\LastFm\Service\UserService</parameter>
   </parameters>
   <services>
     <service id="core23.lastfm.connection" class="%core23.lastfm.connection.class%" public="false">
