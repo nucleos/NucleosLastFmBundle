@@ -36,6 +36,7 @@
     </service>
     <service id="core23.lastfm.service.auth" class="%core23.lastfm.service.auth.class%">
       <argument type="service" id="core23.lastfm.connection"/>
+      <argument>%core23.lastfm.api.auth_url%</argument>
     </service>
     <service id="core23.lastfm.service.chart" class="%core23.lastfm.service.chart.class%">
       <argument type="service" id="core23.lastfm.connection"/>
