@@ -1,2 +1,2 @@
-auth_success: 'Der Benutzer %name% wurde erfolgreich authentisiert.'
 auth_error: 'Fehler beim Authorisieren des Benutzers.'
+auth_success: 'Der Benutzer %name% wurde erfolgreich authentisiert.'
