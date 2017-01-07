@@ -24,20 +24,34 @@ class Core23LastFmExtension extends Extension
     public function load(array $configs, ContainerBuilder $container)
     {
         $configuration = new Configuration();
-        $config        = $this->processConfiguration($configuration, $configs);
+        $config = $this->processConfiguration($configuration, $configs);
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.xml');
 
-        $this->configureLastFm($config, $container);
+        $this->configureRoutes($container, $config);
+        $this->configureApi($container, $config);
         $this->configureHttpClient($container, $config);
     }
 
     /**
-     * @param                  $config
      * @param ContainerBuilder $container
+     * @param array            $config
      */
-    private function configureLastFm($config, ContainerBuilder $container)
+    private function configureRoutes(ContainerBuilder $container, array $config)
+    {
+        $container->setParameter('core23.lastfm.auth_success.redirect_route', $config['auth_success']['route']);
+        $container->setParameter('core23.lastfm.auth_success.redirect_route_params', $config['auth_success']['route_parameters']);
+
+        $container->setParameter('core23.lastfm.auth_error.redirect_route', $config['auth_success']['route']);
+        $container->setParameter('core23.lastfm.auth_error.redirect_route_params', $config['auth_success']['route_parameters']);
+    }
+
+    /**
+     * @param ContainerBuilder $container
+     * @param array            $config
+     */
+    private function configureApi(ContainerBuilder $container, array $config)
     {
         $container->setParameter('core23.lastfm.api.app_id', $config['api']['app_id']);
         $container->setParameter('core23.lastfm.api.shared_secret', $config['api']['shared_secret']);

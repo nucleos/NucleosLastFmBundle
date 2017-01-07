@@ -1,0 +1,2 @@
+auth_success: 'User %name% successfully authenticated.'
+auth_error: 'Error authenticating user.'

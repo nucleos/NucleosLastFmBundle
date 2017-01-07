@@ -23,12 +23,44 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $node        = $treeBuilder->root('core23_last_fm');
+        $node = $treeBuilder->root('core23_last_fm');
 
+        $this->addRoutingSection($node);
         $this->addApiSection($node);
         $this->addHttpClientSection($node);
 
         return $treeBuilder;
+    }
+
+    /**
+     * @param ArrayNodeDefinition $node
+     */
+    private function addRoutingSection($node)
+    {
+        $node
+            ->children()
+                ->arrayNode('auth_success')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('route')->defaultNull()->end()
+                        ->arrayNode('route_parameters')
+                            ->defaultValue(array())
+                            ->prototype('array')->end()
+                        ->end()
+                    ->end()
+                ->end()
+                ->arrayNode('auth_error')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('route')->defaultNull()->end()
+                        ->arrayNode('route_parameters')
+                            ->defaultValue(array())
+                            ->prototype('array')->end()
+                        ->end()
+                    ->end()
+                ->end()
+            ->end()
+        ;
     }
 
     /**
