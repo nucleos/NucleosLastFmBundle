@@ -64,8 +64,8 @@ class AuthController extends Controller
             return $this->redirectToRoute('core23_lastfm_success');
         }
 
-        if (null != $this->getParameter('core23.lastfm.auth_success.redirect_route')) {
-            return $this->redirectToRoute($this->getParameter('core23.lastfm.auth_success.redirect_route'), $this->getParameter('core23.lastfm.auth_success.redirect_route_params'));
+        if (null != $this->getParameter('core23.lastfm.auth_error.redirect_route')) {
+            return $this->redirectToRoute($this->getParameter('core23.lastfm.auth_error.redirect_route'), $this->getParameter('core23.lastfm.auth_error.redirect_route_params'));
         }
 
         return $this->render('Core23LastFmBundle:Auth:error.html.twig');
