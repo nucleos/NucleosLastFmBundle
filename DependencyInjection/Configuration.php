@@ -35,7 +35,7 @@ class Configuration implements ConfigurationInterface
     /**
      * @param ArrayNodeDefinition $node
      */
-    private function addRoutingSection($node)
+    private function addRoutingSection(ArrayNodeDefinition $node)
     {
         $node
             ->children()
