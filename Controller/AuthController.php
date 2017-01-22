@@ -17,7 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-class AuthController extends Controller
+final class AuthController extends Controller
 {
     const SESSION_LASTFM_NAME  = '_CORE23_LASTFM_NAME';
     const SESSION_LASTFM_TOKEN = '_CORE23_LASTFM_TOKEN';

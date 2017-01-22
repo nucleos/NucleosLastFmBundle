@@ -13,6 +13,6 @@ namespace Core23\LastFmBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class Core23LastFmBundle extends Bundle
+final class Core23LastFmBundle extends Bundle
 {
 }
