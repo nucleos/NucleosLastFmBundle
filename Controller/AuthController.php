@@ -96,7 +96,7 @@ final class AuthController extends Controller
      *
      * @return bool
      */
-    final protected function isAuthenticated()
+    private function isAuthenticated()
     {
         return (bool) $this->get('session')->get(static::SESSION_LASTFM_TOKEN);
     }
