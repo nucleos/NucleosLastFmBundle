@@ -23,7 +23,7 @@ final class AuthController extends Controller
     /**
      * @return Response
      */
-    public function authAction()
+    public function authAction(): Response
     {
         $callbackUrl = $this->generateUrl('core23_lastfm_check', array(), UrlGeneratorInterface::ABSOLUTE_URL);
 
@@ -35,7 +35,7 @@ final class AuthController extends Controller
      *
      * @return Response
      */
-    public function checkAction(Request $request)
+    public function checkAction(Request $request): Response
     {
         $token = $request->query->get('token');
 
@@ -56,7 +56,7 @@ final class AuthController extends Controller
     /**
      * @return Response
      */
-    public function errorAction()
+    public function errorAction(): Response
     {
         if ($this->isAuthenticated()) {
             return $this->redirectToRoute('core23_lastfm_success');
@@ -72,7 +72,7 @@ final class AuthController extends Controller
     /**
      * @return Response
      */
-    public function successAction()
+    public function successAction(): Response
     {
         if (!$this->isAuthenticated()) {
             return $this->redirectToRoute('core23_lastfm_error');
@@ -94,7 +94,7 @@ final class AuthController extends Controller
      *
      * @return bool
      */
-    private function isAuthenticated()
+    private function isAuthenticated(): bool
     {
         return (bool) $this->get('session')->get(static::SESSION_LASTFM_TOKEN);
     }
@@ -102,7 +102,7 @@ final class AuthController extends Controller
     /**
      * @return AuthService
      */
-    private function getAuthService()
+    private function getAuthService(): AuthService
     {
         return $this->get('core23.lastfm.service.auth');
     }
