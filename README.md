@@ -2,9 +2,13 @@ What is LastFmBundle?
 =============================
 [![Latest Stable Version](https://poser.pugx.org/core23/lastfm-bundle/v/stable)](https://packagist.org/packages/core23/lastfm-bundle)
 [![Latest Unstable Version](https://poser.pugx.org/core23/lastfm-bundle/v/unstable)](https://packagist.org/packages/core23/lastfm-bundle)
-[![Build Status](http://img.shields.io/travis/core23/LastFmBundle.svg)](http://travis-ci.org/core23/LastFmBundle)
-[![License](http://img.shields.io/packagist/l/core23/lastfm-bundle.svg)](https://packagist.org/packages/core23/lastfm-bundle)
+[![License](https://poser.pugx.org/core23/lastfm-bundle/license)](https://packagist.org/packages/core23/lastfm-bundle)
 
+[![Build Status](https://travis-ci.org/core23/LastFmBundle.svg)](https://travis-ci.org/core23/LastFmBundle)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/core23/LastFmBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/core23/LastFmBundle)
+[![Code Climate](https://codeclimate.com/github/core23/LastFmBundle/badges/gpa.svg)](https://codeclimate.com/github/core23/LastFmBundle)
+[![Coverage Status](https://coveralls.io/repos/core23/LastFmBundle/badge.svg)](https://coveralls.io/r/core23/LastFmBundle)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/a1a7ce1f-7508-4022-a5ff-323ce044fff3/mini.png)](https://insight.sensiolabs.com/projects/a1a7ce1f-7508-4022-a5ff-323ce044fff3)
 
 [![Donate to this project using Flattr](https://img.shields.io/badge/flattr-donate-yellow.svg)](https://flattr.com/profile/core23)
 [![Donate to this project using PayPal](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://paypal.me/gripp)
