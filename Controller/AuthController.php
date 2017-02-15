@@ -62,7 +62,7 @@ final class AuthController extends Controller
             return $this->redirectToRoute('core23_lastfm_success');
         }
 
-        if (null != $this->getParameter('core23.lastfm.auth_error.redirect_route')) {
+        if (null !== $this->getParameter('core23.lastfm.auth_error.redirect_route')) {
             return $this->redirectToRoute($this->getParameter('core23.lastfm.auth_error.redirect_route'), $this->getParameter('core23.lastfm.auth_error.redirect_route_params'));
         }
 
@@ -78,7 +78,7 @@ final class AuthController extends Controller
             return $this->redirectToRoute('core23_lastfm_error');
         }
 
-        if (null != $this->getParameter('core23.lastfm.auth_success.redirect_route')) {
+        if (null !== $this->getParameter('core23.lastfm.auth_success.redirect_route')) {
             return $this->redirectToRoute($this->getParameter('core23.lastfm.auth_success.redirect_route'), $this->getParameter('core23.lastfm.auth_success.redirect_route_params'));
         }
 
