@@ -23,9 +23,9 @@ class Core23LastFmExtensionTest extends AbstractExtensionTestCase
             ),
         ));
 
-        $this->assertContainerBuilderHasParameter('core23.lastfm.auth_success.redirect_route', null);
+        $this->assertContainerBuilderHasParameter('core23.lastfm.auth_success.redirect_route');
         $this->assertContainerBuilderHasParameter('core23.lastfm.auth_success.redirect_route_params', array());
-        $this->assertContainerBuilderHasParameter('core23.lastfm.auth_error.redirect_route', null);
+        $this->assertContainerBuilderHasParameter('core23.lastfm.auth_error.redirect_route');
         $this->assertContainerBuilderHasParameter('core23.lastfm.auth_error.redirect_route_params', array());
 
         $this->assertContainerBuilderHasParameter('core23.lastfm.api.app_id', 'foo_id');
