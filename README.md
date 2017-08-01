@@ -62,11 +62,33 @@ Define a [HTTPlug] client in your configuration.
             message_factory: Http\Message\MessageFactory\GuzzleMessageFactory
             uri_factory: Http\Message\UriFactory\GuzzleUriFactory
             stream_factory: Http\Message\StreamFactory\GuzzleStreamFactory
-    clients:
-        default:
-            # ...
-            plugins:
-                - httplug.plugin.redirect # plugin is needed for the webcrawler
+        clients:
+            default:
+                # ...
+                plugins:
+                    - httplug.plugin.redirect # plugin is needed for the webcrawler
+```
+
+It is recommended to use a cache to reduce the API usage.
+
+```yml
+    # doctrine example
+    doctrine_cache:
+        providers:
+            httplug_cache:
+                type: php_file
+                namespace: httplug_cache
+                
+    httplug:
+        plugins:
+            cache:
+                cache_pool: 'doctrine_cache.providers.httplug_cache'
+                config:
+                    default_ttl: 7200 # Two hours
+        clients:
+            default:
+                plugins:
+                    - httplug.plugin.cache
 ```
 
 This bundle is available under the [MIT license](LICENSE.md).
