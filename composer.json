@@ -35,7 +35,8 @@
   },
   "suggest": {
     "php-http/buzz-adapter": "Buzz HTTP client implementation",
-    "php-http/guzzle6-adapter": "Guzzle HTTP client implementation"
+    "php-http/guzzle6-adapter": "Guzzle HTTP client implementation",
+    "cache/adapter-bundle": "Symfony cache adapter"
   },
   "autoload": {
     "psr-4": {
