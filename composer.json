@@ -40,11 +40,13 @@
   },
   "autoload": {
     "psr-4": {
-      "Core23\\LastFmBundle\\": ""
-    },
-    "exclude-from-classmap": [
-        "/Tests/"
-    ]
+      "Core23\\LastFmBundle\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Core23\\LastFmBundle\\Tests\\": "tests/"
+    }
   },
   "extra": {
     "branch-alias": {
