@@ -27,7 +27,7 @@ class ConfigurationTest extends TestCase
         )));
 
         $expected = array(
-            'api'          => array(
+            'api' => array(
                 'app_id'        => 'foo_id',
                 'shared_secret' => 'bar_secret',
                 'endpoint'      => 'http://ws.audioscrobbler.com/2.0/',
@@ -37,11 +37,11 @@ class ConfigurationTest extends TestCase
                 'route'            => null,
                 'route_parameters' => array(),
             ),
-            'auth_error'   => array(
+            'auth_error' => array(
                 'route'            => null,
                 'route_parameters' => array(),
             ),
-            'http'         => array(
+            'http' => array(
                 'client'          => 'httplug.client.default',
                 'message_factory' => 'httplug.message_factory.default',
             ),
