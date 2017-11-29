@@ -13,12 +13,14 @@ use Core23\LastFm\Service\AuthService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 final class AuthController extends Controller
 {
-    const SESSION_LASTFM_NAME  = '_CORE23_LASTFM_NAME';
-    const SESSION_LASTFM_TOKEN = '_CORE23_LASTFM_TOKEN';
+    public const SESSION_LASTFM_NAME  = '_CORE23_LASTFM_NAME';
+    public const SESSION_LASTFM_TOKEN = '_CORE23_LASTFM_TOKEN';
 
     /**
      * @return Response
@@ -46,7 +48,12 @@ final class AuthController extends Controller
         // Store session
         $lastFmSession = $this->getAuthService()->createSession($token);
 
-        $session = $this->get('session');
+        if (null === $lastFmSession) {
+            return $this->redirectToRoute('core23_lastfm_error');
+        }
+
+        /** @var Session $session */
+        $session = $this->getSession();
         $session->set(static::SESSION_LASTFM_NAME, $lastFmSession->getName());
         $session->set(static::SESSION_LASTFM_TOKEN, $lastFmSession->getKey());
 
@@ -82,7 +89,7 @@ final class AuthController extends Controller
             return $this->redirectToRoute($this->getParameter('core23.lastfm.auth_success.redirect_route'), $this->getParameter('core23.lastfm.auth_success.redirect_route_params'));
         }
 
-        $session = $this->get('session');
+        $session = $this->getSession();
 
         return $this->render('Core23LastFmBundle:Auth:success.html.twig', array(
             'name' => $session->get(static::SESSION_LASTFM_NAME),
@@ -96,7 +103,7 @@ final class AuthController extends Controller
      */
     private function isAuthenticated(): bool
     {
-        return (bool) $this->get('session')->get(static::SESSION_LASTFM_TOKEN);
+        return (bool) $this->getSession()->get(static::SESSION_LASTFM_TOKEN);
     }
 
     /**
@@ -105,5 +112,13 @@ final class AuthController extends Controller
     private function getAuthService(): AuthService
     {
         return $this->get('core23.lastfm.service.auth');
+    }
+
+    /**
+     * @return SessionInterface
+     */
+    private function getSession() : SessionInterface
+    {
+        return $this->get('session');
     }
 }
