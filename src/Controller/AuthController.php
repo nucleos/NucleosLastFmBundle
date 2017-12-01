@@ -117,7 +117,7 @@ final class AuthController extends Controller
     /**
      * @return SessionInterface
      */
-    private function getSession() : SessionInterface
+    private function getSession(): SessionInterface
     {
         return $this->get('session');
     }
