@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -27,7 +29,7 @@ final class AuthController extends Controller
      */
     public function authAction(): Response
     {
-        $callbackUrl = $this->generateUrl('core23_lastfm_check', array(), UrlGeneratorInterface::ABSOLUTE_URL);
+        $callbackUrl = $this->generateUrl('core23_lastfm_check', [], UrlGeneratorInterface::ABSOLUTE_URL);
 
         return $this->redirect($this->getAuthService()->getAuthUrl($callbackUrl));
     }
@@ -91,9 +93,9 @@ final class AuthController extends Controller
 
         $session = $this->getSession();
 
-        return $this->render('Core23LastFmBundle:Auth:success.html.twig', array(
+        return $this->render('Core23LastFmBundle:Auth:success.html.twig', [
             'name' => $session->get(static::SESSION_LASTFM_NAME),
-        ));
+        ]);
     }
 
     /**

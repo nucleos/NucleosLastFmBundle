@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -14,19 +16,19 @@ use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
 class Core23LastFmExtensionTest extends AbstractExtensionTestCase
 {
-    public function testLoadDefault()
+    public function testLoadDefault(): void
     {
-        $this->load(array(
-            'api' => array(
+        $this->load([
+            'api' => [
                 'app_id'        => 'foo_id',
                 'shared_secret' => 'bar_secret',
-            ),
-        ));
+            ],
+        ]);
 
         $this->assertContainerBuilderHasParameter('core23.lastfm.auth_success.redirect_route');
-        $this->assertContainerBuilderHasParameter('core23.lastfm.auth_success.redirect_route_params', array());
+        $this->assertContainerBuilderHasParameter('core23.lastfm.auth_success.redirect_route_params', []);
         $this->assertContainerBuilderHasParameter('core23.lastfm.auth_error.redirect_route');
-        $this->assertContainerBuilderHasParameter('core23.lastfm.auth_error.redirect_route_params', array());
+        $this->assertContainerBuilderHasParameter('core23.lastfm.auth_error.redirect_route_params', []);
 
         $this->assertContainerBuilderHasParameter('core23.lastfm.api.app_id', 'foo_id');
         $this->assertContainerBuilderHasParameter('core23.lastfm.api.shared_secret', 'bar_secret');
@@ -39,8 +41,8 @@ class Core23LastFmExtensionTest extends AbstractExtensionTestCase
 
     protected function getContainerExtensions(): array
     {
-        return array(
+        return [
             new Core23LastFmExtension(),
-        );
+        ];
     }
 }

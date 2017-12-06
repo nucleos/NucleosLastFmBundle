@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -19,7 +21,7 @@ final class Core23LastFmExtension extends Extension
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
@@ -36,7 +38,7 @@ final class Core23LastFmExtension extends Extension
      * @param ContainerBuilder $container
      * @param array            $config
      */
-    private function configureRoutes(ContainerBuilder $container, array $config)
+    private function configureRoutes(ContainerBuilder $container, array $config): void
     {
         $container->setParameter('core23.lastfm.auth_success.redirect_route', $config['auth_success']['route']);
         $container->setParameter('core23.lastfm.auth_success.redirect_route_params', $config['auth_success']['route_parameters']);
@@ -49,7 +51,7 @@ final class Core23LastFmExtension extends Extension
      * @param ContainerBuilder $container
      * @param array            $config
      */
-    private function configureApi(ContainerBuilder $container, array $config)
+    private function configureApi(ContainerBuilder $container, array $config): void
     {
         $container->setParameter('core23.lastfm.api.app_id', $config['api']['app_id']);
         $container->setParameter('core23.lastfm.api.shared_secret', $config['api']['shared_secret']);
@@ -61,7 +63,7 @@ final class Core23LastFmExtension extends Extension
      * @param ContainerBuilder $container
      * @param array            $config
      */
-    private function configureHttpClient(ContainerBuilder $container, array $config)
+    private function configureHttpClient(ContainerBuilder $container, array $config): void
     {
         $container->setAlias('core23.lastfm.http.client', $config['http']['client']);
         $container->setAlias('core23.lastfm.http.message_factory', $config['http']['message_factory']);

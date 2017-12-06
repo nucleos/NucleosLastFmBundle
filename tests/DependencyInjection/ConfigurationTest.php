@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -15,37 +17,37 @@ use Symfony\Component\Config\Definition\Processor;
 
 class ConfigurationTest extends TestCase
 {
-    public function testOptions()
+    public function testOptions(): void
     {
         $processor = new Processor();
 
-        $config = $processor->processConfiguration(new Configuration(), array(array(
-            'api' => array(
+        $config = $processor->processConfiguration(new Configuration(), [[
+            'api' => [
                 'app_id'        => 'foo_id',
                 'shared_secret' => 'bar_secret',
-            ),
-        )));
+            ],
+        ]]);
 
-        $expected = array(
-            'api' => array(
+        $expected = [
+            'api' => [
                 'app_id'        => 'foo_id',
                 'shared_secret' => 'bar_secret',
                 'endpoint'      => 'http://ws.audioscrobbler.com/2.0/',
                 'auth_url'      => 'http://www.last.fm/api/auth/',
-            ),
-            'auth_success' => array(
+            ],
+            'auth_success' => [
                 'route'            => null,
-                'route_parameters' => array(),
-            ),
-            'auth_error' => array(
+                'route_parameters' => [],
+            ],
+            'auth_error' => [
                 'route'            => null,
-                'route_parameters' => array(),
-            ),
-            'http' => array(
+                'route_parameters' => [],
+            ],
+            'http' => [
                 'client'          => 'httplug.client.default',
                 'message_factory' => 'httplug.message_factory.default',
-            ),
-        );
+            ],
+        ];
 
         $this->assertSame($expected, $config);
     }

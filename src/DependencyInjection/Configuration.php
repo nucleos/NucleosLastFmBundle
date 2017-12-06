@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * (c) Christian Gripp <mail@core23.de>
  *
@@ -35,7 +37,7 @@ final class Configuration implements ConfigurationInterface
     /**
      * @param ArrayNodeDefinition $node
      */
-    private function addRoutingSection(ArrayNodeDefinition $node)
+    private function addRoutingSection(ArrayNodeDefinition $node): void
     {
         $node
             ->children()
@@ -44,7 +46,7 @@ final class Configuration implements ConfigurationInterface
                     ->children()
                         ->scalarNode('route')->defaultNull()->end()
                         ->arrayNode('route_parameters')
-                            ->defaultValue(array())
+                            ->defaultValue([])
                             ->prototype('array')->end()
                         ->end()
                     ->end()
@@ -54,7 +56,7 @@ final class Configuration implements ConfigurationInterface
                     ->children()
                         ->scalarNode('route')->defaultNull()->end()
                         ->arrayNode('route_parameters')
-                            ->defaultValue(array())
+                            ->defaultValue([])
                             ->prototype('array')->end()
                         ->end()
                     ->end()
@@ -66,7 +68,7 @@ final class Configuration implements ConfigurationInterface
     /**
      * @param ArrayNodeDefinition $node
      */
-    private function addApiSection(ArrayNodeDefinition $node)
+    private function addApiSection(ArrayNodeDefinition $node): void
     {
         $node
             ->children()
@@ -85,7 +87,7 @@ final class Configuration implements ConfigurationInterface
     /**
      * @param ArrayNodeDefinition $node
      */
-    private function addHttpClientSection(ArrayNodeDefinition $node)
+    private function addHttpClientSection(ArrayNodeDefinition $node): void
     {
         $node
             ->children()
