@@ -75,7 +75,7 @@ final class AuthController extends Controller
             return $this->redirectToRoute($this->getParameter('core23.lastfm.auth_error.redirect_route'), $this->getParameter('core23.lastfm.auth_error.redirect_route_params'));
         }
 
-        return $this->render('Core23LastFmBundle:Auth:error.html.twig');
+        return $this->render('@Core23LastFm/Auth/error.html.twig');
     }
 
     /**
@@ -93,7 +93,7 @@ final class AuthController extends Controller
 
         $session = $this->getSession();
 
-        return $this->render('Core23LastFmBundle:Auth:success.html.twig', [
+        return $this->render('@Core23LastFm/Auth/success.html.twig', [
             'name' => $session->get(static::SESSION_LASTFM_NAME),
         ]);
     }
