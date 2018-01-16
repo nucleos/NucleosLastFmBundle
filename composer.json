@@ -38,6 +38,14 @@
         "php-http/buzz-adapter": "Buzz HTTP client implementation",
         "php-http/guzzle6-adapter": "Guzzle HTTP client implementation"
     },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.x-dev"
+        }
+    },
     "autoload": {
         "psr-4": {
             "Core23\\LastFmBundle\\": "src/"
@@ -55,13 +63,5 @@
         "post-update-cmd": [
             "@composer bin all update --ansi"
         ]
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "0.x-dev"
-        }
-    },
-    "config": {
-        "sort-packages": true
     }
 }
