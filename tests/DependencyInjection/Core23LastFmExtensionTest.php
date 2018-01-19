@@ -25,18 +25,18 @@ class Core23LastFmExtensionTest extends AbstractExtensionTestCase
             ],
         ]);
 
-        $this->assertContainerBuilderHasParameter('core23.lastfm.auth_success.redirect_route');
-        $this->assertContainerBuilderHasParameter('core23.lastfm.auth_success.redirect_route_params', []);
-        $this->assertContainerBuilderHasParameter('core23.lastfm.auth_error.redirect_route');
-        $this->assertContainerBuilderHasParameter('core23.lastfm.auth_error.redirect_route_params', []);
+        $this->assertContainerBuilderHasParameter('core23_lastfm.auth_success.redirect_route');
+        $this->assertContainerBuilderHasParameter('core23_lastfm.auth_success.redirect_route_params', []);
+        $this->assertContainerBuilderHasParameter('core23_lastfm.auth_error.redirect_route');
+        $this->assertContainerBuilderHasParameter('core23_lastfm.auth_error.redirect_route_params', []);
 
-        $this->assertContainerBuilderHasParameter('core23.lastfm.api.app_id', 'foo_id');
-        $this->assertContainerBuilderHasParameter('core23.lastfm.api.shared_secret', 'bar_secret');
-        $this->assertContainerBuilderHasParameter('core23.lastfm.api.endpoint', 'http://ws.audioscrobbler.com/2.0/');
-        $this->assertContainerBuilderHasParameter('core23.lastfm.api.auth_url', 'http://www.last.fm/api/auth/');
+        $this->assertContainerBuilderHasParameter('core23_lastfm.api.app_id', 'foo_id');
+        $this->assertContainerBuilderHasParameter('core23_lastfm.api.shared_secret', 'bar_secret');
+        $this->assertContainerBuilderHasParameter('core23_lastfm.api.endpoint', 'http://ws.audioscrobbler.com/2.0/');
+        $this->assertContainerBuilderHasParameter('core23_lastfm.api.auth_url', 'http://www.last.fm/api/auth/');
 
-        $this->assertContainerBuilderHasAlias('core23.lastfm.http.client', 'httplug.client.default');
-        $this->assertContainerBuilderHasAlias('core23.lastfm.http.message_factory', 'httplug.message_factory.default');
+        $this->assertContainerBuilderHasAlias('core23_lastfm.http.client', 'httplug.client.default');
+        $this->assertContainerBuilderHasAlias('core23_lastfm.http.message_factory', 'httplug.message_factory.default');
     }
 
     protected function getContainerExtensions(): array

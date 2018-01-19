@@ -71,8 +71,8 @@ final class AuthController extends Controller
             return $this->redirectToRoute('core23_lastfm_success');
         }
 
-        if (null !== $this->getParameter('core23.lastfm.auth_error.redirect_route')) {
-            return $this->redirectToRoute($this->getParameter('core23.lastfm.auth_error.redirect_route'), $this->getParameter('core23.lastfm.auth_error.redirect_route_params'));
+        if (null !== $this->getParameter('core23_lastfm.auth_error.redirect_route')) {
+            return $this->redirectToRoute($this->getParameter('core23_lastfm.auth_error.redirect_route'), $this->getParameter('core23_lastfm.auth_error.redirect_route_params'));
         }
 
         return $this->render('@Core23LastFm/Auth/error.html.twig');
@@ -87,8 +87,8 @@ final class AuthController extends Controller
             return $this->redirectToRoute('core23_lastfm_error');
         }
 
-        if (null !== $this->getParameter('core23.lastfm.auth_success.redirect_route')) {
-            return $this->redirectToRoute($this->getParameter('core23.lastfm.auth_success.redirect_route'), $this->getParameter('core23.lastfm.auth_success.redirect_route_params'));
+        if (null !== $this->getParameter('core23_lastfm.auth_success.redirect_route')) {
+            return $this->redirectToRoute($this->getParameter('core23_lastfm.auth_success.redirect_route'), $this->getParameter('core23_lastfm.auth_success.redirect_route_params'));
         }
 
         $session = $this->getSession();
@@ -113,7 +113,7 @@ final class AuthController extends Controller
      */
     private function getAuthService(): AuthService
     {
-        return $this->get('core23.lastfm.service.auth');
+        return $this->get('core23_lastfm.service.auth');
     }
 
     /**

@@ -40,11 +40,11 @@ final class Core23LastFmExtension extends Extension
      */
     private function configureRoutes(ContainerBuilder $container, array $config): void
     {
-        $container->setParameter('core23.lastfm.auth_success.redirect_route', $config['auth_success']['route']);
-        $container->setParameter('core23.lastfm.auth_success.redirect_route_params', $config['auth_success']['route_parameters']);
+        $container->setParameter('core23_lastfm.auth_success.redirect_route', $config['auth_success']['route']);
+        $container->setParameter('core23_lastfm.auth_success.redirect_route_params', $config['auth_success']['route_parameters']);
 
-        $container->setParameter('core23.lastfm.auth_error.redirect_route', $config['auth_success']['route']);
-        $container->setParameter('core23.lastfm.auth_error.redirect_route_params', $config['auth_success']['route_parameters']);
+        $container->setParameter('core23_lastfm.auth_error.redirect_route', $config['auth_success']['route']);
+        $container->setParameter('core23_lastfm.auth_error.redirect_route_params', $config['auth_success']['route_parameters']);
     }
 
     /**
@@ -53,10 +53,10 @@ final class Core23LastFmExtension extends Extension
      */
     private function configureApi(ContainerBuilder $container, array $config): void
     {
-        $container->setParameter('core23.lastfm.api.app_id', $config['api']['app_id']);
-        $container->setParameter('core23.lastfm.api.shared_secret', $config['api']['shared_secret']);
-        $container->setParameter('core23.lastfm.api.endpoint', $config['api']['endpoint']);
-        $container->setParameter('core23.lastfm.api.auth_url', $config['api']['auth_url']);
+        $container->setParameter('core23_lastfm.api.app_id', $config['api']['app_id']);
+        $container->setParameter('core23_lastfm.api.shared_secret', $config['api']['shared_secret']);
+        $container->setParameter('core23_lastfm.api.endpoint', $config['api']['endpoint']);
+        $container->setParameter('core23_lastfm.api.auth_url', $config['api']['auth_url']);
     }
 
     /**
@@ -65,7 +65,7 @@ final class Core23LastFmExtension extends Extension
      */
     private function configureHttpClient(ContainerBuilder $container, array $config): void
     {
-        $container->setAlias('core23.lastfm.http.client', $config['http']['client']);
-        $container->setAlias('core23.lastfm.http.message_factory', $config['http']['message_factory']);
+        $container->setAlias('core23_lastfm.http.client', $config['http']['client']);
+        $container->setAlias('core23_lastfm.http.message_factory', $config['http']['message_factory']);
     }
 }
