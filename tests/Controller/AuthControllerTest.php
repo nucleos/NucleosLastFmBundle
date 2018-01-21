@@ -14,7 +14,7 @@ namespace Core23\LastFmBundle\Tests\Controller;
 use Core23\LastFmBundle\Controller\AuthController;
 use PHPUnit\Framework\TestCase;
 
-class AuthControllerTest extends TestCase
+final class AuthControllerTest extends TestCase
 {
     private $controller;
 

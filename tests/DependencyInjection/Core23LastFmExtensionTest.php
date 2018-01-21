@@ -14,7 +14,7 @@ namespace Core23\LastFmBundle\Tests\DependencyInjection;
 use Core23\LastFmBundle\DependencyInjection\Core23LastFmExtension;
 use Matthias\SymfonyDependencyInjectionTest\PhpUnit\AbstractExtensionTestCase;
 
-class Core23LastFmExtensionTest extends AbstractExtensionTestCase
+final class Core23LastFmExtensionTest extends AbstractExtensionTestCase
 {
     public function testLoadDefault(): void
     {
