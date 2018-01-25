@@ -17,8 +17,8 @@ This bundle provides a wrapper for using the [Last.fm API] inside symfony.
 ### Installation
 
 ```
-php composer.phar require core23/lastfm-bundle
-php composer.phar require php-http/guzzle6-adapter # if you want to use Guzzle
+composer require core23/lastfm-bundle
+composer require php-http/guzzle6-adapter # if you want to use Guzzle
 ```
 
 ### Enabling the bundle
