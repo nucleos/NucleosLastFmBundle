@@ -44,7 +44,7 @@ Define the API credentials in your configuration.
 ```yml
     # config.yml
 
-    core23_last_fm:
+    core23_lastfm:
         api:
             app_id:         %lastfm_api.id%
             shared_secret:  %lastfm_api.secret%

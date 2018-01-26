@@ -11,8 +11,20 @@ declare(strict_types=1);
 
 namespace Core23\LastFmBundle;
 
+use Core23\LastFmBundle\DependencyInjection\Core23LastFmExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 final class Core23LastFmBundle extends Bundle
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function getContainerExtension()
+    {
+        if (null === $this->extension) {
+            $this->extension = new Core23LastFmExtension();
+        }
+
+        return $this->extension;
+    }
 }

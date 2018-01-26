@@ -25,7 +25,7 @@ final class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
 
         /** @var ArrayNodeDefinition $node */
-        $node = $treeBuilder->root('core23_last_fm');
+        $node = $treeBuilder->root('core23_lastfm');
 
         $this->addRoutingSection($node);
         $this->addApiSection($node);
