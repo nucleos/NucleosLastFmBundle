@@ -1,3 +1,17 @@
+27/01/2018 10:30  0.3.0  Changed service bundle prefix
+7a27ce1 Improved documentation
+dd07931 Adding stages to travis build
+482be08 Changed config root node
+6b0fd81 Replaced composer.phar with composer in docs
+6a04c15 Make tests final
+f7c036a Don't use parameters for class names
+2fc2f4f Use correct bundle prefix for serivices and parameters
+3cb0c15 Ignore vendor-bin when calling lint
+5bc78c0 Use weak vendors mode
+50b18be Added rmt tool
+016654e Normalize composer.json file
+15b3e60 Cleanup PHPStan ignores
+8cebb1c Added dev tools via composer-bin plugin
 08/01/2018 16:10  0.2.0  Symfony 4 support
 eec4ad6 Sync config
 cf5e23e Removed old build config
