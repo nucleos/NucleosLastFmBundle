@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+  <services>
+    <service id="core23_lastfm.action.start_auth" class="Core23\LastFmBundle\Action\StartAuthAction">
+      <argument type="service" id="core23_lastfm.service.auth"/>
+      <argument type="service" id="router"/>
+    </service>
+    <service id="core23_lastfm.action.auth_error" class="Core23\LastFmBundle\Action\AuthErrorAction">
+      <argument type="service" id="twig"/>
+      <argument type="service" id="router"/>
+      <argument type="service" id="core23_lastfm.session.manager"/>
+      <argument>%core23_lastfm.auth_error.redirect_route%</argument>
+      <argument>%core23_lastfm.auth_error.redirect_route_params%</argument>
+    </service>
+    <service id="core23_lastfm.action.auth_success" class="Core23\LastFmBundle\Action\AuthSuccessAction">
+      <argument type="service" id="twig"/>
+      <argument type="service" id="router"/>
+      <argument type="service" id="core23_lastfm.session.manager"/>
+      <argument>%core23_lastfm.auth_success.redirect_route%</argument>
+      <argument>%core23_lastfm.auth_success.redirect_route_params%</argument>
+    </service>
+    <service id="core23_lastfm.action.check_auth" class="Core23\LastFmBundle\Action\CheckAuthAction">
+      <argument type="service" id="router"/>
+      <argument type="service" id="core23_lastfm.session.manager"/>
+      <argument type="service" id="core23_lastfm.service.auth"/>
+    </service>
+  </services>
+</container>
