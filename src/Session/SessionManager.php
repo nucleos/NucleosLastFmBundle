@@ -27,7 +27,7 @@ final class SessionManager implements SessionManagerInterface
     private $session;
 
     /**
-     * AbstractAuthAction constructor.
+     * SessionManager constructor.
      *
      * @param Session $session
      */
