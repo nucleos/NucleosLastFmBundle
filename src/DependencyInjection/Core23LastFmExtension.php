@@ -38,22 +38,8 @@ final class Core23LastFmExtension extends Extension
         $loader->load('action.xml');
         $loader->load('services.xml');
 
-        $this->configureRoutes($container, $config);
         $this->configureApi($container, $config);
         $this->configureHttpClient($container, $config);
-    }
-
-    /**
-     * @param ContainerBuilder $container
-     * @param array            $config
-     */
-    private function configureRoutes(ContainerBuilder $container, array $config): void
-    {
-        $container->setParameter('core23_lastfm.auth_success.redirect_route', $config['auth_success']['route']);
-        $container->setParameter('core23_lastfm.auth_success.redirect_route_params', $config['auth_success']['route_parameters']);
-
-        $container->setParameter('core23_lastfm.auth_error.redirect_route', $config['auth_success']['route']);
-        $container->setParameter('core23_lastfm.auth_error.redirect_route_params', $config['auth_success']['route_parameters']);
     }
 
     /**

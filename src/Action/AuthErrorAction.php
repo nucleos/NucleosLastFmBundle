@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace Core23\LastFmBundle\Action;
 
 use Core23\LastFmBundle\Session\SessionManager;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -36,36 +37,28 @@ final class AuthErrorAction
     private $sessionManager;
 
     /**
-     * @var string|null
+     * @var EventDispatcherInterface
      */
-    private $redirectRoute;
-
-    /**
-     * @var array
-     */
-    private $redirectRouteParams;
+    private $eventDispatcher;
 
     /**
      * AuthErrorAction constructor.
      *
-     * @param Environment     $twig
-     * @param RouterInterface $router
-     * @param SessionManager  $sessionManager
-     * @param null|string     $redirectRoute
-     * @param array           $redirectRouteParams
+     * @param Environment              $twig
+     * @param RouterInterface          $router
+     * @param SessionManager           $sessionManager
+     * @param EventDispatcherInterface $eventDispatcher
      */
     public function __construct(
         Environment $twig,
         RouterInterface $router,
         SessionManager $sessionManager,
-        ?string $redirectRoute,
-        array $redirectRouteParams
+        EventDispatcherInterface $eventDispatcher
     ) {
-        $this->twig                = $twig;
-        $this->router              = $router;
-        $this->sessionManager      = $sessionManager;
-        $this->redirectRoute       = $redirectRoute;
-        $this->redirectRouteParams = $redirectRouteParams;
+        $this->twig            = $twig;
+        $this->router          = $router;
+        $this->sessionManager  = $sessionManager;
+        $this->eventDispatcher = $eventDispatcher;
     }
 
     /**
@@ -81,8 +74,13 @@ final class AuthErrorAction
             return $this->redirectToRoute('core23_lastfm_success');
         }
 
-        if (null !== $this->redirectRoute) {
-            return $this->redirectToRoute($this->redirectRoute, $this->redirectRouteParams);
+        $this->sessionManager->clear();
+
+        $event = new AuthFailedEvent();
+        $this->eventDispatcher->dispatch(Core23LastFmEvents::AUTH_ERROR, $event);
+
+        if ($response = $event->getResponse()) {
+            return $response;
         }
 
         return new Response($this->twig->render('@Core23LastFm/Auth/error.html.twig'));

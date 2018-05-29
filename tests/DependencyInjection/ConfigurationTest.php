@@ -35,14 +35,6 @@ final class ConfigurationTest extends TestCase
                 'endpoint'      => 'http://ws.audioscrobbler.com/2.0/',
                 'auth_url'      => 'http://www.last.fm/api/auth/',
             ],
-            'auth_success' => [
-                'route'            => null,
-                'route_parameters' => [],
-            ],
-            'auth_error' => [
-                'route'            => null,
-                'route_parameters' => [],
-            ],
             'http' => [
                 'client'          => 'httplug.client.default',
                 'message_factory' => 'httplug.message_factory.default',

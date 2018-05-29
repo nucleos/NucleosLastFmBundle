@@ -25,11 +25,6 @@ final class Core23LastFmExtensionTest extends AbstractExtensionTestCase
             ],
         ]);
 
-        $this->assertContainerBuilderHasParameter('core23_lastfm.auth_success.redirect_route');
-        $this->assertContainerBuilderHasParameter('core23_lastfm.auth_success.redirect_route_params', []);
-        $this->assertContainerBuilderHasParameter('core23_lastfm.auth_error.redirect_route');
-        $this->assertContainerBuilderHasParameter('core23_lastfm.auth_error.redirect_route_params', []);
-
         $this->assertContainerBuilderHasParameter('core23_lastfm.api.app_id', 'foo_id');
         $this->assertContainerBuilderHasParameter('core23_lastfm.api.shared_secret', 'bar_secret');
         $this->assertContainerBuilderHasParameter('core23_lastfm.api.endpoint', 'http://ws.audioscrobbler.com/2.0/');

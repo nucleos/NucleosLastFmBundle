@@ -35,6 +35,11 @@ interface SessionManagerInterface
     public function store(SessionInterface $lastFmSession): void;
 
     /**
+     * Removes all stored sessions.
+     */
+    public function clear(): void;
+
+    /**
      * @return SessionInterface|null
      */
     public function getSession(): ?SessionInterface;
