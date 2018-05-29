@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace Core23\LastFmBundle\Action;
 
+use Core23\LastFmBundle\Core23LastFmEvents;
+use Core23\LastFmBundle\Event\AuthFailedEvent;
 use Core23\LastFmBundle\Session\SessionManager;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
