@@ -76,7 +76,13 @@ final class AuthSuccessAction
             return $this->redirectToRoute('core23_lastfm_error');
         }
 
-        $event = new AuthSuccessEvent($this->sessionManager->getSession());
+        $session = $this->sessionManager->getSession();
+
+        if (null === $session) {
+            return $this->redirectToRoute('core23_lastfm_error');
+        }
+
+        $event = new AuthSuccessEvent($session);
         $this->eventDispatcher->dispatch(Core23LastFmEvents::AUTH_SUCCESS, $event);
 
         if ($response = $event->getResponse()) {
