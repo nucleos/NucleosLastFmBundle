@@ -60,33 +60,19 @@ final class CheckAuthAction
         $token = $request->query->get('token');
 
         if (!$token) {
-            return $this->redirectToRoute('core23_lastfm_auth');
+            return new RedirectResponse($this->generateUrl('core23_lastfm_auth'));
         }
 
         // Store session
         $lastFmSession = $this->authService->createSession($token);
 
         if (null === $lastFmSession) {
-            return $this->redirectToRoute('core23_lastfm_error');
+            return new RedirectResponse($this->generateUrl('core23_lastfm_error'));
         }
 
         $this->sessionManager->store($lastFmSession);
 
-        return $this->redirectToRoute('core23_lastfm_success');
-    }
-
-    /**
-     * Returns a RedirectResponse to the given route with the given parameters.
-     *
-     * @param string $route      The name of the route
-     * @param array  $parameters An array of parameters
-     * @param int    $status     The status code to use for the Response
-     *
-     * @return RedirectResponse
-     */
-    private function redirectToRoute($route, array $parameters = [], $status = 302): RedirectResponse
-    {
-        return new RedirectResponse($this->generateUrl($route, $parameters), $status);
+        return new RedirectResponse($this->generateUrl('core23_lastfm_success'));
     }
 
     /**

@@ -73,13 +73,13 @@ final class AuthSuccessAction
     public function __invoke(): Response
     {
         if (!$this->sessionManager->isAuthenticated()) {
-            return $this->redirectToRoute('core23_lastfm_error');
+            return new RedirectResponse($this->generateUrl('core23_lastfm_error'));
         }
 
         $session = $this->sessionManager->getSession();
 
         if (null === $session) {
-            return $this->redirectToRoute('core23_lastfm_error');
+            return new RedirectResponse($this->generateUrl('core23_lastfm_error'));
         }
 
         $event = new AuthSuccessEvent($session);
@@ -92,20 +92,6 @@ final class AuthSuccessAction
         return new Response($this->twig->render('@Core23LastFm/Auth/success.html.twig', [
             'name' => $this->sessionManager->getUsername(),
         ]));
-    }
-
-    /**
-     * Returns a RedirectResponse to the given route with the given parameters.
-     *
-     * @param string $route      The name of the route
-     * @param array  $parameters An array of parameters
-     * @param int    $status     The status code to use for the Response
-     *
-     * @return RedirectResponse
-     */
-    private function redirectToRoute($route, array $parameters = [], $status = 302): RedirectResponse
-    {
-        return new RedirectResponse($this->generateUrl($route, $parameters), $status);
     }
 
     /**
