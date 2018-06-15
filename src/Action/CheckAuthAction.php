@@ -84,7 +84,7 @@ final class CheckAuthAction
      *
      * @return string The generated URL
      */
-    private function generateUrl($route, array $parameters = [], $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH): string
+    private function generateUrl(string $route, array $parameters = [], int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH): string
     {
         return $this->router->generate($route, $parameters, $referenceType);
     }
