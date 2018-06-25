@@ -62,10 +62,10 @@ final class AuthSuccessEvent extends Event
     }
 
     /**
-     * @return null|string
+     * @return string
      */
-    public function getUsername(): ?string
+    public function getUsername(): string
     {
-        return $this->session ? $this->session->getName() : null;
+        return $this->session->getName();
     }
 }
