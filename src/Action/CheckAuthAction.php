@@ -37,8 +37,6 @@ final class CheckAuthAction
     private $authService;
 
     /**
-     * CheckAuthAction constructor.
-     *
      * @param RouterInterface $router
      * @param SessionManager  $sessionManager
      * @param AuthService     $authService

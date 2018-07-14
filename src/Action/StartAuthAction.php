@@ -30,8 +30,6 @@ final class StartAuthAction
     private $router;
 
     /**
-     * StartAuthAction constructor.
-     *
      * @param AuthService     $authService
      * @param RouterInterface $router
      */

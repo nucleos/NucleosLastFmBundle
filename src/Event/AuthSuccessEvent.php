@@ -28,8 +28,6 @@ final class AuthSuccessEvent extends Event
     private $response;
 
     /**
-     * AuthSuccessEvent constructor.
-     *
      * @param SessionInterface $session
      */
     public function __construct(SessionInterface $session)

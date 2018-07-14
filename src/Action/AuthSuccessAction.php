@@ -44,8 +44,6 @@ final class AuthSuccessAction
     private $eventDispatcher;
 
     /**
-     * AuthErrorAction constructor.
-     *
      * @param Environment              $twig
      * @param RouterInterface          $router
      * @param SessionManager           $sessionManager
