@@ -21,6 +21,7 @@
     "require": {
         "php": "^7.1",
         "core23/lastfm-api": "^0.4",
+        "php-http/client-implementation": "^1.0",
         "php-http/httplug-bundle": "^1.1",
         "symfony/config": "^3.4 || ^4.0",
         "symfony/dependency-injection": "^3.4 || ^4.0",
