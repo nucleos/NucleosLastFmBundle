@@ -1,3 +1,30 @@
+23/09/2018 13:26  0.4.0  Symfony 4 support
+cbd3e3a Updated dependencies
+8365cdc Added php-http/client-implementation dependency
+9ab429b Added missing httplug dependencies
+de342ef Updated .editorconfig
+3953691 TRAVIS: Moved dependencies check to allow failures
+db85d5d Added missing dependencies
+84d48b0 Added missing dependencies
+e72ec25 Removed useless PHPDoc
+bb051c2 Sync config
+ce3ada2 Added composer-require-checker to build
+a261244 Sync phpstan config
+b929a9d phpstan findings
+4d3e9e8 Require latest phpstan version
+5e06bb4 Use class name as controller service id
+1b67eb7 Added type to private methods
+21d5048 Removed internal method
+23d5b7d Require latest httplug mock
+92a3e27 Created issue templates
+12ec90c Catch null pointer exception
+47dd3ab Clean phpstan config
+74947be Added missing imports
+2cb9724 Added getUsername to success event
+93948a8 Use events instead custom redirect routes
+1be80f5 Fixed wrong PHPDoc
+69f9036 Use ADR pattern
+9b1e742 Don't use PHPUnit 7 yet
 27/01/2018 10:30  0.3.0  Changed service bundle prefix
 7a27ce1 Improved documentation
 dd07931 Adding stages to travis build
