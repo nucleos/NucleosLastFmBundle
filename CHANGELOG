@@ -1,3 +1,8 @@
+02/11/2018 08:06  0.4.1  Autowiring
+8ff9891 Removed donation from README
+643cc5e Added service aliases for autowiring
+6d8362e Updated release config
+c641bcf Updated style config
 23/09/2018 13:26  0.4.0  Symfony 4 support
 cbd3e3a Updated dependencies
 8365cdc Added php-http/client-implementation dependency
