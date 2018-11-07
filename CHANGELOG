@@ -1,3 +1,5 @@
+07/11/2018 17:29  0.4.2  Public services
+0bb0821 Made actions public
 02/11/2018 08:06  0.4.1  Autowiring
 8ff9891 Removed donation from README
 643cc5e Added service aliases for autowiring
