@@ -19,7 +19,7 @@
         }
     ],
     "require": {
-        "php": "^7.1",
+        "php": "^7.2",
         "core23/lastfm-api": "^0.5",
         "php-http/client-implementation": "^1.0",
         "php-http/httplug-bundle": "^1.1",
