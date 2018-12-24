@@ -22,13 +22,17 @@ final class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
+        $treeBuilder = new TreeBuilder('core23_lastfm');
 
-        /** @var ArrayNodeDefinition $node */
-        $node = $treeBuilder->root('core23_lastfm');
+        // Keep compatibility with symfony/config < 4.2
+        if (!\method_exists($treeBuilder, 'getRootNode')) {
+            $rootNode = $treeBuilder->root('core23_lastfm');
+        } else {
+            $rootNode = $treeBuilder->getRootNode();
+        }
 
-        $this->addApiSection($node);
-        $this->addHttpClientSection($node);
+        $this->addApiSection($rootNode);
+        $this->addHttpClientSection($rootNode);
 
         return $treeBuilder;
     }
