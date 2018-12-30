@@ -1,3 +1,16 @@
+30/12/2018 22:40  0.5.0  Removed symfony deprecations
+9f46514 Added support for latest lastfm lib
+062c447 Fixed phpunit config for release command
+dea9344 Use asserts for type safe root config nodes
+8a5e577 Removed deprecation warnings
+751e20d Removed deprecation warnings
+fb08e42 Added platform workaround for php-cs-fixer tool
+8dfbb97 Require latest phpunit bridge
+aceb657 Require latest phpunit bridge
+d9a803d Travis: Test against PHP 7.3
+cdbebe9 Dropped support for PHP 7.1
+0697b98 Fixed syntax error in editorconfig
+18e3586 Moved test dependencies to vendor-bin
 07/11/2018 17:29  0.4.2  Public services
 0bb0821 Made actions public
 02/11/2018 08:06  0.4.1  Autowiring
