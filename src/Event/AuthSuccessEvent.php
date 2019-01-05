@@ -44,7 +44,7 @@ final class AuthSuccessEvent extends Event
     }
 
     /**
-     * @return null|Response
+     * @return Response|null
      */
     public function getResponse(): ?Response
     {
@@ -52,7 +52,7 @@ final class AuthSuccessEvent extends Event
     }
 
     /**
-     * @param null|Response $response
+     * @param Response|null $response
      */
     public function setResponse(?Response $response): void
     {

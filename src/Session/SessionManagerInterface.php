@@ -25,7 +25,7 @@ interface SessionManagerInterface
     /**
      * Get the session username.
      *
-     * @return null|string
+     * @return string|null
      */
     public function getUsername(): ?string;
 

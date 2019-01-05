@@ -22,7 +22,7 @@ final class AuthFailedEvent extends Event
     private $response;
 
     /**
-     * @return null|Response
+     * @return Response|null
      */
     public function getResponse(): ?Response
     {
@@ -30,7 +30,7 @@ final class AuthFailedEvent extends Event
     }
 
     /**
-     * @param null|Response $response
+     * @param Response|null $response
      */
     public function setResponse(?Response $response): void
     {
