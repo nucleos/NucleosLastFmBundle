@@ -54,7 +54,8 @@ final class Configuration implements ConfigurationInterface
                         ->scalarNode('auth_url')->defaultValue('http://www.last.fm/api/auth/')->end()
                     ->end()
                 ->end()
-            ->end();
+            ->end()
+        ;
     }
 
     /**
