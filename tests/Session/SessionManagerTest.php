@@ -13,14 +13,12 @@ use Core23\LastFm\Connection\Session as LastFmSession;
 use Core23\LastFm\Connection\SessionInterface;
 use Core23\LastFmBundle\Session\SessionManager;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Prophecy\ObjectProphecy;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 class SessionManagerTest extends TestCase
 {
     public function testIsAuthenticated(): void
     {
-        /** @var ObjectProphecy&Session $session */
         $session = $this->prophesize(Session::class);
         $session->get('_CORE23_LASTFM_TOKEN')
             ->willReturn(true)
@@ -32,7 +30,6 @@ class SessionManagerTest extends TestCase
 
     public function testIsNotAuthenticated(): void
     {
-        /** @var ObjectProphecy&Session $session */
         $session = $this->prophesize(Session::class);
         $session->get('_CORE23_LASTFM_TOKEN')
             ->willReturn(false)
@@ -44,7 +41,6 @@ class SessionManagerTest extends TestCase
 
     public function testGetUsername(): void
     {
-        /** @var ObjectProphecy&Session $session */
         $session = $this->prophesize(Session::class);
         $session->get('_CORE23_LASTFM_NAME')
             ->willReturn('MyUser')
@@ -56,7 +52,6 @@ class SessionManagerTest extends TestCase
 
     public function testGetUsernameNotExist(): void
     {
-        /** @var ObjectProphecy&Session $session */
         $session = $this->prophesize(Session::class);
         $session->get('_CORE23_LASTFM_NAME')
             ->willReturn(null)
@@ -70,7 +65,6 @@ class SessionManagerTest extends TestCase
     {
         $lastfmSession = new LastFmSession('YourName', 'YourToken');
 
-        /** @var ObjectProphecy&Session $session */
         $session = $this->prophesize(Session::class);
         $session->set('_CORE23_LASTFM_NAME', 'YourName')->shouldBeCalled();
         $session->set('_CORE23_LASTFM_TOKEN', 'YourToken')->shouldBeCalled();
@@ -83,7 +77,6 @@ class SessionManagerTest extends TestCase
 
     public function testClear(): void
     {
-        /** @var ObjectProphecy&Session $session */
         $session = $this->prophesize(Session::class);
         $session->remove('_CORE23_LASTFM_TOKEN')->shouldBeCalled();
         $session->remove('_CORE23_LASTFM_NAME')->shouldBeCalled();
@@ -94,7 +87,6 @@ class SessionManagerTest extends TestCase
 
     public function testGetSession(): void
     {
-        /** @var ObjectProphecy&Session $session */
         $session = $this->prophesize(Session::class);
         $session->get('_CORE23_LASTFM_NAME')
             ->willReturn('MyUser')
