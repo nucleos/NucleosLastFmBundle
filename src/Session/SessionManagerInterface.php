@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Core23\LastFmBundle\Session;
 
-use Core23\LastFm\Connection\SessionInterface;
+use Core23\LastFm\Session\SessionInterface;
 
 interface SessionManagerInterface
 {

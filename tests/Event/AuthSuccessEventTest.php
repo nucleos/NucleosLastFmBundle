@@ -9,7 +9,7 @@
 
 namespace Core23\LastFmBundle\Tests\Event;
 
-use Core23\LastFm\Connection\SessionInterface;
+use Core23\LastFm\Session\SessionInterface;
 use Core23\LastFmBundle\Event\AuthSuccessEvent;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\EventDispatcher\Event;

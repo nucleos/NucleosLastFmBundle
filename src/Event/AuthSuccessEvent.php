@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace Core23\LastFmBundle\Event;
 
-use Core23\LastFm\Connection\SessionInterface;
+use Core23\LastFm\Session\SessionInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Response;
 

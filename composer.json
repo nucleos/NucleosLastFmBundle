@@ -20,7 +20,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "core23/lastfm-api": "^0.5 || ^0.6",
+        "core23/lastfm-api": "^1.0",
         "php-http/client-implementation": "^1.0",
         "php-http/httplug-bundle": "^1.1",
         "symfony/config": "^3.4 || ^4.2",

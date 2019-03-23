@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace Core23\LastFmBundle\Session;
 
-use Core23\LastFm\Connection\Session as LastFmSession;
-use Core23\LastFm\Connection\SessionInterface;
+use Core23\LastFm\Session\Session as LastFmSession;
+use Core23\LastFm\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 final class SessionManager implements SessionManagerInterface

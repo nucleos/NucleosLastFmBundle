@@ -15,7 +15,6 @@ use Core23\LastFm\Service\AuthService;
 use Core23\LastFmBundle\Session\SessionManager;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 

@@ -9,8 +9,8 @@
 
 namespace Core23\LastFmBundle\Tests\Session;
 
-use Core23\LastFm\Connection\Session as LastFmSession;
-use Core23\LastFm\Connection\SessionInterface;
+use Core23\LastFm\Session\Session as LastFmSession;
+use Core23\LastFm\Session\SessionInterface;
 use Core23\LastFmBundle\Session\SessionManager;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Session\Session;
