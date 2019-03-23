@@ -13,13 +13,16 @@ namespace Core23\LastFmBundle\Action;
 
 use Core23\LastFmBundle\Core23LastFmEvents;
 use Core23\LastFmBundle\Event\AuthSuccessEvent;
-use Core23\LastFmBundle\Session\SessionManager;
+use Core23\LastFmBundle\Session\SessionManagerInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
 
 final class AuthSuccessAction
 {
@@ -34,7 +37,7 @@ final class AuthSuccessAction
     private $router;
 
     /**
-     * @var SessionManager
+     * @var SessionManagerInterface
      */
     private $sessionManager;
 
@@ -46,13 +49,13 @@ final class AuthSuccessAction
     /**
      * @param Environment              $twig
      * @param RouterInterface          $router
-     * @param SessionManager           $sessionManager
+     * @param SessionManagerInterface  $sessionManager
      * @param EventDispatcherInterface $eventDispatcher
      */
     public function __construct(
         Environment $twig,
         RouterInterface $router,
-        SessionManager $sessionManager,
+        SessionManagerInterface $sessionManager,
         EventDispatcherInterface $eventDispatcher
     ) {
         $this->twig            = $twig;
@@ -62,9 +65,9 @@ final class AuthSuccessAction
     }
 
     /**
-     * @throws \Twig_Error_Loader
-     * @throws \Twig_Error_Runtime
-     * @throws \Twig_Error_Syntax
+     * @throws LoaderError
+     * @throws RuntimeError
+     * @throws SyntaxError
      *
      * @return Response
      */

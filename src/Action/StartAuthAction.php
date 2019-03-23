@@ -11,16 +11,15 @@ declare(strict_types=1);
 
 namespace Core23\LastFmBundle\Action;
 
-use Core23\LastFm\Service\AuthService;
+use Core23\LastFm\Service\AuthServiceInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 
 final class StartAuthAction
 {
     /**
-     * @var AuthService
+     * @var AuthServiceInterface
      */
     private $authService;
 
@@ -30,19 +29,19 @@ final class StartAuthAction
     private $router;
 
     /**
-     * @param AuthService     $authService
-     * @param RouterInterface $router
+     * @param AuthServiceInterface $authService
+     * @param RouterInterface      $router
      */
-    public function __construct(AuthService $authService, RouterInterface $router)
+    public function __construct(AuthServiceInterface $authService, RouterInterface $router)
     {
         $this->authService = $authService;
         $this->router      = $router;
     }
 
     /**
-     * @return Response
+     * @return RedirectResponse
      */
-    public function __invoke(): Response
+    public function __invoke(): RedirectResponse
     {
         $callbackUrl = $this->generateUrl('core23_lastfm_check', [], UrlGeneratorInterface::ABSOLUTE_URL);
 

@@ -12,7 +12,8 @@ declare(strict_types=1);
 namespace Core23\LastFmBundle\Action;
 
 use Core23\LastFm\Service\AuthService;
-use Core23\LastFmBundle\Session\SessionManager;
+use Core23\LastFm\Service\AuthServiceInterface;
+use Core23\LastFmBundle\Session\SessionManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -26,21 +27,21 @@ final class CheckAuthAction
     private $router;
 
     /**
-     * @var SessionManager
+     * @var SessionManagerInterface
      */
     private $sessionManager;
 
     /**
-     * @var AuthService
+     * @var AuthServiceInterface
      */
     private $authService;
 
     /**
-     * @param RouterInterface $router
-     * @param SessionManager  $sessionManager
-     * @param AuthService     $authService
+     * @param RouterInterface         $router
+     * @param SessionManagerInterface $sessionManager
+     * @param AuthServiceInterface    $authService
      */
-    public function __construct(RouterInterface $router, SessionManager $sessionManager, AuthService $authService)
+    public function __construct(RouterInterface $router, SessionManagerInterface $sessionManager, AuthServiceInterface $authService)
     {
         $this->router         = $router;
         $this->sessionManager = $sessionManager;
@@ -50,9 +51,9 @@ final class CheckAuthAction
     /**
      * @param Request $request
      *
-     * @return Response
+     * @return RedirectResponse
      */
-    public function __invoke(Request $request): Response
+    public function __invoke(Request $request): RedirectResponse
     {
         $token = $request->query->get('token');
 
