@@ -18,6 +18,9 @@
     <service id="Core23\LastFm\Crawler\EventInfoCrawlerInterface" class="Core23\LastFm\Crawler\EventInfoCrawler">
       <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
     </service>
+    <service id="Core23\LastFm\Crawler\EventListCrawlerInterface" class="Core23\LastFm\Crawler\EventListCrawler">
+      <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
+    </service>
     <service id="Core23\LastFm\Crawler\UserEventCrawlerInterface" class="Core23\LastFm\Crawler\UserEventCrawler">
       <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
     </service>
