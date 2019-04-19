@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <services>
-    <service id="Core23\LastFmBundle\Session\SessionManager">
+    <service id="Core23\LastFmBundle\Session\SessionManagerInterface" class="Core23\LastFmBundle\Session\SessionManager">
       <argument type="service" id="session"/>
     </service>
     <service id="Core23\LastFm\Connection\HTTPlugConnection" public="false">
@@ -9,46 +9,45 @@
       <argument type="service" id="core23_lastfm.http.message_factory"/>
       <argument>%core23_lastfm.api.endpoint%</argument>
     </service>
+    <service id="Core23\LastFm\Connection\ConnectionInterface" alias="Core23\LastFm\Connection\HTTPlugConnection"/>
     <service id="Core23\LastFm\Client\ApiClientInterface" class="Core23\LastFm\Client\ApiClient">
       <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
       <argument>%core23_lastfm.api.app_id%</argument>
       <argument>%core23_lastfm.api.shared_secret%</argument>
     </service>
-    <service id="Core23\LastFm\Crawler\EventInfoCrawler">
+    <service id="Core23\LastFm\Crawler\EventInfoCrawlerInterface" class="Core23\LastFm\Crawler\EventInfoCrawler">
       <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
     </service>
-    <service id="Core23\LastFm\Crawler\UserEventCrawler">
+    <service id="Core23\LastFm\Crawler\UserEventCrawlerInterface" class="Core23\LastFm\Crawler\UserEventCrawler">
       <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\AlbumService">
+    <service id="Core23\LastFm\Service\AlbumServiceInterface" class="Core23\LastFm\Service\AlbumService">
       <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\ArtistService">
+    <service id="Core23\LastFm\Service\ArtistServiceInterface" class="Core23\LastFm\Service\ArtistService">
       <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\AuthService">
+    <service id="Core23\LastFm\Service\AuthServiceInterface" class="Core23\LastFm\Service\AuthService">
       <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
       <argument>%core23_lastfm.api.auth_url%</argument>
     </service>
-    <service id="Core23\LastFm\Service\ChartService">
+    <service id="Core23\LastFm\Service\ChartServiceInterface" class="Core23\LastFm\Service\ChartService">
       <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\GeoService">
+    <service id="Core23\LastFm\Service\GeoServiceInterface" class="Core23\LastFm\Service\GeoService">
       <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\LibraryService">
+    <service id="Core23\LastFm\Service\LibraryServiceInterface" class="Core23\LastFm\Service\LibraryService">
       <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\TagService">
+    <service id="Core23\LastFm\Service\TagServiceInterface" class="Core23\LastFm\Service\TagService">
       <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\TrackService">
+    <service id="Core23\LastFm\Service\TrackServiceInterface" class="Core23\LastFm\Service\TrackService">
       <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\UserService">
+    <service id="Core23\LastFm\Service\UserServiceInterface" class="Core23\LastFm\Service\UserService">
       <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFmBundle\Session\SessionManagerInterface" alias="Core23\LastFmBundle\Session\SessionManager"/>
-    <service id="Core23\LastFm\Connection\ConnectionInterface" alias="Core23\LastFm\Connection\HTTPlugConnection"/>
   </services>
 </container>

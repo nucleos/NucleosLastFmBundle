@@ -2,7 +2,7 @@
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <services>
     <service id="Core23\LastFmBundle\Action\StartAuthAction" class="Core23\LastFmBundle\Action\StartAuthAction" public="true">
-      <argument type="service" id="Core23\LastFm\Service\AuthService"/>
+      <argument type="service" id="Core23\LastFm\Service\AuthServiceInterface"/>
       <argument type="service" id="router"/>
     </service>
     <service id="Core23\LastFmBundle\Action\AuthErrorAction" class="Core23\LastFmBundle\Action\AuthErrorAction" public="true">
@@ -20,7 +20,7 @@
     <service id="Core23\LastFmBundle\Action\CheckAuthAction" class="Core23\LastFmBundle\Action\CheckAuthAction" public="true">
       <argument type="service" id="router"/>
       <argument type="service" id="Core23\LastFmBundle\Session\SessionManagerInterface"/>
-      <argument type="service" id="Core23\LastFm\Service\AuthService"/>
+      <argument type="service" id="Core23\LastFm\Service\AuthServiceInterface"/>
     </service>
   </services>
 </container>
