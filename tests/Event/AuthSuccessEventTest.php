@@ -23,7 +23,7 @@ class AuthSuccessEventTest extends TestCase
 
         $event = new AuthSuccessEvent($session->reveal());
 
-        $this->assertInstanceOf(Event::class, $event);
+        static::assertInstanceOf(Event::class, $event);
     }
 
     public function testGetUsername(): void
@@ -33,7 +33,7 @@ class AuthSuccessEventTest extends TestCase
 
         $event = new AuthSuccessEvent($session->reveal());
 
-        $this->assertSame('MyUser', $event->getUsername());
+        static::assertSame('MyUser', $event->getUsername());
     }
 
     public function testGetSession(): void
@@ -42,7 +42,7 @@ class AuthSuccessEventTest extends TestCase
 
         $event = new AuthSuccessEvent($session->reveal());
 
-        $this->assertSame($session->reveal(), $event->getSession());
+        static::assertSame($session->reveal(), $event->getSession());
     }
 
     public function testGetResponse(): void
@@ -51,7 +51,7 @@ class AuthSuccessEventTest extends TestCase
 
         $event = new AuthSuccessEvent($session->reveal());
 
-        $this->assertNull($event->getResponse());
+        static::assertNull($event->getResponse());
     }
 
     public function testSetResponse(): void
@@ -63,6 +63,6 @@ class AuthSuccessEventTest extends TestCase
         $event = new AuthSuccessEvent($session->reveal());
         $event->setResponse($reponse->reveal());
 
-        $this->assertSame($reponse->reveal(), $event->getResponse());
+        static::assertSame($reponse->reveal(), $event->getResponse());
     }
 }

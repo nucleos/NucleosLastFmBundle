@@ -20,14 +20,14 @@ class AuthFailedEventTest extends TestCase
     {
         $event = new AuthFailedEvent();
 
-        $this->assertInstanceOf(Event::class, $event);
+        static::assertInstanceOf(Event::class, $event);
     }
 
     public function testGetResponse(): void
     {
         $event = new AuthFailedEvent();
 
-        $this->assertNull($event->getResponse());
+        static::assertNull($event->getResponse());
     }
 
     public function testSetResponse(): void
@@ -37,6 +37,6 @@ class AuthFailedEventTest extends TestCase
         $event = new AuthFailedEvent();
         $event->setResponse($reponse->reveal());
 
-        $this->assertSame($reponse->reveal(), $event->getResponse());
+        static::assertSame($reponse->reveal(), $event->getResponse());
     }
 }

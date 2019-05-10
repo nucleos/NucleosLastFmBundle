@@ -20,13 +20,13 @@ class Core23LastFmBundleTest extends TestCase
     {
         $bundle = new Core23LastFmBundle();
 
-        $this->assertInstanceOf(BundleInterface::class, $bundle);
+        static::assertInstanceOf(BundleInterface::class, $bundle);
     }
 
     public function testGetContainerExtension(): void
     {
         $bundle = new Core23LastFmBundle();
 
-        $this->assertInstanceOf(Core23LastFmExtension::class, $bundle->getContainerExtension());
+        static::assertInstanceOf(Core23LastFmExtension::class, $bundle->getContainerExtension());
     }
 }
