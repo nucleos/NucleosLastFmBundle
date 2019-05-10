@@ -63,8 +63,8 @@ class AuthErrorActionTest extends TestCase
 
         $response = $action();
 
-        $this->assertNotInstanceOf(RedirectResponse::class, $response);
-        $this->assertSame(200, $response->getStatusCode());
+        static::assertNotInstanceOf(RedirectResponse::class, $response);
+        static::assertSame(200, $response->getStatusCode());
     }
 
     public function testExecuteWithCaughtEvent(): void
@@ -94,7 +94,7 @@ class AuthErrorActionTest extends TestCase
 
         $response = $action();
 
-        $this->assertSame($eventResponse, $response);
+        static::assertSame($eventResponse, $response);
     }
 
     public function testExecuteWithNoAuth(): void
@@ -115,6 +115,6 @@ class AuthErrorActionTest extends TestCase
             $this->eventDispatcher->reveal()
         );
 
-        $this->assertInstanceOf(RedirectResponse::class, $action());
+        static::assertInstanceOf(RedirectResponse::class, $action());
     }
 }

@@ -42,6 +42,6 @@ class StartAuthActionTest extends TestCase
             $this->router->reveal()
         );
 
-        $this->assertSame('https://lastFm/login', $action()->getTargetUrl());
+        static::assertSame('https://lastFm/login', $action()->getTargetUrl());
     }
 }

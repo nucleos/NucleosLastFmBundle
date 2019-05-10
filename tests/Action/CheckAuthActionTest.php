@@ -59,7 +59,7 @@ class CheckAuthActionTest extends TestCase
 
         $response = $action($request);
 
-        $this->assertSame('/success', $response->getTargetUrl());
+        static::assertSame('/success', $response->getTargetUrl());
     }
 
     public function testExecuteWithNoToken(): void
@@ -79,7 +79,7 @@ class CheckAuthActionTest extends TestCase
 
         $response = $action($request);
 
-        $this->assertSame('/auth', $response->getTargetUrl());
+        static::assertSame('/auth', $response->getTargetUrl());
     }
 
     public function testExecuteWithNoSession(): void
@@ -102,6 +102,6 @@ class CheckAuthActionTest extends TestCase
 
         $response = $action($request);
 
-        $this->assertSame('/error', $response->getTargetUrl());
+        static::assertSame('/error', $response->getTargetUrl());
     }
 }

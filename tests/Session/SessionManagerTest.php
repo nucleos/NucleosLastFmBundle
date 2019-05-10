@@ -25,7 +25,7 @@ class SessionManagerTest extends TestCase
         ;
 
         $manager = new SessionManager($session->reveal());
-        $this->assertTrue($manager->isAuthenticated());
+        static::assertTrue($manager->isAuthenticated());
     }
 
     public function testIsNotAuthenticated(): void
@@ -36,7 +36,7 @@ class SessionManagerTest extends TestCase
         ;
 
         $manager = new SessionManager($session->reveal());
-        $this->assertFalse($manager->isAuthenticated());
+        static::assertFalse($manager->isAuthenticated());
     }
 
     public function testGetUsername(): void
@@ -47,7 +47,7 @@ class SessionManagerTest extends TestCase
         ;
 
         $manager = new SessionManager($session->reveal());
-        $this->assertSame('MyUser', $manager->getUsername());
+        static::assertSame('MyUser', $manager->getUsername());
     }
 
     public function testGetUsernameNotExist(): void
@@ -58,7 +58,7 @@ class SessionManagerTest extends TestCase
         ;
 
         $manager = new SessionManager($session->reveal());
-        $this->assertNull($manager->getUsername());
+        static::assertNull($manager->getUsername());
     }
 
     public function testStore(): void
@@ -72,7 +72,7 @@ class SessionManagerTest extends TestCase
         $manager = new SessionManager($session->reveal());
         $manager->store($lastfmSession);
 
-        $this->assertTrue(true);
+        static::assertTrue(true);
     }
 
     public function testClear(): void
@@ -100,9 +100,9 @@ class SessionManagerTest extends TestCase
         /** @var SessionInterface $lastfmSession */
         $lastfmSession = $manager->getSession();
 
-        $this->assertNotNull($lastfmSession);
-        $this->assertSame('MyUser', $lastfmSession->getName());
-        $this->assertSame('TheToken', $lastfmSession->getKey());
+        static::assertNotNull($lastfmSession);
+        static::assertSame('MyUser', $lastfmSession->getName());
+        static::assertSame('TheToken', $lastfmSession->getKey());
     }
 
     public function testGetSessionWithNoAuth(): void
@@ -114,6 +114,6 @@ class SessionManagerTest extends TestCase
 
         $manager = new SessionManager($session->reveal());
 
-        $this->assertNull($manager->getSession());
+        static::assertNull($manager->getSession());
     }
 }
