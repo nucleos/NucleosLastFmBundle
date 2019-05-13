@@ -15,6 +15,9 @@
       <argument>%core23_lastfm.api.app_id%</argument>
       <argument>%core23_lastfm.api.shared_secret%</argument>
     </service>
+    <service id="Core23\LastFm\Crawler\ArtistEventCrawlerInterface" class="Core23\LastFm\Crawler\ArtistEventCrawler">
+      <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
+    </service>
     <service id="Core23\LastFm\Crawler\EventInfoCrawlerInterface" class="Core23\LastFm\Crawler\EventInfoCrawler">
       <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
     </service>
