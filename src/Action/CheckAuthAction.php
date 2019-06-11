@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Core23\LastFmBundle\Action;
 
-use Core23\LastFm\Service\AuthService;
 use Core23\LastFm\Service\AuthServiceInterface;
 use Core23\LastFmBundle\Session\SessionManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;

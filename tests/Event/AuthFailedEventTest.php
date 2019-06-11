@@ -11,8 +11,8 @@ namespace Core23\LastFmBundle\Tests\Event;
 
 use Core23\LastFmBundle\Event\AuthFailedEvent;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Contracts\EventDispatcher\Event;
 
 class AuthFailedEventTest extends TestCase
 {

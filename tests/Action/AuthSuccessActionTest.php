@@ -16,11 +16,11 @@ use Core23\LastFmBundle\Event\AuthSuccessEvent;
 use Core23\LastFmBundle\Session\SessionManagerInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Twig\Environment;
 
 class AuthSuccessActionTest extends TestCase
@@ -55,7 +55,7 @@ class AuthSuccessActionTest extends TestCase
             ->willReturn('FooUser')
         ;
 
-        $this->eventDispatcher->dispatch(Core23LastFmEvents::AUTH_SUCCESS, Argument::type(AuthSuccessEvent::class))
+        $this->eventDispatcher->dispatch(Argument::type(AuthSuccessEvent::class), Core23LastFmEvents::AUTH_SUCCESS)
             ->shouldBeCalled()
         ;
 
@@ -92,9 +92,9 @@ class AuthSuccessActionTest extends TestCase
 
         $eventResponse = new Response();
 
-        $this->eventDispatcher->dispatch(Core23LastFmEvents::AUTH_SUCCESS, Argument::type(AuthSuccessEvent::class))
+        $this->eventDispatcher->dispatch(Argument::type(AuthSuccessEvent::class), Core23LastFmEvents::AUTH_SUCCESS)
             ->will(function ($args) use ($eventResponse) {
-                $args[1]->setResponse($eventResponse);
+                $args[0]->setResponse($eventResponse);
             })
         ;
 

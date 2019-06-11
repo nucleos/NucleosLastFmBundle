@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace Core23\LastFmBundle\Event;
 
-use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Contracts\EventDispatcher\Event;
 
 final class AuthFailedEvent extends Event
 {
