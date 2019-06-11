@@ -12,8 +12,8 @@ namespace Core23\LastFmBundle\Tests\Event;
 use Core23\LastFm\Session\SessionInterface;
 use Core23\LastFmBundle\Event\AuthSuccessEvent;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Contracts\EventDispatcher\Event;
 
 class AuthSuccessEventTest extends TestCase
 {

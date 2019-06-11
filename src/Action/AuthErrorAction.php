@@ -14,11 +14,11 @@ namespace Core23\LastFmBundle\Action;
 use Core23\LastFmBundle\Core23LastFmEvents;
 use Core23\LastFmBundle\Event\AuthFailedEvent;
 use Core23\LastFmBundle\Session\SessionManagerInterface;
-use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Twig\Environment;
 use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
@@ -80,7 +80,7 @@ final class AuthErrorAction
         $this->sessionManager->clear();
 
         $event = new AuthFailedEvent();
-        $this->eventDispatcher->dispatch(Core23LastFmEvents::AUTH_ERROR, $event);
+        $this->eventDispatcher->dispatch($event, Core23LastFmEvents::AUTH_ERROR);
 
         if ($response = $event->getResponse()) {
             return $response;
