@@ -15,7 +15,7 @@ use Core23\LastFmBundle\Session\SessionManager;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-class SessionManagerTest extends TestCase
+final class SessionManagerTest extends TestCase
 {
     public function testIsAuthenticated(): void
     {

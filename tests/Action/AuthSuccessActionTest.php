@@ -23,7 +23,7 @@ use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Twig\Environment;
 
-class AuthSuccessActionTest extends TestCase
+final class AuthSuccessActionTest extends TestCase
 {
     private $twig;
 

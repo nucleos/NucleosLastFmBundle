@@ -15,7 +15,7 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\EventDispatcher\Event;
 
-class AuthSuccessEventTest extends TestCase
+final class AuthSuccessEventTest extends TestCase
 {
     public function testCreation(): void
     {
