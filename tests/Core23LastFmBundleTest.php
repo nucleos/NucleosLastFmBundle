@@ -14,7 +14,7 @@ use Core23\LastFmBundle\DependencyInjection\Core23LastFmExtension;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpKernel\Bundle\BundleInterface;
 
-class Core23LastFmBundleTest extends TestCase
+final class Core23LastFmBundleTest extends TestCase
 {
     public function testItIsInstantiable(): void
     {
