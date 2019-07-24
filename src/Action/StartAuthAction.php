@@ -28,19 +28,12 @@ final class StartAuthAction
      */
     private $router;
 
-    /**
-     * @param AuthServiceInterface $authService
-     * @param RouterInterface      $router
-     */
     public function __construct(AuthServiceInterface $authService, RouterInterface $router)
     {
         $this->authService = $authService;
         $this->router      = $router;
     }
 
-    /**
-     * @return RedirectResponse
-     */
     public function __invoke(): RedirectResponse
     {
         $callbackUrl = $this->generateUrl('core23_lastfm_check', [], UrlGeneratorInterface::ABSOLUTE_URL);

@@ -26,9 +26,6 @@ final class SessionManager implements SessionManagerInterface
      */
     private $session;
 
-    /**
-     * @param Session $session
-     */
     public function __construct(Session $session)
     {
         $this->session = $session;
