@@ -46,12 +46,6 @@ final class AuthErrorAction
      */
     private $eventDispatcher;
 
-    /**
-     * @param Environment              $twig
-     * @param RouterInterface          $router
-     * @param SessionManagerInterface  $sessionManager
-     * @param EventDispatcherInterface $eventDispatcher
-     */
     public function __construct(
         Environment $twig,
         RouterInterface $router,
@@ -68,8 +62,6 @@ final class AuthErrorAction
      * @throws LoaderError
      * @throws RuntimeError
      * @throws SyntaxError
-     *
-     * @return Response
      */
     public function __invoke(): Response
     {

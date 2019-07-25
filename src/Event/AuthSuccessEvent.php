@@ -27,41 +27,26 @@ final class AuthSuccessEvent extends Event
      */
     private $response;
 
-    /**
-     * @param SessionInterface $session
-     */
     public function __construct(SessionInterface $session)
     {
         $this->session = $session;
     }
 
-    /**
-     * @return SessionInterface
-     */
     public function getSession(): SessionInterface
     {
         return $this->session;
     }
 
-    /**
-     * @return Response|null
-     */
     public function getResponse(): ?Response
     {
         return $this->response;
     }
 
-    /**
-     * @param Response|null $response
-     */
     public function setResponse(?Response $response): void
     {
         $this->response = $response;
     }
 
-    /**
-     * @return string
-     */
     public function getUsername(): string
     {
         return $this->session->getName();

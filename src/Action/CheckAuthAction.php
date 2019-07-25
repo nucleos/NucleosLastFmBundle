@@ -35,11 +35,6 @@ final class CheckAuthAction
      */
     private $authService;
 
-    /**
-     * @param RouterInterface         $router
-     * @param SessionManagerInterface $sessionManager
-     * @param AuthServiceInterface    $authService
-     */
     public function __construct(RouterInterface $router, SessionManagerInterface $sessionManager, AuthServiceInterface $authService)
     {
         $this->router         = $router;
@@ -47,11 +42,6 @@ final class CheckAuthAction
         $this->authService    = $authService;
     }
 
-    /**
-     * @param Request $request
-     *
-     * @return RedirectResponse
-     */
     public function __invoke(Request $request): RedirectResponse
     {
         $token = $request->query->get('token');

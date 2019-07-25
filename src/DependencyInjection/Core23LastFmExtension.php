@@ -42,10 +42,6 @@ final class Core23LastFmExtension extends Extension
         $this->configureHttpClient($container, $config);
     }
 
-    /**
-     * @param ContainerBuilder $container
-     * @param array            $config
-     */
     private function configureApi(ContainerBuilder $container, array $config): void
     {
         $container->setParameter('core23_lastfm.api.app_id', $config['api']['app_id']);
@@ -54,10 +50,6 @@ final class Core23LastFmExtension extends Extension
         $container->setParameter('core23_lastfm.api.auth_url', $config['api']['auth_url']);
     }
 
-    /**
-     * @param ContainerBuilder $container
-     * @param array            $config
-     */
     private function configureHttpClient(ContainerBuilder $container, array $config): void
     {
         $container->setAlias('core23_lastfm.http.client', $config['http']['client']);
