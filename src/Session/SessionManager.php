@@ -31,43 +31,28 @@ final class SessionManager implements SessionManagerInterface
         $this->session = $session;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function isAuthenticated(): bool
     {
         return (bool) $this->session->get(static::SESSION_LASTFM_TOKEN);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getUsername(): ?string
     {
         return $this->session->get(static::SESSION_LASTFM_NAME);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function store(SessionInterface $lastFmSession): void
     {
         $this->session->set(static::SESSION_LASTFM_NAME, $lastFmSession->getName());
         $this->session->set(static::SESSION_LASTFM_TOKEN, $lastFmSession->getKey());
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function clear(): void
     {
         $this->session->remove(static::SESSION_LASTFM_NAME);
         $this->session->remove(static::SESSION_LASTFM_TOKEN);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getSession(): ?SessionInterface
     {
         if (!$this->isAuthenticated()) {
