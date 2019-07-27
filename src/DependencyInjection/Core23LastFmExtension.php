@@ -18,17 +18,11 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 final class Core23LastFmExtension extends Extension
 {
-    /**
-     * {@inheritdoc}
-     */
     public function getAlias()
     {
         return 'core23_lastfm';
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
