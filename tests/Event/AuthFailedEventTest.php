@@ -12,17 +12,9 @@ namespace Core23\LastFmBundle\Tests\Event;
 use Core23\LastFmBundle\Event\AuthFailedEvent;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Contracts\EventDispatcher\Event;
 
 final class AuthFailedEventTest extends TestCase
 {
-    public function testCreation(): void
-    {
-        $event = new AuthFailedEvent();
-
-        static::assertInstanceOf(Event::class, $event);
-    }
-
     public function testGetResponse(): void
     {
         $event = new AuthFailedEvent();
