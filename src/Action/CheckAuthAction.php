@@ -44,9 +44,9 @@ final class CheckAuthAction
 
     public function __invoke(Request $request): RedirectResponse
     {
-        $token = $request->query->get('token');
+        $token = (string) $request->query->get('token', '');
 
-        if (!$token) {
+        if ('' === $token) {
             return new RedirectResponse($this->generateUrl('core23_lastfm_auth'));
         }
 
