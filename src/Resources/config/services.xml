@@ -4,7 +4,7 @@
     <service id="Core23\LastFmBundle\Session\SessionManagerInterface" class="Core23\LastFmBundle\Session\SessionManager">
       <argument type="service" id="session"/>
     </service>
-    <service id="Core23\LastFm\Connection\HTTPlugConnection" public="false">
+    <service id="Core23\LastFm\Connection\HTTPlugConnection">
       <argument type="service" id="core23_lastfm.http.client"/>
       <argument type="service" id="core23_lastfm.http.message_factory"/>
       <argument>%core23_lastfm.api.endpoint%</argument>
