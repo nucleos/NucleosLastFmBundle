@@ -34,7 +34,7 @@ final class Core23LastFmExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasAlias('core23_lastfm.http.message_factory', 'httplug.message_factory.default');
     }
 
-    protected function getContainerExtensions()
+    protected function getContainerExtensions(): array
     {
         return [
             new Core23LastFmExtension(),
