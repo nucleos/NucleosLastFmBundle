@@ -74,7 +74,7 @@ final class AuthErrorAction
         $event = new AuthFailedEvent();
         $this->eventDispatcher->dispatch($event, Core23LastFmEvents::AUTH_ERROR);
 
-        if ($response = $event->getResponse()) {
+        if (null !== $response = $event->getResponse()) {
             return $response;
         }
 

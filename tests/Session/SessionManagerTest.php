@@ -10,7 +10,6 @@
 namespace Core23\LastFmBundle\Tests\Session;
 
 use Core23\LastFm\Session\Session as LastFmSession;
-use Core23\LastFm\Session\SessionInterface;
 use Core23\LastFmBundle\Session\SessionManager;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -71,8 +70,6 @@ final class SessionManagerTest extends TestCase
 
         $manager = new SessionManager($session->reveal());
         $manager->store($lastfmSession);
-
-        static::assertTrue(true);
     }
 
     public function testClear(): void
@@ -97,7 +94,6 @@ final class SessionManagerTest extends TestCase
 
         $manager = new SessionManager($session->reveal());
 
-        /** @var SessionInterface $lastfmSession */
         $lastfmSession = $manager->getSession();
 
         static::assertNotNull($lastfmSession);

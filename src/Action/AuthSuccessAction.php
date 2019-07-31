@@ -78,7 +78,7 @@ final class AuthSuccessAction
         $event = new AuthSuccessEvent($session);
         $this->eventDispatcher->dispatch($event, Core23LastFmEvents::AUTH_SUCCESS);
 
-        if ($response = $event->getResponse()) {
+        if (null !== $response = $event->getResponse()) {
             return $response;
         }
 

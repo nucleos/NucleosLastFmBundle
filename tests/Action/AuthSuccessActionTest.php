@@ -11,16 +11,13 @@ namespace Core23\LastFmBundle\Tests\Action;
 
 use Core23\LastFm\Session\SessionInterface;
 use Core23\LastFmBundle\Action\AuthSuccessAction;
-use Core23\LastFmBundle\Core23LastFmEvents;
-use Core23\LastFmBundle\Event\AuthSuccessEvent;
 use Core23\LastFmBundle\Session\SessionManagerInterface;
+use Core23\LastFmBundle\Tests\EventDispatcher\TestEventDispatcher;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
-use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Twig\Environment;
 
 final class AuthSuccessActionTest extends TestCase
@@ -38,7 +35,7 @@ final class AuthSuccessActionTest extends TestCase
         $this->twig            = $this->prophesize(Environment::class);
         $this->router          = $this->prophesize(RouterInterface::class);
         $this->sessionManager  = $this->prophesize(SessionManagerInterface::class);
-        $this->eventDispatcher = $this->prophesize(EventDispatcherInterface::class);
+        $this->eventDispatcher = new TestEventDispatcher();
     }
 
     public function testExecute(): void
@@ -55,10 +52,6 @@ final class AuthSuccessActionTest extends TestCase
             ->willReturn('FooUser')
         ;
 
-        $this->eventDispatcher->dispatch(Argument::type(AuthSuccessEvent::class), Core23LastFmEvents::AUTH_SUCCESS)
-            ->shouldBeCalled()
-        ;
-
         $this->twig->render('@Core23LastFm/Auth/success.html.twig', [
             'name' => 'FooUser',
         ])->shouldBeCalled();
@@ -67,7 +60,7 @@ final class AuthSuccessActionTest extends TestCase
             $this->twig->reveal(),
             $this->router->reveal(),
             $this->sessionManager->reveal(),
-            $this->eventDispatcher->reveal()
+            $this->eventDispatcher
         );
 
         $response = $action();
@@ -92,17 +85,13 @@ final class AuthSuccessActionTest extends TestCase
 
         $eventResponse = new Response();
 
-        $this->eventDispatcher->dispatch(Argument::type(AuthSuccessEvent::class), Core23LastFmEvents::AUTH_SUCCESS)
-            ->will(function ($args) use ($eventResponse) {
-                $args[0]->setResponse($eventResponse);
-            })
-        ;
+        $this->eventDispatcher->setResponse($eventResponse);
 
         $action = new AuthSuccessAction(
             $this->twig->reveal(),
             $this->router->reveal(),
             $this->sessionManager->reveal(),
-            $this->eventDispatcher->reveal()
+            $this->eventDispatcher
         );
 
         $response = $action();
@@ -125,7 +114,7 @@ final class AuthSuccessActionTest extends TestCase
             $this->twig->reveal(),
             $this->router->reveal(),
             $this->sessionManager->reveal(),
-            $this->eventDispatcher->reveal()
+            $this->eventDispatcher
         );
 
         static::assertInstanceOf(RedirectResponse::class, $action());
@@ -149,7 +138,7 @@ final class AuthSuccessActionTest extends TestCase
             $this->twig->reveal(),
             $this->router->reveal(),
             $this->sessionManager->reveal(),
-            $this->eventDispatcher->reveal()
+            $this->eventDispatcher
         );
 
         static::assertInstanceOf(RedirectResponse::class, $action());

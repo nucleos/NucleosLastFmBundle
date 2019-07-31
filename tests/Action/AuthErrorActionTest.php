@@ -10,16 +10,13 @@
 namespace Core23\LastFmBundle\Tests\Action;
 
 use Core23\LastFmBundle\Action\AuthErrorAction;
-use Core23\LastFmBundle\Core23LastFmEvents;
-use Core23\LastFmBundle\Event\AuthFailedEvent;
 use Core23\LastFmBundle\Session\SessionManagerInterface;
+use Core23\LastFmBundle\Tests\EventDispatcher\TestEventDispatcher;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
-use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Twig\Environment;
 
 final class AuthErrorActionTest extends TestCase
@@ -37,7 +34,7 @@ final class AuthErrorActionTest extends TestCase
         $this->twig            = $this->prophesize(Environment::class);
         $this->router          = $this->prophesize(RouterInterface::class);
         $this->sessionManager  = $this->prophesize(SessionManagerInterface::class);
-        $this->eventDispatcher = $this->prophesize(EventDispatcherInterface::class);
+        $this->eventDispatcher = new TestEventDispatcher();
     }
 
     public function testExecute(): void
@@ -50,15 +47,11 @@ final class AuthErrorActionTest extends TestCase
             ->shouldBeCalled()
         ;
 
-        $this->eventDispatcher->dispatch(Argument::type(AuthFailedEvent::class), Core23LastFmEvents::AUTH_ERROR)
-            ->shouldBeCalled()
-        ;
-
         $action = new AuthErrorAction(
             $this->twig->reveal(),
             $this->router->reveal(),
             $this->sessionManager->reveal(),
-            $this->eventDispatcher->reveal()
+            $this->eventDispatcher
         );
 
         $response = $action();
@@ -79,17 +72,13 @@ final class AuthErrorActionTest extends TestCase
 
         $eventResponse = new Response();
 
-        $this->eventDispatcher->dispatch(Argument::type(AuthFailedEvent::class), Core23LastFmEvents::AUTH_ERROR)
-            ->will(function ($args) use ($eventResponse) {
-                $args[0]->setResponse($eventResponse);
-            })
-        ;
+        $this->eventDispatcher->setResponse($eventResponse);
 
         $action = new AuthErrorAction(
             $this->twig->reveal(),
             $this->router->reveal(),
             $this->sessionManager->reveal(),
-            $this->eventDispatcher->reveal()
+            $this->eventDispatcher
         );
 
         $response = $action();
@@ -112,7 +101,7 @@ final class AuthErrorActionTest extends TestCase
             $this->twig->reveal(),
             $this->router->reveal(),
             $this->sessionManager->reveal(),
-            $this->eventDispatcher->reveal()
+            $this->eventDispatcher
         );
 
         static::assertInstanceOf(RedirectResponse::class, $action());
