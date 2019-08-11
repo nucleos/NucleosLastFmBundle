@@ -1,23 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <services>
-    <service id="Core23\LastFmBundle\Action\StartAuthAction" class="Core23\LastFmBundle\Action\StartAuthAction" public="true">
+    <defaults public="true"/>
+    <service id="Core23\LastFmBundle\Action\StartAuthAction">
       <argument type="service" id="Core23\LastFm\Service\AuthServiceInterface"/>
       <argument type="service" id="router"/>
     </service>
-    <service id="Core23\LastFmBundle\Action\AuthErrorAction" class="Core23\LastFmBundle\Action\AuthErrorAction" public="true">
+    <service id="Core23\LastFmBundle\Action\AuthErrorAction">
       <argument type="service" id="twig"/>
       <argument type="service" id="router"/>
       <argument type="service" id="Core23\LastFmBundle\Session\SessionManagerInterface"/>
       <argument type="service" id="event_dispatcher"/>
     </service>
-    <service id="Core23\LastFmBundle\Action\AuthSuccessAction" class="Core23\LastFmBundle\Action\AuthSuccessAction" public="true">
+    <service id="Core23\LastFmBundle\Action\AuthSuccessAction">
       <argument type="service" id="twig"/>
       <argument type="service" id="router"/>
       <argument type="service" id="Core23\LastFmBundle\Session\SessionManagerInterface"/>
       <argument type="service" id="event_dispatcher"/>
     </service>
-    <service id="Core23\LastFmBundle\Action\CheckAuthAction" class="Core23\LastFmBundle\Action\CheckAuthAction" public="true">
+    <service id="Core23\LastFmBundle\Action\CheckAuthAction">
       <argument type="service" id="router"/>
       <argument type="service" id="Core23\LastFmBundle\Session\SessionManagerInterface"/>
       <argument type="service" id="Core23\LastFm\Service\AuthServiceInterface"/>
