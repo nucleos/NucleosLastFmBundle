@@ -40,7 +40,7 @@
         "symfony/http-client": "^4.4 || ^5.0",
         "symfony/twig-bridge": "^4.4 || ^5.0",
         "symfony/twig-bundle": "^4.4 || ^5.0",
-        "twig/twig": "^2.4"
+        "twig/twig": "^2.4 || ^3.0"
     },
     "suggest": {
         "cache/adapter-bundle": "Symfony cache adapter",
