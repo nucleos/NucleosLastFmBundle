@@ -25,7 +25,7 @@
         "php-http/httplug-bundle": "^1.15",
         "symfony/config": "^4.2 || ^5.0",
         "symfony/dependency-injection": "^4.2 || ^5.0",
-        "symfony/event-dispatcher-contracts": "^1.1",
+        "symfony/event-dispatcher-contracts": "^1.1 || ^2.0",
         "symfony/expression-language": "^4.2 || ^5.0",
         "symfony/framework-bundle": "^4.2 || ^5.0",
         "symfony/http-foundation": "^4.2 || ^5.0",
