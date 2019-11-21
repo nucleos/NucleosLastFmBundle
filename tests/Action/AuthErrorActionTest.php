@@ -48,6 +48,10 @@ final class AuthErrorActionTest extends TestCase
             ->shouldBeCalled()
         ;
 
+        $this->twig->render('@Core23LastFm/Auth/error.html.twig')
+            ->willReturn('CONTENT')
+        ;
+
         $action = new AuthErrorAction(
             $this->twig->reveal(),
             $this->router->reveal(),
