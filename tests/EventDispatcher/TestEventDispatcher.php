@@ -20,11 +20,13 @@ final class TestEventDispatcher implements EventDispatcherInterface
 {
     private $response;
 
-    public function dispatch(object $event, string $eventName = null): object
+    public function dispatch($event, $eventName = null): object
     {
         if ($event instanceof AuthFailedEvent || $event instanceof AuthSuccessEvent) {
             $event->setResponse($this->response);
         }
+
+        return $event;
     }
 
     public function setResponse(Response $response): void
