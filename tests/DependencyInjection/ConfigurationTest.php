@@ -36,8 +36,8 @@ final class ConfigurationTest extends TestCase
                 'auth_url'      => 'http://www.last.fm/api/auth/',
             ],
             'http' => [
-                'client'          => 'httplug.client.default',
-                'message_factory' => 'httplug.message_factory.default',
+                'client'          => null,
+                'message_factory' => null,
             ],
         ];
 
