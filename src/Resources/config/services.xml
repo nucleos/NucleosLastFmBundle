@@ -4,12 +4,12 @@
     <service id="Core23\LastFmBundle\Session\SessionManagerInterface" class="Core23\LastFmBundle\Session\SessionManager">
       <argument type="service" id="session"/>
     </service>
-    <service id="Core23\LastFm\Connection\HTTPlugConnection">
+    <service id="Core23\LastFm\Connection\PsrClientConnection">
       <argument type="service" id="core23_lastfm.http.client"/>
       <argument type="service" id="core23_lastfm.http.message_factory"/>
       <argument>%core23_lastfm.api.endpoint%</argument>
     </service>
-    <service id="Core23\LastFm\Connection\ConnectionInterface" alias="Core23\LastFm\Connection\HTTPlugConnection"/>
+    <service id="Core23\LastFm\Connection\ConnectionInterface" alias="Core23\LastFm\Connection\PsrClientConnection"/>
     <service id="Core23\LastFm\Client\ApiClientInterface" class="Core23\LastFm\Client\ApiClient">
       <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
       <argument>%core23_lastfm.api.app_id%</argument>

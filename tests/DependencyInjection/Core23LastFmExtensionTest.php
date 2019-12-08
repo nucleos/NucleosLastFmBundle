@@ -23,6 +23,10 @@ final class Core23LastFmExtensionTest extends AbstractExtensionTestCase
                 'app_id'        => 'foo_id',
                 'shared_secret' => 'bar_secret',
             ],
+            'http' => [
+                'client'          => 'acme.client',
+                'message_factory' => 'acme.message_factory',
+            ],
         ]);
 
         $this->assertContainerBuilderHasParameter('core23_lastfm.api.app_id', 'foo_id');
@@ -30,8 +34,8 @@ final class Core23LastFmExtensionTest extends AbstractExtensionTestCase
         $this->assertContainerBuilderHasParameter('core23_lastfm.api.endpoint', 'http://ws.audioscrobbler.com/2.0/');
         $this->assertContainerBuilderHasParameter('core23_lastfm.api.auth_url', 'http://www.last.fm/api/auth/');
 
-        $this->assertContainerBuilderHasAlias('core23_lastfm.http.client', 'httplug.client.default');
-        $this->assertContainerBuilderHasAlias('core23_lastfm.http.message_factory', 'httplug.message_factory.default');
+        $this->assertContainerBuilderHasAlias('core23_lastfm.http.client', 'acme.client');
+        $this->assertContainerBuilderHasAlias('core23_lastfm.http.message_factory', 'acme.message_factory');
     }
 
     protected function getContainerExtensions(): array
