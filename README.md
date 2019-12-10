@@ -8,10 +8,8 @@ LastFmBundle
 [![Monthly Downloads](https://poser.pugx.org/core23/lastfm-bundle/d/monthly)](https://packagist.org/packages/core23/lastfm-bundle)
 [![Daily Downloads](https://poser.pugx.org/core23/lastfm-bundle/d/daily)](https://packagist.org/packages/core23/lastfm-bundle)
 
-[![Build Status](https://travis-ci.org/core23/LastFmBundle.svg)](https://travis-ci.org/core23/LastFmBundle)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/core23/LastFmBundle/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/core23/LastFmBundle)
-[![Code Climate](https://codeclimate.com/github/core23/LastFmBundle/badges/gpa.svg)](https://codeclimate.com/github/core23/LastFmBundle)
-[![Coverage Status](https://coveralls.io/repos/core23/LastFmBundle/badge.svg)](https://coveralls.io/r/core23/LastFmBundle)
+[![Continuous Integration](https://github.com/core23/LastFmBundle/workflows/Continuous%20Integration/badge.svg)](https://github.com/core23/LastFmBundle/actions)
+[![Code Coverage](https://codecov.io/gh/core23/LastFmBundle/branch/master/graph/badge.svg)](https://codecov.io/gh/core23/LastFmBundle)
 
 This bundle provides a wrapper for using the [Last.fm API] inside symfony.
 
