@@ -18,7 +18,6 @@ use Core23\LastFmBundle\Session\SessionManagerInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 
 final class CheckAuthActionTest extends TestCase
@@ -42,7 +41,7 @@ final class CheckAuthActionTest extends TestCase
             ->shouldBeCalled()
         ;
 
-        $this->router->generate('core23_lastfm_success', [], UrlGeneratorInterface::ABSOLUTE_PATH)
+        $this->router->generate('core23_lastfm_success')
             ->willReturn('/success')
         ;
 
@@ -66,7 +65,7 @@ final class CheckAuthActionTest extends TestCase
 
     public function testExecuteWithNoToken(): void
     {
-        $this->router->generate('core23_lastfm_auth', [], UrlGeneratorInterface::ABSOLUTE_PATH)
+        $this->router->generate('core23_lastfm_auth')
             ->willReturn('/auth')
         ;
 
@@ -86,7 +85,7 @@ final class CheckAuthActionTest extends TestCase
 
     public function testExecuteWithNoSession(): void
     {
-        $this->router->generate('core23_lastfm_error', [], UrlGeneratorInterface::ABSOLUTE_PATH)
+        $this->router->generate('core23_lastfm_error')
             ->willReturn('/error')
         ;
         $this->authService->createSession('MY_TOKEN')

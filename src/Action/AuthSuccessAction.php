@@ -16,7 +16,6 @@ use Core23\LastFmBundle\Event\AuthSuccessEvent;
 use Core23\LastFmBundle\Session\SessionManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Twig\Environment;
@@ -66,13 +65,13 @@ final class AuthSuccessAction
     public function __invoke(): Response
     {
         if (!$this->sessionManager->isAuthenticated()) {
-            return new RedirectResponse($this->generateUrl('core23_lastfm_error'));
+            return new RedirectResponse($this->router->generate('core23_lastfm_error'));
         }
 
         $session = $this->sessionManager->getSession();
 
         if (null === $session) {
-            return new RedirectResponse($this->generateUrl('core23_lastfm_error'));
+            return new RedirectResponse($this->router->generate('core23_lastfm_error'));
         }
 
         $event = new AuthSuccessEvent($session);
@@ -85,19 +84,5 @@ final class AuthSuccessAction
         return new Response($this->twig->render('@Core23LastFm/Auth/success.html.twig', [
             'name' => $this->sessionManager->getUsername(),
         ]));
-    }
-
-    /**
-     * Generates a URL from the given parameters.
-     *
-     * @param string $route         The name of the route
-     * @param array  $parameters    An array of parameters
-     * @param int    $referenceType The type of reference (one of the constants in UrlGeneratorInterface)
-     *
-     * @return string The generated URL
-     */
-    private function generateUrl(string $route, array $parameters = [], int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH): string
-    {
-        return $this->router->generate($route, $parameters, $referenceType);
     }
 }

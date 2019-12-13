@@ -36,7 +36,7 @@ final class StartAuthAction
 
     public function __invoke(): RedirectResponse
     {
-        $callbackUrl = $this->generateUrl('core23_lastfm_check', [], UrlGeneratorInterface::ABSOLUTE_URL);
+        $callbackUrl = $this->router->generate('core23_lastfm_check', [], UrlGeneratorInterface::ABSOLUTE_URL);
 
         return new RedirectResponse($this->authService->getAuthUrl($callbackUrl));
     }
