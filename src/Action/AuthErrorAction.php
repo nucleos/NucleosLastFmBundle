@@ -78,7 +78,7 @@ final class AuthErrorAction
             return $response;
         }
 
-        return new Response($this->twig->render('@Core23LastFm/Auth/error.html.twig'));
+        return new Response($this->twig->render('@Core23LastFm/Auth/error.html.twig'), Response::HTTP_UNAUTHORIZED);
     }
 
     /**

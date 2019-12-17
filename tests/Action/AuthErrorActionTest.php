@@ -59,7 +59,7 @@ final class AuthErrorActionTest extends TestCase
         $response = $action();
 
         static::assertNotInstanceOf(RedirectResponse::class, $response);
-        static::assertSame(200, $response->getStatusCode());
+        static::assertSame(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
     }
 
     public function testExecuteWithCaughtEvent(): void
