@@ -53,10 +53,9 @@ final class Configuration implements ConfigurationInterface
         $node
             ->children()
                 ->arrayNode('http')
-                    ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('client')->defaultNull()->end()
-                        ->scalarNode('message_factory')->defaultNull()->end()
+                        ->scalarNode('client')->isRequired()->end()
+                        ->scalarNode('message_factory')->isRequired()->end()
                     ->end()
                 ->end()
             ->end()

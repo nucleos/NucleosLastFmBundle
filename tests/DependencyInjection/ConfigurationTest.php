@@ -26,6 +26,10 @@ final class ConfigurationTest extends TestCase
                 'app_id'        => 'foo_id',
                 'shared_secret' => 'bar_secret',
             ],
+            'http' => [
+                'client'          => 'acme.client',
+                'message_factory' => 'acme.message_factory',
+            ],
         ]]);
 
         $expected = [
@@ -36,8 +40,8 @@ final class ConfigurationTest extends TestCase
                 'auth_url'      => 'http://www.last.fm/api/auth/',
             ],
             'http' => [
-                'client'          => null,
-                'message_factory' => null,
+                'client'          => 'acme.client',
+                'message_factory' => 'acme.message_factory',
             ],
         ];
 
