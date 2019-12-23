@@ -17,7 +17,6 @@ use Core23\LastFmBundle\Tests\EventDispatcher\TestEventDispatcher;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 use Twig\Environment;
 
@@ -94,7 +93,7 @@ final class AuthErrorActionTest extends TestCase
             ->willReturn(true)
         ;
 
-        $this->router->generate('core23_lastfm_success', [], UrlGeneratorInterface::ABSOLUTE_PATH)
+        $this->router->generate('core23_lastfm_success')
             ->willReturn('/success')
             ->shouldBeCalled()
         ;
