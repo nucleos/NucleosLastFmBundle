@@ -30,9 +30,14 @@ final class Core23LastFmExtension extends Extension
     {
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
+        $bundles       = $container->getParameter('kernel.bundles');
 
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('action.xml');
+
+        if (isset($bundles['TwigBundle'])) {
+            $loader->load('action.xml');
+        }
+
         $loader->load('services.xml');
 
         $this->configureApi($container, $config);
