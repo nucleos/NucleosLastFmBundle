@@ -43,7 +43,6 @@
         "twig/twig": "^2.4 || ^3.0"
     },
     "suggest": {
-        "cache/adapter-bundle": "Symfony cache adapter",
         "symfony/http-client": "Symfony HTTP client implementation"
     },
     "config": {
