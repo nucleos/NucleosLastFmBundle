@@ -18,6 +18,7 @@ final class Core23LastFmExtensionTest extends AbstractExtensionTestCase
 {
     public function testLoadDefault(): void
     {
+        $this->setParameter('kernel.bundles', []);
         $this->load([
             'api' => [
                 'app_id'        => 'foo_id',
