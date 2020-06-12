@@ -10,7 +10,7 @@ parameters:
         - src
         - tests
 
-    autoload_files:
+    bootstrapFiles:
         - vendor-bin/test/vendor/autoload.php
 
     excludes_analyse:

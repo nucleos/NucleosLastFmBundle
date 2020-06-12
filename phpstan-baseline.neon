@@ -61,6 +61,11 @@ parameters:
 			path: tests/Action/CheckAuthActionTest.php
 
 		-
+			message: "#^Parameter \\#2 \\$value of method Symfony\\\\Component\\\\HttpFoundation\\\\InputBag\\:\\:set\\(\\) expects array\\|string, null given\\.$#"
+			count: 1
+			path: tests/Action/CheckAuthActionTest.php
+
+		-
 			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\StartAuthActionTest\\:\\:\\$authService has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/StartAuthActionTest.php
