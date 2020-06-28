@@ -9,11 +9,11 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Action;
+namespace Nucleos\LastFmBundle\Action;
 
-use Core23\LastFmBundle\Core23LastFmEvents;
-use Core23\LastFmBundle\Event\AuthSuccessEvent;
-use Core23\LastFmBundle\Session\SessionManagerInterface;
+use Nucleos\LastFmBundle\Event\AuthSuccessEvent;
+use Nucleos\LastFmBundle\NucleosLastFmEvents;
+use Nucleos\LastFmBundle\Session\SessionManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
@@ -65,23 +65,23 @@ final class AuthSuccessAction
     public function __invoke(): Response
     {
         if (!$this->sessionManager->isAuthenticated()) {
-            return new RedirectResponse($this->router->generate('core23_lastfm_error'));
+            return new RedirectResponse($this->router->generate('nucleos_lastfm_error'));
         }
 
         $session = $this->sessionManager->getSession();
 
         if (null === $session) {
-            return new RedirectResponse($this->router->generate('core23_lastfm_error'));
+            return new RedirectResponse($this->router->generate('nucleos_lastfm_error'));
         }
 
         $event = new AuthSuccessEvent($session);
-        $this->eventDispatcher->dispatch($event, Core23LastFmEvents::AUTH_SUCCESS);
+        $this->eventDispatcher->dispatch($event, NucleosLastFmEvents::AUTH_SUCCESS);
 
         if (null !== $response = $event->getResponse()) {
             return $response;
         }
 
-        return new Response($this->twig->render('@Core23LastFm/Auth/success.html.twig', [
+        return new Response($this->twig->render('@NucleosLastFm/Auth/success.html.twig', [
             'name' => $this->sessionManager->getUsername(),
         ]));
     }

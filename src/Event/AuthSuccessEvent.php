@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Event;
+namespace Nucleos\LastFmBundle\Event;
 
-use Core23\LastFm\Session\SessionInterface;
+use Nucleos\LastFm\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\EventDispatcher\Event;
 

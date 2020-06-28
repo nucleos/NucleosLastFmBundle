@@ -1,59 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <services>
-    <service id="Core23\LastFmBundle\Session\SessionManagerInterface" class="Core23\LastFmBundle\Session\SessionManager">
+    <service id="Nucleos\LastFmBundle\Session\SessionManagerInterface" class="Nucleos\LastFmBundle\Session\SessionManager">
       <argument type="service" id="session"/>
     </service>
-    <service id="Core23\LastFm\Connection\PsrClientConnection">
-      <argument type="service" id="core23_lastfm.http.client"/>
-      <argument type="service" id="core23_lastfm.http.message_factory"/>
-      <argument>%core23_lastfm.api.endpoint%</argument>
+    <service id="Nucleos\LastFm\Connection\PsrClientConnection">
+      <argument type="service" id="nucleos_lastfm.http.client"/>
+      <argument type="service" id="nucleos_lastfm.http.message_factory"/>
+      <argument>%nucleos_lastfm.api.endpoint%</argument>
     </service>
-    <service id="Core23\LastFm\Connection\ConnectionInterface" alias="Core23\LastFm\Connection\PsrClientConnection"/>
-    <service id="Core23\LastFm\Client\ApiClientInterface" class="Core23\LastFm\Client\ApiClient">
-      <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
-      <argument>%core23_lastfm.api.app_id%</argument>
-      <argument>%core23_lastfm.api.shared_secret%</argument>
+    <service id="Nucleos\LastFm\Connection\ConnectionInterface" alias="Nucleos\LastFm\Connection\PsrClientConnection"/>
+    <service id="Nucleos\LastFm\Client\ApiClientInterface" class="Nucleos\LastFm\Client\ApiClient">
+      <argument type="service" id="Nucleos\LastFm\Connection\ConnectionInterface"/>
+      <argument>%nucleos_lastfm.api.app_id%</argument>
+      <argument>%nucleos_lastfm.api.shared_secret%</argument>
     </service>
-    <service id="Core23\LastFm\Crawler\ArtistEventCrawlerInterface" class="Core23\LastFm\Crawler\ArtistEventCrawler">
-      <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
+    <service id="Nucleos\LastFm\Crawler\ArtistEventCrawlerInterface" class="Nucleos\LastFm\Crawler\ArtistEventCrawler">
+      <argument type="service" id="Nucleos\LastFm\Connection\ConnectionInterface"/>
     </service>
-    <service id="Core23\LastFm\Crawler\EventInfoCrawlerInterface" class="Core23\LastFm\Crawler\EventInfoCrawler">
-      <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
+    <service id="Nucleos\LastFm\Crawler\EventInfoCrawlerInterface" class="Nucleos\LastFm\Crawler\EventInfoCrawler">
+      <argument type="service" id="Nucleos\LastFm\Connection\ConnectionInterface"/>
     </service>
-    <service id="Core23\LastFm\Crawler\EventListCrawlerInterface" class="Core23\LastFm\Crawler\EventListCrawler">
-      <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
+    <service id="Nucleos\LastFm\Crawler\EventListCrawlerInterface" class="Nucleos\LastFm\Crawler\EventListCrawler">
+      <argument type="service" id="Nucleos\LastFm\Connection\ConnectionInterface"/>
     </service>
-    <service id="Core23\LastFm\Crawler\UserEventCrawlerInterface" class="Core23\LastFm\Crawler\UserEventCrawler">
-      <argument type="service" id="Core23\LastFm\Connection\ConnectionInterface"/>
+    <service id="Nucleos\LastFm\Crawler\UserEventCrawlerInterface" class="Nucleos\LastFm\Crawler\UserEventCrawler">
+      <argument type="service" id="Nucleos\LastFm\Connection\ConnectionInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\AlbumServiceInterface" class="Core23\LastFm\Service\AlbumService">
-      <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
+    <service id="Nucleos\LastFm\Service\AlbumServiceInterface" class="Nucleos\LastFm\Service\AlbumService">
+      <argument type="service" id="Nucleos\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\ArtistServiceInterface" class="Core23\LastFm\Service\ArtistService">
-      <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
+    <service id="Nucleos\LastFm\Service\ArtistServiceInterface" class="Nucleos\LastFm\Service\ArtistService">
+      <argument type="service" id="Nucleos\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\AuthServiceInterface" class="Core23\LastFm\Service\AuthService">
-      <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
-      <argument>%core23_lastfm.api.auth_url%</argument>
+    <service id="Nucleos\LastFm\Service\AuthServiceInterface" class="Nucleos\LastFm\Service\AuthService">
+      <argument type="service" id="Nucleos\LastFm\Client\ApiClientInterface"/>
+      <argument>%nucleos_lastfm.api.auth_url%</argument>
     </service>
-    <service id="Core23\LastFm\Service\ChartServiceInterface" class="Core23\LastFm\Service\ChartService">
-      <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
+    <service id="Nucleos\LastFm\Service\ChartServiceInterface" class="Nucleos\LastFm\Service\ChartService">
+      <argument type="service" id="Nucleos\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\GeoServiceInterface" class="Core23\LastFm\Service\GeoService">
-      <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
+    <service id="Nucleos\LastFm\Service\GeoServiceInterface" class="Nucleos\LastFm\Service\GeoService">
+      <argument type="service" id="Nucleos\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\LibraryServiceInterface" class="Core23\LastFm\Service\LibraryService">
-      <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
+    <service id="Nucleos\LastFm\Service\LibraryServiceInterface" class="Nucleos\LastFm\Service\LibraryService">
+      <argument type="service" id="Nucleos\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\TagServiceInterface" class="Core23\LastFm\Service\TagService">
-      <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
+    <service id="Nucleos\LastFm\Service\TagServiceInterface" class="Nucleos\LastFm\Service\TagService">
+      <argument type="service" id="Nucleos\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\TrackServiceInterface" class="Core23\LastFm\Service\TrackService">
-      <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
+    <service id="Nucleos\LastFm\Service\TrackServiceInterface" class="Nucleos\LastFm\Service\TrackService">
+      <argument type="service" id="Nucleos\LastFm\Client\ApiClientInterface"/>
     </service>
-    <service id="Core23\LastFm\Service\UserServiceInterface" class="Core23\LastFm\Service\UserService">
-      <argument type="service" id="Core23\LastFm\Client\ApiClientInterface"/>
+    <service id="Nucleos\LastFm\Service\UserServiceInterface" class="Nucleos\LastFm\Service\UserService">
+      <argument type="service" id="Nucleos\LastFm\Client\ApiClientInterface"/>
     </service>
   </services>
 </container>

@@ -9,10 +9,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Tests\EventDispatcher;
+namespace Nucleos\LastFmBundle\Tests\EventDispatcher;
 
-use Core23\LastFmBundle\Event\AuthFailedEvent;
-use Core23\LastFmBundle\Event\AuthSuccessEvent;
+use Nucleos\LastFmBundle\Event\AuthFailedEvent;
+use Nucleos\LastFmBundle\Event\AuthSuccessEvent;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 

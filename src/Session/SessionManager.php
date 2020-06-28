@@ -9,17 +9,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Session;
+namespace Nucleos\LastFmBundle\Session;
 
-use Core23\LastFm\Session\Session as LastFmSession;
-use Core23\LastFm\Session\SessionInterface;
+use Nucleos\LastFm\Session\Session as LastFmSession;
+use Nucleos\LastFm\Session\SessionInterface;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 final class SessionManager implements SessionManagerInterface
 {
-    private const SESSION_LASTFM_NAME  = '_CORE23_LASTFM_NAME';
+    private const SESSION_LASTFM_NAME  = 'LASTFM_NAME';
 
-    private const SESSION_LASTFM_TOKEN = '_CORE23_LASTFM_TOKEN';
+    private const SESSION_LASTFM_TOKEN = 'LASTFM_TOKEN';
 
     /**
      * @var Session

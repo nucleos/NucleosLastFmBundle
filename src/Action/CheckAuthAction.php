@@ -9,10 +9,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Action;
+namespace Nucleos\LastFmBundle\Action;
 
-use Core23\LastFm\Service\AuthServiceInterface;
-use Core23\LastFmBundle\Session\SessionManagerInterface;
+use Nucleos\LastFm\Service\AuthServiceInterface;
+use Nucleos\LastFmBundle\Session\SessionManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
@@ -46,18 +46,18 @@ final class CheckAuthAction
         $token = (string) $request->query->get('token', '');
 
         if ('' === $token) {
-            return new RedirectResponse($this->router->generate('core23_lastfm_auth'));
+            return new RedirectResponse($this->router->generate('nucleos_lastfm_auth'));
         }
 
         // Store session
         $lastFmSession = $this->authService->createSession($token);
 
         if (null === $lastFmSession) {
-            return new RedirectResponse($this->router->generate('core23_lastfm_error'));
+            return new RedirectResponse($this->router->generate('nucleos_lastfm_error'));
         }
 
         $this->sessionManager->store($lastFmSession);
 
-        return new RedirectResponse($this->router->generate('core23_lastfm_success'));
+        return new RedirectResponse($this->router->generate('nucleos_lastfm_success'));
     }
 }

@@ -1,5 +1,5 @@
 {
-    "name": "core23/lastfm-bundle",
+    "name": "nucleos/lastfm-bundle",
     "type": "symfony-bundle",
     "description": "This bundle provides services for using the last.fm API inside the symfony.",
     "keywords": [
@@ -10,7 +10,7 @@
         "crawler",
         "webservice client"
     ],
-    "homepage": "https://core23.de",
+    "homepage": "https://nucleos.rocks",
     "license": "MIT",
     "authors": [
         {
@@ -20,7 +20,7 @@
     ],
     "require": {
         "php": "^7.2",
-        "core23/lastfm-api": "^2.0",
+        "nucleos/lastfm": "^3.0",
         "psr/http-client": "^1.0",
         "psr/http-message": "^1.0",
         "symfony/config": "^4.4 || ^5.0",
@@ -55,12 +55,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Core23\\LastFmBundle\\": "src/"
+            "Nucleos\\LastFmBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Core23\\LastFmBundle\\Tests\\": "tests/"
+            "Nucleos\\LastFmBundle\\Tests\\": "tests/"
         }
     },
     "scripts": {

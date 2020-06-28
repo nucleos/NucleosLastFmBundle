@@ -9,7 +9,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Tests\App\Controller;
+namespace Nucleos\LastFmBundle\Tests\App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 

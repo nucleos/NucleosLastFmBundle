@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Session;
+namespace Nucleos\LastFmBundle\Session;
 
-use Core23\LastFm\Session\SessionInterface;
+use Nucleos\LastFm\Session\SessionInterface;
 
 interface SessionManagerInterface
 {

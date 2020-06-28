@@ -9,10 +9,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Tests\Event;
+namespace Nucleos\LastFmBundle\Tests\Event;
 
-use Core23\LastFm\Session\SessionInterface;
-use Core23\LastFmBundle\Event\AuthSuccessEvent;
+use Nucleos\LastFm\Session\SessionInterface;
+use Nucleos\LastFmBundle\Event\AuthSuccessEvent;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Response;
 
