@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Tests\Event;
+namespace Nucleos\LastFmBundle\Tests\Event;
 
-use Core23\LastFmBundle\Event\AuthFailedEvent;
+use Nucleos\LastFmBundle\Event\AuthFailedEvent;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Response;
 

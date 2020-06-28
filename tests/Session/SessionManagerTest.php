@@ -9,10 +9,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Tests\Session;
+namespace Nucleos\LastFmBundle\Tests\Session;
 
-use Core23\LastFm\Session\Session as LastFmSession;
-use Core23\LastFmBundle\Session\SessionManager;
+use Nucleos\LastFm\Session\Session as LastFmSession;
+use Nucleos\LastFmBundle\Session\SessionManager;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -21,7 +21,7 @@ final class SessionManagerTest extends TestCase
     public function testIsAuthenticated(): void
     {
         $session = $this->prophesize(Session::class);
-        $session->get('_CORE23_LASTFM_TOKEN')
+        $session->get('LASTFM_TOKEN')
             ->willReturn(true)
         ;
 
@@ -32,7 +32,7 @@ final class SessionManagerTest extends TestCase
     public function testIsNotAuthenticated(): void
     {
         $session = $this->prophesize(Session::class);
-        $session->get('_CORE23_LASTFM_TOKEN')
+        $session->get('LASTFM_TOKEN')
             ->willReturn(false)
         ;
 
@@ -43,7 +43,7 @@ final class SessionManagerTest extends TestCase
     public function testGetUsername(): void
     {
         $session = $this->prophesize(Session::class);
-        $session->get('_CORE23_LASTFM_NAME')
+        $session->get('LASTFM_NAME')
             ->willReturn('MyUser')
         ;
 
@@ -54,7 +54,7 @@ final class SessionManagerTest extends TestCase
     public function testGetUsernameNotExist(): void
     {
         $session = $this->prophesize(Session::class);
-        $session->get('_CORE23_LASTFM_NAME')
+        $session->get('LASTFM_NAME')
             ->willReturn(null)
         ;
 
@@ -67,8 +67,8 @@ final class SessionManagerTest extends TestCase
         $lastfmSession = new LastFmSession('YourName', 'YourToken');
 
         $session = $this->prophesize(Session::class);
-        $session->set('_CORE23_LASTFM_NAME', 'YourName')->shouldBeCalled();
-        $session->set('_CORE23_LASTFM_TOKEN', 'YourToken')->shouldBeCalled();
+        $session->set('LASTFM_NAME', 'YourName')->shouldBeCalled();
+        $session->set('LASTFM_TOKEN', 'YourToken')->shouldBeCalled();
 
         $manager = new SessionManager($session->reveal());
         $manager->store($lastfmSession);
@@ -77,8 +77,8 @@ final class SessionManagerTest extends TestCase
     public function testClear(): void
     {
         $session = $this->prophesize(Session::class);
-        $session->remove('_CORE23_LASTFM_TOKEN')->shouldBeCalled();
-        $session->remove('_CORE23_LASTFM_NAME')->shouldBeCalled();
+        $session->remove('LASTFM_TOKEN')->shouldBeCalled();
+        $session->remove('LASTFM_NAME')->shouldBeCalled();
 
         $manager = new SessionManager($session->reveal());
         $manager->clear();
@@ -87,10 +87,10 @@ final class SessionManagerTest extends TestCase
     public function testGetSession(): void
     {
         $session = $this->prophesize(Session::class);
-        $session->get('_CORE23_LASTFM_NAME')
+        $session->get('LASTFM_NAME')
             ->willReturn('MyUser')
         ;
-        $session->get('_CORE23_LASTFM_TOKEN')
+        $session->get('LASTFM_TOKEN')
             ->willReturn('TheToken')
         ;
 
@@ -106,7 +106,7 @@ final class SessionManagerTest extends TestCase
     public function testGetSessionWithNoAuth(): void
     {
         $session = $this->prophesize(Session::class);
-        $session->get('_CORE23_LASTFM_TOKEN')
+        $session->get('LASTFM_TOKEN')
             ->willReturn(null)
         ;
 

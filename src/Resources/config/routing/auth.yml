@@ -1,15 +1,15 @@
-core23_lastfm_success:
+nucleos_lastfm_success:
     path:   /auth/success
-    defaults:  { _controller: 'Core23\LastFmBundle\Action\AuthSuccessAction' }
+    defaults:  { _controller: 'Nucleos\LastFmBundle\Action\AuthSuccessAction' }
 
-core23_lastfm_error:
+nucleos_lastfm_error:
     path:   /auth/error
-    defaults:  { _controller: 'Core23\LastFmBundle\Action\AuthErrorAction' }
+    defaults:  { _controller: 'Nucleos\LastFmBundle\Action\AuthErrorAction' }
 
-core23_lastfm_check:
+nucleos_lastfm_check:
     path:   /auth/_check
-    defaults:  { _controller: 'Core23\LastFmBundle\Action\CheckAuthAction' }
+    defaults:  { _controller: 'Nucleos\LastFmBundle\Action\CheckAuthAction' }
 
-core23_lastfm_auth:
+nucleos_lastfm_auth:
     path:   /auth
-    defaults:  { _controller: 'Core23\LastFmBundle\Action\StartAuthAction' }
+    defaults:  { _controller: 'Nucleos\LastFmBundle\Action\StartAuthAction' }

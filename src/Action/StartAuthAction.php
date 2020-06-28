@@ -9,9 +9,9 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Action;
+namespace Nucleos\LastFmBundle\Action;
 
-use Core23\LastFm\Service\AuthServiceInterface;
+use Nucleos\LastFm\Service\AuthServiceInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
@@ -36,7 +36,7 @@ final class StartAuthAction
 
     public function __invoke(): RedirectResponse
     {
-        $callbackUrl = $this->router->generate('core23_lastfm_check', [], UrlGeneratorInterface::ABSOLUTE_URL);
+        $callbackUrl = $this->router->generate('nucleos_lastfm_check', [], UrlGeneratorInterface::ABSOLUTE_URL);
 
         return new RedirectResponse($this->authService->getAuthUrl($callbackUrl));
     }

@@ -9,11 +9,11 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Tests\Action;
+namespace Nucleos\LastFmBundle\Tests\Action;
 
-use Core23\LastFmBundle\Action\AuthErrorAction;
-use Core23\LastFmBundle\Session\SessionManagerInterface;
-use Core23\LastFmBundle\Tests\EventDispatcher\TestEventDispatcher;
+use Nucleos\LastFmBundle\Action\AuthErrorAction;
+use Nucleos\LastFmBundle\Session\SessionManagerInterface;
+use Nucleos\LastFmBundle\Tests\EventDispatcher\TestEventDispatcher;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -48,7 +48,7 @@ final class AuthErrorActionTest extends TestCase
             ->shouldBeCalled()
         ;
 
-        $this->twig->render('@Core23LastFm/Auth/error.html.twig')
+        $this->twig->render('@NucleosLastFm/Auth/error.html.twig')
             ->willReturn('CONTENT')
         ;
 
@@ -97,7 +97,7 @@ final class AuthErrorActionTest extends TestCase
             ->willReturn(true)
         ;
 
-        $this->router->generate('core23_lastfm_success')
+        $this->router->generate('nucleos_lastfm_success')
             ->willReturn('/success')
             ->shouldBeCalled()
         ;

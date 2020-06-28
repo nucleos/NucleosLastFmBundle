@@ -9,12 +9,12 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Tests\Action;
+namespace Nucleos\LastFmBundle\Tests\Action;
 
-use Core23\LastFm\Service\AuthServiceInterface;
-use Core23\LastFm\Session\SessionInterface;
-use Core23\LastFmBundle\Action\CheckAuthAction;
-use Core23\LastFmBundle\Session\SessionManagerInterface;
+use Nucleos\LastFm\Service\AuthServiceInterface;
+use Nucleos\LastFm\Session\SessionInterface;
+use Nucleos\LastFmBundle\Action\CheckAuthAction;
+use Nucleos\LastFmBundle\Session\SessionManagerInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,7 +41,7 @@ final class CheckAuthActionTest extends TestCase
             ->shouldBeCalled()
         ;
 
-        $this->router->generate('core23_lastfm_success')
+        $this->router->generate('nucleos_lastfm_success')
             ->willReturn('/success')
         ;
 
@@ -65,7 +65,7 @@ final class CheckAuthActionTest extends TestCase
 
     public function testExecuteWithNoToken(): void
     {
-        $this->router->generate('core23_lastfm_auth')
+        $this->router->generate('nucleos_lastfm_auth')
             ->willReturn('/auth')
         ;
 
@@ -85,7 +85,7 @@ final class CheckAuthActionTest extends TestCase
 
     public function testExecuteWithNoSession(): void
     {
-        $this->router->generate('core23_lastfm_error')
+        $this->router->generate('nucleos_lastfm_error')
             ->willReturn('/error')
         ;
         $this->authService->createSession('MY_TOKEN')

@@ -9,17 +9,17 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle;
+namespace Nucleos\LastFmBundle;
 
-use Core23\LastFmBundle\DependencyInjection\Core23LastFmExtension;
+use Nucleos\LastFmBundle\DependencyInjection\NucleosLastFmExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-final class Core23LastFmBundle extends Bundle
+final class NucleosLastFmBundle extends Bundle
 {
     public function getContainerExtension()
     {
         if (null === $this->extension) {
-            $this->extension = new Core23LastFmExtension();
+            $this->extension = new NucleosLastFmExtension();
         }
 
         return $this->extension;

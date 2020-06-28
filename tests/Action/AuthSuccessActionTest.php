@@ -9,12 +9,12 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Tests\Action;
+namespace Nucleos\LastFmBundle\Tests\Action;
 
-use Core23\LastFm\Session\SessionInterface;
-use Core23\LastFmBundle\Action\AuthSuccessAction;
-use Core23\LastFmBundle\Session\SessionManagerInterface;
-use Core23\LastFmBundle\Tests\EventDispatcher\TestEventDispatcher;
+use Nucleos\LastFm\Session\SessionInterface;
+use Nucleos\LastFmBundle\Action\AuthSuccessAction;
+use Nucleos\LastFmBundle\Session\SessionManagerInterface;
+use Nucleos\LastFmBundle\Tests\EventDispatcher\TestEventDispatcher;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -53,7 +53,7 @@ final class AuthSuccessActionTest extends TestCase
             ->willReturn('FooUser')
         ;
 
-        $this->twig->render('@Core23LastFm/Auth/success.html.twig', [
+        $this->twig->render('@NucleosLastFm/Auth/success.html.twig', [
             'name' => 'FooUser',
         ])->shouldBeCalled();
 
@@ -106,7 +106,7 @@ final class AuthSuccessActionTest extends TestCase
             ->willReturn(false)
         ;
 
-        $this->router->generate('core23_lastfm_error')
+        $this->router->generate('nucleos_lastfm_error')
             ->willReturn('/success')
             ->shouldBeCalled()
         ;
@@ -130,7 +130,7 @@ final class AuthSuccessActionTest extends TestCase
             ->willReturn(null)
         ;
 
-        $this->router->generate('core23_lastfm_error')
+        $this->router->generate('nucleos_lastfm_error')
             ->willReturn('/success')
             ->shouldBeCalled()
         ;

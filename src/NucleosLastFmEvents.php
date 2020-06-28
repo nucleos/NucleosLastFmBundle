@@ -9,10 +9,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle;
+namespace Nucleos\LastFmBundle;
 
-final class Core23LastFmEvents
+final class NucleosLastFmEvents
 {
-    public const AUTH_SUCCESS = 'core23_lastfm.event.auth.success';
-    public const AUTH_ERROR   = 'core23_lastfm.event.auth.error';
+    public const AUTH_SUCCESS = 'nucleos_lastfm.event.auth.success';
+    public const AUTH_ERROR   = 'nucleos_lastfm.event.auth.error';
 }

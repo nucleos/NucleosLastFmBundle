@@ -6,57 +6,57 @@ parameters:
 			path: src/DependencyInjection/Configuration.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$twig has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$twig has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/AuthErrorActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$router has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$router has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/AuthErrorActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$sessionManager has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$sessionManager has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/AuthErrorActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$eventDispatcher has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$eventDispatcher has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/AuthErrorActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthSuccessActionTest\\:\\:\\$twig has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthSuccessActionTest\\:\\:\\$twig has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/AuthSuccessActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthSuccessActionTest\\:\\:\\$router has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthSuccessActionTest\\:\\:\\$router has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/AuthSuccessActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthSuccessActionTest\\:\\:\\$sessionManager has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthSuccessActionTest\\:\\:\\$sessionManager has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/AuthSuccessActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthSuccessActionTest\\:\\:\\$eventDispatcher has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthSuccessActionTest\\:\\:\\$eventDispatcher has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/AuthSuccessActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\CheckAuthActionTest\\:\\:\\$router has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\CheckAuthActionTest\\:\\:\\$router has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/CheckAuthActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\CheckAuthActionTest\\:\\:\\$sessionManager has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\CheckAuthActionTest\\:\\:\\$sessionManager has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/CheckAuthActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\CheckAuthActionTest\\:\\:\\$authService has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\CheckAuthActionTest\\:\\:\\$authService has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/CheckAuthActionTest.php
 
@@ -66,17 +66,17 @@ parameters:
 			path: tests/Action/CheckAuthActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\StartAuthActionTest\\:\\:\\$authService has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\StartAuthActionTest\\:\\:\\$authService has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/StartAuthActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\Action\\\\StartAuthActionTest\\:\\:\\$router has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\StartAuthActionTest\\:\\:\\$router has no typehint specified\\.$#"
 			count: 1
 			path: tests/Action/StartAuthActionTest.php
 
 		-
-			message: "#^Property Core23\\\\LastFmBundle\\\\Tests\\\\EventDispatcher\\\\TestEventDispatcher\\:\\:\\$response has no typehint specified\\.$#"
+			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\EventDispatcher\\\\TestEventDispatcher\\:\\:\\$response has no typehint specified\\.$#"
 			count: 1
 			path: tests/EventDispatcher/TestEventDispatcher.php
 

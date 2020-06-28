@@ -1,15 +1,15 @@
-LastFmBundle
-============
-[![Latest Stable Version](https://poser.pugx.org/core23/lastfm-bundle/v/stable)](https://packagist.org/packages/core23/lastfm-bundle)
-[![Latest Unstable Version](https://poser.pugx.org/core23/lastfm-bundle/v/unstable)](https://packagist.org/packages/core23/lastfm-bundle)
-[![License](https://poser.pugx.org/core23/lastfm-bundle/license)](https://packagist.org/packages/core23/lastfm-bundle)
+NucleosLastFmBundle
+===================
+[![Latest Stable Version](https://poser.pugx.org/nucleos/lastfm-bundle/v/stable)](https://packagist.org/packages/nucleos/lastfm-bundle)
+[![Latest Unstable Version](https://poser.pugx.org/nucleos/lastfm-bundle/v/unstable)](https://packagist.org/packages/nucleos/lastfm-bundle)
+[![License](https://poser.pugx.org/nucleos/lastfm-bundle/license)](https://packagist.org/packages/nucleos/lastfm-bundle)
 
-[![Total Downloads](https://poser.pugx.org/core23/lastfm-bundle/downloads)](https://packagist.org/packages/core23/lastfm-bundle)
-[![Monthly Downloads](https://poser.pugx.org/core23/lastfm-bundle/d/monthly)](https://packagist.org/packages/core23/lastfm-bundle)
-[![Daily Downloads](https://poser.pugx.org/core23/lastfm-bundle/d/daily)](https://packagist.org/packages/core23/lastfm-bundle)
+[![Total Downloads](https://poser.pugx.org/nucleos/lastfm-bundle/downloads)](https://packagist.org/packages/nucleos/lastfm-bundle)
+[![Monthly Downloads](https://poser.pugx.org/nucleos/lastfm-bundle/d/monthly)](https://packagist.org/packages/nucleos/lastfm-bundle)
+[![Daily Downloads](https://poser.pugx.org/nucleos/lastfm-bundle/d/daily)](https://packagist.org/packages/nucleos/lastfm-bundle)
 
-[![Continuous Integration](https://github.com/core23/LastFmBundle/workflows/Continuous%20Integration/badge.svg)](https://github.com/core23/LastFmBundle/actions)
-[![Code Coverage](https://codecov.io/gh/core23/LastFmBundle/branch/master/graph/badge.svg)](https://codecov.io/gh/core23/LastFmBundle)
+[![Continuous Integration](https://github.com/nucleos/NucleosLastFmBundle/workflows/Continuous%20Integration/badge.svg)](https://github.com/nucleos/NucleosLastFmBundle/actions)
+[![Code Coverage](https://codecov.io/gh/nucleos/NucleosLastFmBundle/branch/master/graph/badge.svg)](https://codecov.io/gh/nucleos/NucleosLastFmBundle)
 
 This bundle provides a wrapper for using the [Last.fm API] inside symfony.
 
@@ -18,7 +18,7 @@ This bundle provides a wrapper for using the [Last.fm API] inside symfony.
 Open a command console, enter your project directory and execute the following command to download the latest stable version of this bundle:
 
 ```
-composer require core23/lastfm-bundle
+composer require nucleos/lastfm-bundle
 # To define a default http client and message factory
 composer require symfony/http-client nyholm/psr7
 ```
@@ -32,7 +32,7 @@ Then, enable the bundle by adding it to the list of registered bundles in `confi
 
 return [
     // ...
-    Core23\LastFmBundle\Core23LastFmBundle::class => ['all' => true],
+    Nucleos\LastFmBundle\NucleosLastFmBundle::class => ['all' => true],
 ];
 ```
 
@@ -41,9 +41,9 @@ return [
 Define the API credentials in your configuration.
 
 ```yaml
-# config/packages/core23_lastfm.yaml
+# config/packages/nucleos_lastfm.yaml
 
-core23_lastfm:
+nucleos_lastfm:
     api:
         app_id:         "%lastfm_api.id%"
         shared_secret:  "%lastfm_api.secret%"

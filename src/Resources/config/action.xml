@@ -2,26 +2,26 @@
 <container xmlns="http://symfony.com/schema/dic/services" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
   <services>
     <defaults public="true"/>
-    <service id="Core23\LastFmBundle\Action\StartAuthAction">
-      <argument type="service" id="Core23\LastFm\Service\AuthServiceInterface"/>
+    <service id="Nucleos\LastFmBundle\Action\StartAuthAction">
+      <argument type="service" id="Nucleos\LastFm\Service\AuthServiceInterface"/>
       <argument type="service" id="router"/>
     </service>
-    <service id="Core23\LastFmBundle\Action\AuthErrorAction">
+    <service id="Nucleos\LastFmBundle\Action\AuthErrorAction">
       <argument type="service" id="twig"/>
       <argument type="service" id="router"/>
-      <argument type="service" id="Core23\LastFmBundle\Session\SessionManagerInterface"/>
+      <argument type="service" id="Nucleos\LastFmBundle\Session\SessionManagerInterface"/>
       <argument type="service" id="event_dispatcher"/>
     </service>
-    <service id="Core23\LastFmBundle\Action\AuthSuccessAction">
+    <service id="Nucleos\LastFmBundle\Action\AuthSuccessAction">
       <argument type="service" id="twig"/>
       <argument type="service" id="router"/>
-      <argument type="service" id="Core23\LastFmBundle\Session\SessionManagerInterface"/>
+      <argument type="service" id="Nucleos\LastFmBundle\Session\SessionManagerInterface"/>
       <argument type="service" id="event_dispatcher"/>
     </service>
-    <service id="Core23\LastFmBundle\Action\CheckAuthAction">
+    <service id="Nucleos\LastFmBundle\Action\CheckAuthAction">
       <argument type="service" id="router"/>
-      <argument type="service" id="Core23\LastFmBundle\Session\SessionManagerInterface"/>
-      <argument type="service" id="Core23\LastFm\Service\AuthServiceInterface"/>
+      <argument type="service" id="Nucleos\LastFmBundle\Session\SessionManagerInterface"/>
+      <argument type="service" id="Nucleos\LastFm\Service\AuthServiceInterface"/>
     </service>
   </services>
 </container>

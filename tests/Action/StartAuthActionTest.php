@@ -9,10 +9,10 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Core23\LastFmBundle\Tests\Action;
+namespace Nucleos\LastFmBundle\Tests\Action;
 
-use Core23\LastFm\Service\AuthServiceInterface;
-use Core23\LastFmBundle\Action\StartAuthAction;
+use Nucleos\LastFm\Service\AuthServiceInterface;
+use Nucleos\LastFmBundle\Action\StartAuthAction;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
@@ -31,7 +31,7 @@ final class StartAuthActionTest extends TestCase
 
     public function testExecute(): void
     {
-        $this->router->generate('core23_lastfm_check', [], UrlGeneratorInterface::ABSOLUTE_URL)
+        $this->router->generate('nucleos_lastfm_check', [], UrlGeneratorInterface::ABSOLUTE_URL)
             ->willReturn('/start')
         ;
 
