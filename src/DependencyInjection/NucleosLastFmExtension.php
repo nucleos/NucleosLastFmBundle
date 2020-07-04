@@ -32,13 +32,13 @@ final class NucleosLastFmExtension extends Extension
         $config        = $this->processConfiguration($configuration, $configs);
         $bundles       = $container->getParameter('kernel.bundles');
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\PhpFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
 
         if (isset($bundles['TwigBundle'])) {
-            $loader->load('action.xml');
+            $loader->load('action.php');
         }
 
-        $loader->load('services.xml');
+        $loader->load('services.php');
 
         $this->configureApi($container, $config);
         $this->configureHttpClient($container, $config);
