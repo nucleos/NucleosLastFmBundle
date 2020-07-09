@@ -90,48 +90,48 @@ return static function (ContainerConfigurator $container): void {
 
         ->set(AlbumServiceInterface::class, AlbumService::class)
             ->args([
-                new Reference(ConnectionInterface::class),
+                new Reference(ApiClientInterface::class),
             ])
 
         ->set(ArtistServiceInterface::class, ArtistService::class)
             ->args([
-                new Reference(ConnectionInterface::class),
+                new Reference(ApiClientInterface::class),
             ])
 
         ->set(AuthServiceInterface::class, AuthService::class)
             ->args([
-                new Reference(ConnectionInterface::class),
+                new Reference(ApiClientInterface::class),
                 new Parameter('nucleos_lastfm.api.auth_url'),
             ])
 
         ->set(ChartServiceInterface::class, ChartService::class)
             ->args([
-                new Reference(ConnectionInterface::class),
+                new Reference(ApiClientInterface::class),
             ])
 
         ->set(GeoServiceInterface::class, GeoService::class)
             ->args([
-                new Reference(ConnectionInterface::class),
+                new Reference(ApiClientInterface::class),
             ])
 
         ->set(LibraryServiceInterface::class, LibraryService::class)
             ->args([
-                new Reference(ConnectionInterface::class),
+                new Reference(ApiClientInterface::class),
             ])
 
         ->set(TagServiceInterface::class, TagService::class)
             ->args([
-                new Reference(ConnectionInterface::class),
+                new Reference(ApiClientInterface::class),
             ])
 
         ->set(TrackServiceInterface::class, TrackService::class)
             ->args([
-                new Reference(ConnectionInterface::class),
+                new Reference(ApiClientInterface::class),
             ])
 
         ->set(UserServiceInterface::class, UserService::class)
             ->args([
-                new Reference(ConnectionInterface::class),
+                new Reference(ApiClientInterface::class),
             ])
 
         ;
