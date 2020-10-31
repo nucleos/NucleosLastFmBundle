@@ -16,6 +16,7 @@ use Nucleos\LastFmBundle\Action\AuthSuccessAction;
 use Nucleos\LastFmBundle\Session\SessionManagerInterface;
 use Nucleos\LastFmBundle\Tests\EventDispatcher\TestEventDispatcher;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
@@ -23,6 +24,8 @@ use Twig\Environment;
 
 final class AuthSuccessActionTest extends TestCase
 {
+    use ProphecyTrait;
+
     private $twig;
 
     private $router;

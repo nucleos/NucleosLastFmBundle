@@ -14,11 +14,14 @@ namespace Nucleos\LastFmBundle\Tests\Action;
 use Nucleos\LastFm\Service\AuthServiceInterface;
 use Nucleos\LastFmBundle\Action\StartAuthAction;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 
 final class StartAuthActionTest extends TestCase
 {
+    use ProphecyTrait;
+
     private $authService;
 
     private $router;

@@ -14,10 +14,13 @@ namespace Nucleos\LastFmBundle\Tests\Session;
 use Nucleos\LastFm\Session\Session as LastFmSession;
 use Nucleos\LastFmBundle\Session\SessionManager;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 final class SessionManagerTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testIsAuthenticated(): void
     {
         $session = $this->prophesize(Session::class);
