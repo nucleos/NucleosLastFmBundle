@@ -13,10 +13,13 @@ namespace Nucleos\LastFmBundle\Tests\Event;
 
 use Nucleos\LastFmBundle\Event\AuthFailedEvent;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\HttpFoundation\Response;
 
 final class AuthFailedEventTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testGetResponse(): void
     {
         $event = new AuthFailedEvent();

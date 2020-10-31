@@ -17,11 +17,14 @@ use Nucleos\LastFmBundle\Action\CheckAuthAction;
 use Nucleos\LastFmBundle\Session\SessionManagerInterface;
 use PHPUnit\Framework\TestCase;
 use Prophecy\Argument;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 
 final class CheckAuthActionTest extends TestCase
 {
+    use ProphecyTrait;
+
     private $router;
 
     private $sessionManager;
@@ -70,7 +73,7 @@ final class CheckAuthActionTest extends TestCase
         ;
 
         $request = new Request();
-        $request->query->set('token', null);
+        $request->query->set('token', '');
 
         $action = new CheckAuthAction(
             $this->router->reveal(),

@@ -14,10 +14,13 @@ namespace Nucleos\LastFmBundle\Tests\Event;
 use Nucleos\LastFm\Session\SessionInterface;
 use Nucleos\LastFmBundle\Event\AuthSuccessEvent;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\HttpFoundation\Response;
 
 final class AuthSuccessEventTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testGetUsername(): void
     {
         $session = $this->prophesize(SessionInterface::class);
