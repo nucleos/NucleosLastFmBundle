@@ -43,7 +43,7 @@ final class CheckAuthAction
 
     public function __invoke(Request $request): RedirectResponse
     {
-        $token = (string) $request->query->get('token', '');
+        $token = $request->query->get('token', '');
 
         if ('' === $token) {
             return new RedirectResponse($this->router->generate('nucleos_lastfm_auth'));
