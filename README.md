@@ -8,7 +8,7 @@ NucleosLastFmBundle
 [![Monthly Downloads](https://poser.pugx.org/nucleos/lastfm-bundle/d/monthly)](https://packagist.org/packages/nucleos/lastfm-bundle)
 [![Daily Downloads](https://poser.pugx.org/nucleos/lastfm-bundle/d/daily)](https://packagist.org/packages/nucleos/lastfm-bundle)
 
-[![Continuous Integration](https://github.com/nucleos/NucleosLastFmBundle/workflows/Continuous%20Integration/badge.svg)](https://github.com/nucleos/NucleosLastFmBundle/actions)
+[![Continuous Integration](https://github.com/nucleos/NucleosLastFmBundle/workflows/Continuous%20Integration/badge.svg)](https://github.com/nucleos/NucleosLastFmBundle/actions?query=workflow%3A"Continuous+Integration"+branch%3Amain)
 [![Code Coverage](https://codecov.io/gh/nucleos/NucleosLastFmBundle/branch/main/graph/badge.svg)](https://codecov.io/gh/nucleos/NucleosLastFmBundle)
 [![Type Coverage](https://shepherd.dev/github/nucleos/NucleosLastFmBundle/coverage.svg)](https://shepherd.dev/github/nucleos/NucleosLastFmBundle)
 
