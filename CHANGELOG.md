@@ -1,37 +1,25 @@
-# 1.0.0
+# Changelog
 
-## Changed
+All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-* Renamed namespace `Core23\SetlistFMBundle` to `Nucleos\SetlistFMBundle` after move to [@nucleos]
+## 1.0.0 - TBD
 
-  Run
+### Added
 
-  ```
-  $ composer remove core23/setlistfm-bundle
-  ```
+- Nothing.
 
-  and
+### Changed
 
-  ```
-  $ composer require nucleos/setlistfm-bundle
-  ```
+- Nothing.
 
-  to update.
+### Deprecated
 
-  Run
+- Nothing.
 
-  ```
-  $ find . -type f -exec sed -i '.bak' 's/Core23\\SetlistFMBundle/Nucleos\\SetlistFMBundle/g' {} \;
-  ```
+### Removed
 
-  to replace occurrences of `Core23\SetlistFMBundle` with `Nucleos\SetlistFMBundle`.
+- Nothing.
 
-  Run
+### Fixed
 
-  ```
-  $ find -type f -name '*.bak' -delete
-  ```
-
-  to delete backup files created in the previous step.
-
-[@nucleos]: https://github.com/nucleos
+- Nothing.
