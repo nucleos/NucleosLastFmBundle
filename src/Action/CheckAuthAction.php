@@ -19,20 +19,11 @@ use Symfony\Component\Routing\RouterInterface;
 
 final class CheckAuthAction
 {
-    /**
-     * @var RouterInterface
-     */
-    private $router;
+    private RouterInterface $router;
 
-    /**
-     * @var SessionManagerInterface
-     */
-    private $sessionManager;
+    private SessionManagerInterface $sessionManager;
 
-    /**
-     * @var AuthServiceInterface
-     */
-    private $authService;
+    private AuthServiceInterface $authService;
 
     public function __construct(RouterInterface $router, SessionManagerInterface $sessionManager, AuthServiceInterface $authService)
     {
