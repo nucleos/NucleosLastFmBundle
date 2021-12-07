@@ -25,25 +25,13 @@ use Twig\Error\SyntaxError;
 
 final class AuthSuccessAction
 {
-    /**
-     * @var Environment
-     */
-    private $twig;
+    private Environment $twig;
 
-    /**
-     * @var RouterInterface
-     */
-    private $router;
+    private RouterInterface $router;
 
-    /**
-     * @var SessionManagerInterface
-     */
-    private $sessionManager;
+    private SessionManagerInterface $sessionManager;
 
-    /**
-     * @var EventDispatcherInterface
-     */
-    private $eventDispatcher;
+    private EventDispatcherInterface $eventDispatcher;
 
     public function __construct(
         Environment $twig,

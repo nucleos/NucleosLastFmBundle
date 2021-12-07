@@ -17,15 +17,9 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 final class AuthSuccessEvent extends Event
 {
-    /**
-     * @var SessionInterface
-     */
-    private $session;
+    private SessionInterface $session;
 
-    /**
-     * @var Response|null
-     */
-    private $response;
+    private ?Response $response = null;
 
     public function __construct(SessionInterface $session)
     {

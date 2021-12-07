@@ -16,10 +16,7 @@ use Symfony\Contracts\EventDispatcher\Event;
 
 final class AuthFailedEvent extends Event
 {
-    /**
-     * @var Response|null
-     */
-    private $response;
+    private ?Response $response = null;
 
     public function getResponse(): ?Response
     {

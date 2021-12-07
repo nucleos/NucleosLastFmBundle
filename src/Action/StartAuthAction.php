@@ -18,15 +18,9 @@ use Symfony\Component\Routing\RouterInterface;
 
 final class StartAuthAction
 {
-    /**
-     * @var AuthServiceInterface
-     */
-    private $authService;
+    private AuthServiceInterface $authService;
 
-    /**
-     * @var RouterInterface
-     */
-    private $router;
+    private RouterInterface $router;
 
     public function __construct(AuthServiceInterface $authService, RouterInterface $router)
     {
