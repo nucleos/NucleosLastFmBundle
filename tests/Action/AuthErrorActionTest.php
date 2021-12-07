@@ -31,7 +31,7 @@ final class AuthErrorActionTest extends TestCase
 
     private $sessionManager;
 
-    private $eventDispatcher;
+    private TestEventDispatcher $eventDispatcher;
 
     protected function setUp(): void
     {

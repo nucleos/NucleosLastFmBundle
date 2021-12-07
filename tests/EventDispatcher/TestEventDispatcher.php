@@ -18,7 +18,7 @@ use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 final class TestEventDispatcher implements EventDispatcherInterface
 {
-    private $response;
+    private ?Response $response = null;
 
     public function dispatch($event, $eventName = null): object
     {
@@ -29,7 +29,7 @@ final class TestEventDispatcher implements EventDispatcherInterface
         return $event;
     }
 
-    public function setResponse(Response $response): void
+    public function setResponse(?Response $response): void
     {
         $this->response = $response;
     }
