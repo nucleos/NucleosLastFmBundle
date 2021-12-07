@@ -14,50 +14,47 @@ namespace Nucleos\LastFmBundle\Tests\Event;
 use Nucleos\LastFm\Session\SessionInterface;
 use Nucleos\LastFmBundle\Event\AuthSuccessEvent;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\HttpFoundation\Response;
 
 final class AuthSuccessEventTest extends TestCase
 {
-    use ProphecyTrait;
-
     public function testGetUsername(): void
     {
-        $session = $this->prophesize(SessionInterface::class);
-        $session->getName()->willReturn('MyUser');
+        $session = $this->createMock(SessionInterface::class);
+        $session->method('getName')->willReturn('MyUser');
 
-        $event = new AuthSuccessEvent($session->reveal());
+        $event = new AuthSuccessEvent($session);
 
         static::assertSame('MyUser', $event->getUsername());
     }
 
     public function testGetSession(): void
     {
-        $session = $this->prophesize(SessionInterface::class);
+        $session = $this->createMock(SessionInterface::class);
 
-        $event = new AuthSuccessEvent($session->reveal());
+        $event = new AuthSuccessEvent($session);
 
-        static::assertSame($session->reveal(), $event->getSession());
+        static::assertSame($session, $event->getSession());
     }
 
     public function testGetResponse(): void
     {
-        $session = $this->prophesize(SessionInterface::class);
+        $session = $this->createMock(SessionInterface::class);
 
-        $event = new AuthSuccessEvent($session->reveal());
+        $event = new AuthSuccessEvent($session);
 
         static::assertNull($event->getResponse());
     }
 
     public function testSetResponse(): void
     {
-        $session = $this->prophesize(SessionInterface::class);
+        $session = $this->createMock(SessionInterface::class);
 
-        $reponse = $this->prophesize(Response::class);
+        $reponse = new Response();
 
-        $event = new AuthSuccessEvent($session->reveal());
-        $event->setResponse($reponse->reveal());
+        $event = new AuthSuccessEvent($session);
+        $event->setResponse($reponse);
 
-        static::assertSame($reponse->reveal(), $event->getResponse());
+        static::assertSame($reponse, $event->getResponse());
     }
 }

@@ -14,37 +14,34 @@ namespace Nucleos\LastFmBundle\Tests\Action;
 use Nucleos\LastFm\Service\AuthServiceInterface;
 use Nucleos\LastFmBundle\Action\StartAuthAction;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Routing\RouterInterface;
 
 final class StartAuthActionTest extends TestCase
 {
-    use ProphecyTrait;
-
     private $authService;
 
     private $router;
 
     protected function setUp(): void
     {
-        $this->authService = $this->prophesize(AuthServiceInterface::class);
-        $this->router      = $this->prophesize(RouterInterface::class);
+        $this->authService = $this->createMock(AuthServiceInterface::class);
+        $this->router      = $this->createMock(RouterInterface::class);
     }
 
     public function testExecute(): void
     {
-        $this->router->generate('nucleos_lastfm_check', [], UrlGeneratorInterface::ABSOLUTE_URL)
+        $this->router->method('generate')->with('nucleos_lastfm_check', [], UrlGeneratorInterface::ABSOLUTE_URL)
             ->willReturn('/start')
         ;
 
-        $this->authService->getAuthUrl('/start')
+        $this->authService->method('getAuthUrl')->with('/start')
             ->willReturn('https://lastFm/login')
         ;
 
         $action = new StartAuthAction(
-            $this->authService->reveal(),
-            $this->router->reveal()
+            $this->authService,
+            $this->router
         );
 
         static::assertSame('https://lastFm/login', $action()->getTargetUrl());
