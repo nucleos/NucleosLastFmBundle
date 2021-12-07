@@ -12,11 +12,12 @@ declare(strict_types=1);
 namespace Nucleos\LastFmBundle;
 
 use Nucleos\LastFmBundle\DependencyInjection\NucleosLastFmExtension;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 final class NucleosLastFmBundle extends Bundle
 {
-    public function getContainerExtension()
+    public function getContainerExtension(): ?ExtensionInterface
     {
         if (null === $this->extension) {
             $this->extension = new NucleosLastFmExtension();
