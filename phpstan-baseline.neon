@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Nucleos\\\\LastFmBundle\\\\Action\\\\StartAuthAction\\:\\:generateUrl\\(\\) is unused\\.$#"
-			count: 1
-			path: src/Action/StartAuthAction.php
-
-		-
 			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$router has no type specified\\.$#"
 			count: 1
 			path: tests/Action/AuthErrorActionTest.php
