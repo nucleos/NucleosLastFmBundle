@@ -16,15 +16,11 @@ use Nucleos\LastFm\Session\SessionInterface;
 use Nucleos\LastFmBundle\Action\CheckAuthAction;
 use Nucleos\LastFmBundle\Session\SessionManagerInterface;
 use PHPUnit\Framework\TestCase;
-use Prophecy\Argument;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 
 final class CheckAuthActionTest extends TestCase
 {
-    use ProphecyTrait;
-
     private $router;
 
     private $sessionManager;
@@ -33,32 +29,30 @@ final class CheckAuthActionTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->router         = $this->prophesize(RouterInterface::class);
-        $this->sessionManager = $this->prophesize(SessionManagerInterface::class);
-        $this->authService    = $this->prophesize(AuthServiceInterface::class);
+        $this->router         = $this->createMock(RouterInterface::class);
+        $this->sessionManager = $this->createMock(SessionManagerInterface::class);
+        $this->authService    = $this->createMock(AuthServiceInterface::class);
     }
 
     public function testExecute(): void
     {
-        $this->sessionManager->store(Argument::type(SessionInterface::class))
-            ->shouldBeCalled()
-        ;
+        $this->sessionManager->expects(static::once())->method('store');
 
-        $this->router->generate('nucleos_lastfm_success')
+        $this->router->method('generate')->with('nucleos_lastfm_success')
             ->willReturn('/success')
         ;
 
-        $this->authService->createSession('MY_TOKEN')
-            ->willReturn($this->prophesize(SessionInterface::class))
+        $this->authService->method('createSession')->with('MY_TOKEN')
+            ->willReturn($this->createMock(SessionInterface::class))
         ;
 
         $request = new Request();
         $request->query->set('token', 'MY_TOKEN');
 
         $action = new CheckAuthAction(
-            $this->router->reveal(),
-            $this->sessionManager->reveal(),
-            $this->authService->reveal()
+            $this->router,
+            $this->sessionManager,
+            $this->authService
         );
 
         $response = $action($request);
@@ -68,7 +62,7 @@ final class CheckAuthActionTest extends TestCase
 
     public function testExecuteWithNoToken(): void
     {
-        $this->router->generate('nucleos_lastfm_auth')
+        $this->router->method('generate')->with('nucleos_lastfm_auth')
             ->willReturn('/auth')
         ;
 
@@ -76,9 +70,9 @@ final class CheckAuthActionTest extends TestCase
         $request->query->set('token', '');
 
         $action = new CheckAuthAction(
-            $this->router->reveal(),
-            $this->sessionManager->reveal(),
-            $this->authService->reveal()
+            $this->router,
+            $this->sessionManager,
+            $this->authService
         );
 
         $response = $action($request);
@@ -88,10 +82,10 @@ final class CheckAuthActionTest extends TestCase
 
     public function testExecuteWithNoSession(): void
     {
-        $this->router->generate('nucleos_lastfm_error')
+        $this->router->method('generate')->with('nucleos_lastfm_error')
             ->willReturn('/error')
         ;
-        $this->authService->createSession('MY_TOKEN')
+        $this->authService->method('createSession')->with('MY_TOKEN')
             ->willReturn(null)
         ;
 
@@ -99,9 +93,9 @@ final class CheckAuthActionTest extends TestCase
         $request->query->set('token', 'MY_TOKEN');
 
         $action = new CheckAuthAction(
-            $this->router->reveal(),
-            $this->sessionManager->reveal(),
-            $this->authService->reveal()
+            $this->router,
+            $this->sessionManager,
+            $this->authService
         );
 
         $response = $action($request);

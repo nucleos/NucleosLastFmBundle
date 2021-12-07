@@ -16,7 +16,6 @@ use Nucleos\LastFmBundle\Action\AuthSuccessAction;
 use Nucleos\LastFmBundle\Session\SessionManagerInterface;
 use Nucleos\LastFmBundle\Tests\EventDispatcher\TestEventDispatcher;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
@@ -24,8 +23,6 @@ use Twig\Environment;
 
 final class AuthSuccessActionTest extends TestCase
 {
-    use ProphecyTrait;
-
     private $twig;
 
     private $router;
@@ -36,34 +33,34 @@ final class AuthSuccessActionTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->twig            = $this->prophesize(Environment::class);
-        $this->router          = $this->prophesize(RouterInterface::class);
-        $this->sessionManager  = $this->prophesize(SessionManagerInterface::class);
+        $this->twig            = $this->createMock(Environment::class);
+        $this->router          = $this->createMock(RouterInterface::class);
+        $this->sessionManager  = $this->createMock(SessionManagerInterface::class);
         $this->eventDispatcher = new TestEventDispatcher();
     }
 
     public function testExecute(): void
     {
-        $session = $this->prophesize(SessionInterface::class);
+        $session = $this->createMock(SessionInterface::class);
 
-        $this->sessionManager->isAuthenticated()
+        $this->sessionManager->method('isAuthenticated')
             ->willReturn(true)
         ;
-        $this->sessionManager->getSession()
+        $this->sessionManager->method('getSession')
             ->willReturn($session)
         ;
-        $this->sessionManager->getUsername()
+        $this->sessionManager->method('getUsername')
             ->willReturn('FooUser')
         ;
 
-        $this->twig->render('@NucleosLastFm/Auth/success.html.twig', [
+        $this->twig->expects(static::once())->method('render')->with('@NucleosLastFm/Auth/success.html.twig', [
             'name' => 'FooUser',
-        ])->shouldBeCalled();
+        ]);
 
         $action = new AuthSuccessAction(
-            $this->twig->reveal(),
-            $this->router->reveal(),
-            $this->sessionManager->reveal(),
+            $this->twig,
+            $this->router,
+            $this->sessionManager,
             $this->eventDispatcher
         );
 
@@ -75,15 +72,15 @@ final class AuthSuccessActionTest extends TestCase
 
     public function testExecuteWithCaughtEvent(): void
     {
-        $session = $this->prophesize(SessionInterface::class);
+        $session = $this->createMock(SessionInterface::class);
 
-        $this->sessionManager->isAuthenticated()
+        $this->sessionManager->method('isAuthenticated')
             ->willReturn(true)
         ;
-        $this->sessionManager->getSession()
+        $this->sessionManager->method('getSession')
             ->willReturn($session)
         ;
-        $this->sessionManager->getUsername()
+        $this->sessionManager->method('getUsername')
             ->willReturn('FooUser')
         ;
 
@@ -92,9 +89,9 @@ final class AuthSuccessActionTest extends TestCase
         $this->eventDispatcher->setResponse($eventResponse);
 
         $action = new AuthSuccessAction(
-            $this->twig->reveal(),
-            $this->router->reveal(),
-            $this->sessionManager->reveal(),
+            $this->twig,
+            $this->router,
+            $this->sessionManager,
             $this->eventDispatcher
         );
 
@@ -105,19 +102,18 @@ final class AuthSuccessActionTest extends TestCase
 
     public function testExecuteNoAuth(): void
     {
-        $this->sessionManager->isAuthenticated()
+        $this->sessionManager->method('isAuthenticated')
             ->willReturn(false)
         ;
 
-        $this->router->generate('nucleos_lastfm_error')
+        $this->router->expects(static::once())->method('generate')->with('nucleos_lastfm_error')
             ->willReturn('/success')
-            ->shouldBeCalled()
         ;
 
         $action = new AuthSuccessAction(
-            $this->twig->reveal(),
-            $this->router->reveal(),
-            $this->sessionManager->reveal(),
+            $this->twig,
+            $this->router,
+            $this->sessionManager,
             $this->eventDispatcher
         );
 
@@ -126,22 +122,21 @@ final class AuthSuccessActionTest extends TestCase
 
     public function testExecuteNoSession(): void
     {
-        $this->sessionManager->isAuthenticated()
+        $this->sessionManager->method('isAuthenticated')
             ->willReturn(true)
         ;
-        $this->sessionManager->getSession()
+        $this->sessionManager->method('getSession')
             ->willReturn(null)
         ;
 
-        $this->router->generate('nucleos_lastfm_error')
+        $this->router->expects(static::once())->method('generate')->with('nucleos_lastfm_error')
             ->willReturn('/success')
-            ->shouldBeCalled()
         ;
 
         $action = new AuthSuccessAction(
-            $this->twig->reveal(),
-            $this->router->reveal(),
-            $this->sessionManager->reveal(),
+            $this->twig,
+            $this->router,
+            $this->sessionManager,
             $this->eventDispatcher
         );
 

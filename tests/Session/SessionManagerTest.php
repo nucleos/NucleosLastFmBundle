@@ -14,54 +14,51 @@ namespace Nucleos\LastFmBundle\Tests\Session;
 use Nucleos\LastFm\Session\Session as LastFmSession;
 use Nucleos\LastFmBundle\Session\SessionManager;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\HttpFoundation\Session\Session;
 
 final class SessionManagerTest extends TestCase
 {
-    use ProphecyTrait;
-
     public function testIsAuthenticated(): void
     {
-        $session = $this->prophesize(Session::class);
-        $session->get('LASTFM_TOKEN')
+        $session = $this->createMock(Session::class);
+        $session->method('get')->with('LASTFM_TOKEN')
             ->willReturn(true)
         ;
 
-        $manager = new SessionManager($session->reveal());
+        $manager = new SessionManager($session);
         static::assertTrue($manager->isAuthenticated());
     }
 
     public function testIsNotAuthenticated(): void
     {
-        $session = $this->prophesize(Session::class);
-        $session->get('LASTFM_TOKEN')
+        $session = $this->createMock(Session::class);
+        $session->method('get')->with('LASTFM_TOKEN')
             ->willReturn(false)
         ;
 
-        $manager = new SessionManager($session->reveal());
+        $manager = new SessionManager($session);
         static::assertFalse($manager->isAuthenticated());
     }
 
     public function testGetUsername(): void
     {
-        $session = $this->prophesize(Session::class);
-        $session->get('LASTFM_NAME')
+        $session = $this->createMock(Session::class);
+        $session->method('get')->with('LASTFM_NAME')
             ->willReturn('MyUser')
         ;
 
-        $manager = new SessionManager($session->reveal());
+        $manager = new SessionManager($session);
         static::assertSame('MyUser', $manager->getUsername());
     }
 
     public function testGetUsernameNotExist(): void
     {
-        $session = $this->prophesize(Session::class);
-        $session->get('LASTFM_NAME')
+        $session = $this->createMock(Session::class);
+        $session->method('get')->with('LASTFM_NAME')
             ->willReturn(null)
         ;
 
-        $manager = new SessionManager($session->reveal());
+        $manager = new SessionManager($session);
         static::assertNull($manager->getUsername());
     }
 
@@ -69,35 +66,49 @@ final class SessionManagerTest extends TestCase
     {
         $lastfmSession = new LastFmSession('YourName', 'YourToken');
 
-        $session = $this->prophesize(Session::class);
-        $session->set('LASTFM_NAME', 'YourName')->shouldBeCalled();
-        $session->set('LASTFM_TOKEN', 'YourToken')->shouldBeCalled();
+        $session = $this->createMock(Session::class);
+        $session->expects(static::exactly(2))->method('set')
+            ->withConsecutive(
+                ['LASTFM_NAME', 'YourName'],
+                ['LASTFM_TOKEN', 'YourToken'],
+            )
+        ;
 
-        $manager = new SessionManager($session->reveal());
+        $manager = new SessionManager($session);
         $manager->store($lastfmSession);
     }
 
     public function testClear(): void
     {
-        $session = $this->prophesize(Session::class);
-        $session->remove('LASTFM_TOKEN')->shouldBeCalled();
-        $session->remove('LASTFM_NAME')->shouldBeCalled();
+        $session = $this->createMock(Session::class);
+        $session->expects(static::exactly(2))->method('remove')
+            ->withConsecutive(
+                ['LASTFM_NAME'],
+                ['LASTFM_TOKEN'],
+            )
+        ;
 
-        $manager = new SessionManager($session->reveal());
+        $manager = new SessionManager($session);
         $manager->clear();
     }
 
     public function testGetSession(): void
     {
-        $session = $this->prophesize(Session::class);
-        $session->get('LASTFM_NAME')
-            ->willReturn('MyUser')
-        ;
-        $session->get('LASTFM_TOKEN')
-            ->willReturn('TheToken')
+        $session = $this->createMock(Session::class);
+        $session->expects(static::exactly(3))->method('get')
+            ->withConsecutive(
+                ['LASTFM_TOKEN'],
+                ['LASTFM_NAME'],
+                ['LASTFM_TOKEN'],
+            )
+            ->willReturn(
+                'TheToken',
+                'MyUser',
+                'TheToken'
+            )
         ;
 
-        $manager = new SessionManager($session->reveal());
+        $manager = new SessionManager($session);
 
         $lastfmSession = $manager->getSession();
 
@@ -108,12 +119,12 @@ final class SessionManagerTest extends TestCase
 
     public function testGetSessionWithNoAuth(): void
     {
-        $session = $this->prophesize(Session::class);
-        $session->get('LASTFM_TOKEN')
+        $session = $this->createMock(Session::class);
+        $session->method('get')->with('LASTFM_TOKEN')
             ->willReturn(null)
         ;
 
-        $manager = new SessionManager($session->reveal());
+        $manager = new SessionManager($session);
 
         static::assertNull($manager->getSession());
     }

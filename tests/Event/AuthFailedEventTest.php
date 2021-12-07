@@ -13,13 +13,10 @@ namespace Nucleos\LastFmBundle\Tests\Event;
 
 use Nucleos\LastFmBundle\Event\AuthFailedEvent;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\HttpFoundation\Response;
 
 final class AuthFailedEventTest extends TestCase
 {
-    use ProphecyTrait;
-
     public function testGetResponse(): void
     {
         $event = new AuthFailedEvent();
@@ -29,11 +26,11 @@ final class AuthFailedEventTest extends TestCase
 
     public function testSetResponse(): void
     {
-        $reponse = $this->prophesize(Response::class);
+        $reponse = new Response();
 
         $event = new AuthFailedEvent();
-        $event->setResponse($reponse->reveal());
+        $event->setResponse($reponse);
 
-        static::assertSame($reponse->reveal(), $event->getResponse());
+        static::assertSame($reponse, $event->getResponse());
     }
 }

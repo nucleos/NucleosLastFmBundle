@@ -15,7 +15,6 @@ use Nucleos\LastFmBundle\Action\AuthErrorAction;
 use Nucleos\LastFmBundle\Session\SessionManagerInterface;
 use Nucleos\LastFmBundle\Tests\EventDispatcher\TestEventDispatcher;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\RouterInterface;
@@ -23,8 +22,6 @@ use Twig\Environment;
 
 final class AuthErrorActionTest extends TestCase
 {
-    use ProphecyTrait;
-
     private $twig;
 
     private $router;
@@ -35,30 +32,28 @@ final class AuthErrorActionTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->twig            = $this->prophesize(Environment::class);
-        $this->router          = $this->prophesize(RouterInterface::class);
-        $this->sessionManager  = $this->prophesize(SessionManagerInterface::class);
+        $this->twig            = $this->createMock(Environment::class);
+        $this->router          = $this->createMock(RouterInterface::class);
+        $this->sessionManager  = $this->createMock(SessionManagerInterface::class);
         $this->eventDispatcher = new TestEventDispatcher();
     }
 
     public function testExecute(): void
     {
-        $this->sessionManager->isAuthenticated()
+        $this->sessionManager->method('isAuthenticated')
             ->willReturn(false)
         ;
 
-        $this->sessionManager->clear()
-            ->shouldBeCalled()
-        ;
+        $this->sessionManager->expects(static::once())->method('clear');
 
-        $this->twig->render('@NucleosLastFm/Auth/error.html.twig')
+        $this->twig->method('render')->with('@NucleosLastFm/Auth/error.html.twig')
             ->willReturn('CONTENT')
         ;
 
         $action = new AuthErrorAction(
-            $this->twig->reveal(),
-            $this->router->reveal(),
-            $this->sessionManager->reveal(),
+            $this->twig,
+            $this->router,
+            $this->sessionManager,
             $this->eventDispatcher
         );
 
@@ -70,22 +65,20 @@ final class AuthErrorActionTest extends TestCase
 
     public function testExecuteWithCaughtEvent(): void
     {
-        $this->sessionManager->isAuthenticated()
+        $this->sessionManager->method('isAuthenticated')
             ->willReturn(false)
         ;
 
-        $this->sessionManager->clear()
-            ->shouldBeCalled()
-        ;
+        $this->sessionManager->expects(static::once())->method('clear');
 
         $eventResponse = new Response();
 
         $this->eventDispatcher->setResponse($eventResponse);
 
         $action = new AuthErrorAction(
-            $this->twig->reveal(),
-            $this->router->reveal(),
-            $this->sessionManager->reveal(),
+            $this->twig,
+            $this->router,
+            $this->sessionManager,
             $this->eventDispatcher
         );
 
@@ -96,19 +89,18 @@ final class AuthErrorActionTest extends TestCase
 
     public function testExecuteWithNoAuth(): void
     {
-        $this->sessionManager->isAuthenticated()
+        $this->sessionManager->method('isAuthenticated')
             ->willReturn(true)
         ;
 
-        $this->router->generate('nucleos_lastfm_success')
+        $this->router->expects(static::once())->method('generate')->with('nucleos_lastfm_success')
             ->willReturn('/success')
-            ->shouldBeCalled()
         ;
 
         $action = new AuthErrorAction(
-            $this->twig->reveal(),
-            $this->router->reveal(),
-            $this->sessionManager->reveal(),
+            $this->twig,
+            $this->router,
+            $this->sessionManager,
             $this->eventDispatcher
         );
 
