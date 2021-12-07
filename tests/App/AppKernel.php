@@ -53,6 +53,8 @@ final class AppKernel extends Kernel
 
     protected function configureRoutes($routes): void
     {
+        $routes->import(__DIR__.'/../../src/Resources/config/routing/auth.php');
+
         if ($routes instanceof RoutingConfigurator) {
             $routes
                     ->add('test', '/test')
