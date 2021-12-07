@@ -49,7 +49,7 @@ return static function (ContainerConfigurator $container): void {
 
         ->set(SessionManagerInterface::class, SessionManager::class)
             ->args([
-                new Reference('session'),
+                new Reference('request_stack'),
             ])
 
         ->set(PsrClientConnection::class)
