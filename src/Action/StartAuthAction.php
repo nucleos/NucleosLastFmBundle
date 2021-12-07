@@ -34,18 +34,4 @@ final class StartAuthAction
 
         return new RedirectResponse($this->authService->getAuthUrl($callbackUrl));
     }
-
-    /**
-     * Generates a URL from the given parameters.
-     *
-     * @param string $route         The name of the route
-     * @param array  $parameters    An array of parameters
-     * @param int    $referenceType The type of reference (one of the constants in UrlGeneratorInterface)
-     *
-     * @return string The generated URL
-     */
-    private function generateUrl(string $route, array $parameters = [], int $referenceType = UrlGeneratorInterface::ABSOLUTE_PATH): string
-    {
-        return $this->router->generate($route, $parameters, $referenceType);
-    }
 }
