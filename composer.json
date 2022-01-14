@@ -60,7 +60,8 @@
         "twig/twig": "^2.4 || ^3.0"
     },
     "conflict": {
-        "symfony/translation-contracts": "<3.0"
+        "symfony/framework-bundle": "<5.4",
+        "symfony/translation-contracts": "<2.0"
     },
     "suggest": {
         "symfony/http-client": "Symfony HTTP client implementation"
