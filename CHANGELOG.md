@@ -2,27 +2,29 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 1.1.0 - TBD
+## 1.1.0 - 2022-01-14
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [1.1.0](https://github.com/nucleos/NucleosLastFmBundle/milestone/3)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 1.1.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **3**
+- Total contributors: **1**
 
-### Removed
+#### dependency
 
-- Nothing.
+ - [186: Add missing twig dependency](https://github.com/nucleos/NucleosLastFmBundle/pull/186) thanks to @core23
 
-### Fixed
+#### Enhancement
 
-- Nothing.
+ - [180: Use shared pipelines](https://github.com/nucleos/NucleosLastFmBundle/pull/180) thanks to @core23
+ - [168: Remove composer-bin plugin](https://github.com/nucleos/NucleosLastFmBundle/pull/168) thanks to @core23
 
 ## 1.0.0 - 2021-12-07
 
