@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\Session\Session;
 final class SessionManagerTest extends TestCase
 {
     /**
-     * @var Session&MockObject
+     * @var MockObject&Session
      */
     private Session $session;
 

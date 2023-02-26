@@ -32,7 +32,9 @@ final class AppKernel extends Kernel
     public function registerBundles(): iterable
     {
         yield new FrameworkBundle();
+
         yield new TwigBundle();
+
         yield new NucleosLastFmBundle();
     }
 
@@ -59,7 +61,7 @@ final class AppKernel extends Kernel
             $routes
                     ->add('test', '/test')
                     ->controller(TestController::class)
-                ;
+            ;
 
             return;
         }
