@@ -134,5 +134,5 @@ return static function (ContainerConfigurator $container): void {
                 new Reference(ApiClientInterface::class),
             ])
 
-        ;
+    ;
 };

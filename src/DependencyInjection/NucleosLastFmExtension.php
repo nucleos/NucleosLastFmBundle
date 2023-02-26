@@ -30,6 +30,7 @@ final class NucleosLastFmExtension extends Extension
     {
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
+
         /** @var array<string, mixed> $bundles */
         $bundles       = $container->getParameter('kernel.bundles');
 
