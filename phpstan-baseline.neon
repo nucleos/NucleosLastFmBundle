@@ -75,8 +75,3 @@ parameters:
 			count: 1
 			path: tests/EventDispatcher/TestEventDispatcher.php
 
-		-
-			message: "#^Method Nucleos\\\\LastFmBundle\\\\Tests\\\\EventDispatcher\\\\TestEventDispatcher\\:\\:dispatch\\(\\) should return TEvent of object but returns \\(Nucleos\\\\LastFmBundle\\\\Event\\\\AuthFailedEvent&TEvent of object\\)\\|\\(Nucleos\\\\LastFmBundle\\\\Event\\\\AuthSuccessEvent&TEvent of object\\)\\|TEvent of object\\.$#"
-			count: 1
-			path: tests/EventDispatcher/TestEventDispatcher.php
-
