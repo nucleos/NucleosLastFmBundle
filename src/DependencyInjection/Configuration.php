@@ -31,6 +31,7 @@ final class Configuration implements ConfigurationInterface
 
     private function addApiSection(ArrayNodeDefinition $node): void
     {
+        /** @psalm-suppress UndefinedInterfaceMethod */
         $node
             ->children()
                 ->arrayNode('api')
@@ -48,6 +49,7 @@ final class Configuration implements ConfigurationInterface
 
     private function addHttpClientSection(ArrayNodeDefinition $node): void
     {
+        /** @psalm-suppress UndefinedInterfaceMethod */
         $node
             ->children()
                 ->arrayNode('http')
