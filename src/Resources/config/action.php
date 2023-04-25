@@ -52,6 +52,5 @@ return static function (ContainerConfigurator $container): void {
                 new Reference(SessionManagerInterface::class),
                 new Reference(AuthServiceInterface::class),
             ])
-
     ;
 };
