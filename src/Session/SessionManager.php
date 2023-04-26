@@ -32,7 +32,7 @@ final class SessionManager implements SessionManagerInterface
 
     public function isAuthenticated(): bool
     {
-        return (bool) $this->getHttpSession()->get(static::SESSION_LASTFM_TOKEN);
+        return $this->getHttpSession()->has(static::SESSION_LASTFM_TOKEN);
     }
 
     public function getUsername(): ?string
