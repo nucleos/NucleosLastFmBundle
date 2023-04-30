@@ -2,27 +2,34 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 1.2.0 - TBD
+## 1.2.0 - 2023-04-30
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [1.2.0](https://github.com/nucleos/NucleosLastFmBundle/milestone/6)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 1.2.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **5**
+- Total contributors: **2**
 
-### Removed
+#### dependency
 
-- Nothing.
+ - [272: Drop symfony 6.1 support](https://github.com/nucleos/NucleosLastFmBundle/pull/272) thanks to @core23
+ - [269: Update dependency psr/http-message to v2](https://github.com/nucleos/NucleosLastFmBundle/pull/269) thanks to @renovate[bot]
+ - [268: Drop support for PHP 8.0](https://github.com/nucleos/NucleosLastFmBundle/pull/268) thanks to @core23
 
-### Fixed
+#### Bug
 
-- Nothing.
+ - [271: Fix session auth check](https://github.com/nucleos/NucleosLastFmBundle/pull/271) thanks to @core23
+
+#### Enhancement
+
+ - [270: Update build tools](https://github.com/nucleos/NucleosLastFmBundle/pull/270) thanks to @core23
 
 ## 1.1.0 - 2022-01-14
 
