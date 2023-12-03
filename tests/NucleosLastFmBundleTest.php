@@ -21,6 +21,6 @@ final class NucleosLastFmBundleTest extends TestCase
     {
         $bundle = new NucleosLastFmBundle();
 
-        static::assertInstanceOf(NucleosLastFmExtension::class, $bundle->getContainerExtension());
+        self::assertInstanceOf(NucleosLastFmExtension::class, $bundle->getContainerExtension());
     }
 }

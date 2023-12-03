@@ -1,8 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="3.18.2@19aa905f7c3c7350569999a93c40ae91ae4e1626">
-    <file src="src/Action/CheckAuthAction.php">
-      <InvalidArgument occurrences="1">
-          <code>$token</code>
-      </InvalidArgument>
-    </file>
-</files>
+<files psalm-version="5.16.0@2897ba636551a8cb61601cc26f6ccfbba6c36591"/>

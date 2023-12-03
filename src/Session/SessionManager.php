@@ -32,28 +32,28 @@ final class SessionManager implements SessionManagerInterface
 
     public function isAuthenticated(): bool
     {
-        return $this->getHttpSession()->has(static::SESSION_LASTFM_TOKEN);
+        return $this->getHttpSession()->has(self::SESSION_LASTFM_TOKEN);
     }
 
     public function getUsername(): ?string
     {
-        return $this->getHttpSession()->get(static::SESSION_LASTFM_NAME);
+        return $this->getHttpSession()->get(self::SESSION_LASTFM_NAME);
     }
 
     public function store(SessionInterface $lastFmSession): void
     {
         $session = $this->getHttpSession();
 
-        $session->set(static::SESSION_LASTFM_NAME, $lastFmSession->getName());
-        $session->set(static::SESSION_LASTFM_TOKEN, $lastFmSession->getKey());
+        $session->set(self::SESSION_LASTFM_NAME, $lastFmSession->getName());
+        $session->set(self::SESSION_LASTFM_TOKEN, $lastFmSession->getKey());
     }
 
     public function clear(): void
     {
         $session = $this->getHttpSession();
 
-        $session->remove(static::SESSION_LASTFM_NAME);
-        $session->remove(static::SESSION_LASTFM_TOKEN);
+        $session->remove(self::SESSION_LASTFM_NAME);
+        $session->remove(self::SESSION_LASTFM_TOKEN);
     }
 
     public function getSession(): ?SessionInterface
@@ -65,8 +65,8 @@ final class SessionManager implements SessionManagerInterface
         $session = $this->getHttpSession();
 
         return new LastFmSession(
-            $session->get(static::SESSION_LASTFM_NAME),
-            $session->get(static::SESSION_LASTFM_TOKEN)
+            $session->get(self::SESSION_LASTFM_NAME),
+            $session->get(self::SESSION_LASTFM_TOKEN)
         );
     }
 
