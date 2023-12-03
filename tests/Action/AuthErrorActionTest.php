@@ -44,7 +44,7 @@ final class AuthErrorActionTest extends TestCase
             ->willReturn(false)
         ;
 
-        $this->sessionManager->expects(static::once())->method('clear');
+        $this->sessionManager->expects(self::once())->method('clear');
 
         $this->twig->method('render')->with('@NucleosLastFm/Auth/error.html.twig')
             ->willReturn('CONTENT')
@@ -59,8 +59,8 @@ final class AuthErrorActionTest extends TestCase
 
         $response = $action();
 
-        static::assertNotInstanceOf(RedirectResponse::class, $response);
-        static::assertSame(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
+        self::assertNotInstanceOf(RedirectResponse::class, $response);
+        self::assertSame(Response::HTTP_UNAUTHORIZED, $response->getStatusCode());
     }
 
     public function testExecuteWithCaughtEvent(): void
@@ -69,7 +69,7 @@ final class AuthErrorActionTest extends TestCase
             ->willReturn(false)
         ;
 
-        $this->sessionManager->expects(static::once())->method('clear');
+        $this->sessionManager->expects(self::once())->method('clear');
 
         $eventResponse = new Response();
 
@@ -84,7 +84,7 @@ final class AuthErrorActionTest extends TestCase
 
         $response = $action();
 
-        static::assertSame($eventResponse, $response);
+        self::assertSame($eventResponse, $response);
     }
 
     public function testExecuteWithNoAuth(): void
@@ -93,7 +93,7 @@ final class AuthErrorActionTest extends TestCase
             ->willReturn(true)
         ;
 
-        $this->router->expects(static::once())->method('generate')->with('nucleos_lastfm_success')
+        $this->router->expects(self::once())->method('generate')->with('nucleos_lastfm_success')
             ->willReturn('/success')
         ;
 
@@ -104,6 +104,6 @@ final class AuthErrorActionTest extends TestCase
             $this->eventDispatcher
         );
 
-        static::assertInstanceOf(RedirectResponse::class, $action());
+        self::assertInstanceOf(RedirectResponse::class, $action());
     }
 }

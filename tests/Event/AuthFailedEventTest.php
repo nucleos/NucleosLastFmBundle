@@ -21,7 +21,7 @@ final class AuthFailedEventTest extends TestCase
     {
         $event = new AuthFailedEvent();
 
-        static::assertNull($event->getResponse());
+        self::assertNull($event->getResponse());
     }
 
     public function testSetResponse(): void
@@ -31,6 +31,6 @@ final class AuthFailedEventTest extends TestCase
         $event = new AuthFailedEvent();
         $event->setResponse($reponse);
 
-        static::assertSame($reponse, $event->getResponse());
+        self::assertSame($reponse, $event->getResponse());
     }
 }

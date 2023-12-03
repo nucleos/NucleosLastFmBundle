@@ -53,7 +53,7 @@ final class AuthSuccessActionTest extends TestCase
             ->willReturn('FooUser')
         ;
 
-        $this->twig->expects(static::once())->method('render')->with('@NucleosLastFm/Auth/success.html.twig', [
+        $this->twig->expects(self::once())->method('render')->with('@NucleosLastFm/Auth/success.html.twig', [
             'name' => 'FooUser',
         ]);
 
@@ -66,8 +66,8 @@ final class AuthSuccessActionTest extends TestCase
 
         $response = $action();
 
-        static::assertNotInstanceOf(RedirectResponse::class, $response);
-        static::assertSame(200, $response->getStatusCode());
+        self::assertNotInstanceOf(RedirectResponse::class, $response);
+        self::assertSame(200, $response->getStatusCode());
     }
 
     public function testExecuteWithCaughtEvent(): void
@@ -97,7 +97,7 @@ final class AuthSuccessActionTest extends TestCase
 
         $response = $action();
 
-        static::assertSame($eventResponse, $response);
+        self::assertSame($eventResponse, $response);
     }
 
     public function testExecuteNoAuth(): void
@@ -106,7 +106,7 @@ final class AuthSuccessActionTest extends TestCase
             ->willReturn(false)
         ;
 
-        $this->router->expects(static::once())->method('generate')->with('nucleos_lastfm_error')
+        $this->router->expects(self::once())->method('generate')->with('nucleos_lastfm_error')
             ->willReturn('/success')
         ;
 
@@ -117,7 +117,7 @@ final class AuthSuccessActionTest extends TestCase
             $this->eventDispatcher
         );
 
-        static::assertInstanceOf(RedirectResponse::class, $action());
+        self::assertInstanceOf(RedirectResponse::class, $action());
     }
 
     public function testExecuteNoSession(): void
@@ -129,7 +129,7 @@ final class AuthSuccessActionTest extends TestCase
             ->willReturn(null)
         ;
 
-        $this->router->expects(static::once())->method('generate')->with('nucleos_lastfm_error')
+        $this->router->expects(self::once())->method('generate')->with('nucleos_lastfm_error')
             ->willReturn('/success')
         ;
 
@@ -140,6 +140,6 @@ final class AuthSuccessActionTest extends TestCase
             $this->eventDispatcher
         );
 
-        static::assertInstanceOf(RedirectResponse::class, $action());
+        self::assertInstanceOf(RedirectResponse::class, $action());
     }
 }

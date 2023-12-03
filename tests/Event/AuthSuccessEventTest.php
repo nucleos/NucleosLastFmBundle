@@ -25,7 +25,7 @@ final class AuthSuccessEventTest extends TestCase
 
         $event = new AuthSuccessEvent($session);
 
-        static::assertSame('MyUser', $event->getUsername());
+        self::assertSame('MyUser', $event->getUsername());
     }
 
     public function testGetSession(): void
@@ -34,7 +34,7 @@ final class AuthSuccessEventTest extends TestCase
 
         $event = new AuthSuccessEvent($session);
 
-        static::assertSame($session, $event->getSession());
+        self::assertSame($session, $event->getSession());
     }
 
     public function testGetResponse(): void
@@ -43,7 +43,7 @@ final class AuthSuccessEventTest extends TestCase
 
         $event = new AuthSuccessEvent($session);
 
-        static::assertNull($event->getResponse());
+        self::assertNull($event->getResponse());
     }
 
     public function testSetResponse(): void
@@ -55,6 +55,6 @@ final class AuthSuccessEventTest extends TestCase
         $event = new AuthSuccessEvent($session);
         $event->setResponse($reponse);
 
-        static::assertSame($reponse, $event->getResponse());
+        self::assertSame($reponse, $event->getResponse());
     }
 }

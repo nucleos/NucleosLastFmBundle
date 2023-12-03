@@ -41,13 +41,13 @@ final class SessionManagerTest extends TestCase
         $this->session->set('LASTFM_TOKEN', 'TheToken');
 
         $manager = new SessionManager($this->requestStack);
-        static::assertTrue($manager->isAuthenticated());
+        self::assertTrue($manager->isAuthenticated());
     }
 
     public function testIsNotAuthenticated(): void
     {
         $manager = new SessionManager($this->requestStack);
-        static::assertFalse($manager->isAuthenticated());
+        self::assertFalse($manager->isAuthenticated());
     }
 
     public function testGetUsername(): void
@@ -55,13 +55,13 @@ final class SessionManagerTest extends TestCase
         $this->session->set('LASTFM_NAME', 'MyUser');
 
         $manager = new SessionManager($this->requestStack);
-        static::assertSame('MyUser', $manager->getUsername());
+        self::assertSame('MyUser', $manager->getUsername());
     }
 
     public function testGetUsernameNotExist(): void
     {
         $manager = new SessionManager($this->requestStack);
-        static::assertNull($manager->getUsername());
+        self::assertNull($manager->getUsername());
     }
 
     public function testStore(): void
@@ -71,8 +71,8 @@ final class SessionManagerTest extends TestCase
         $manager = new SessionManager($this->requestStack);
         $manager->store($lastfmSession);
 
-        static::assertTrue($this->session->has('LASTFM_TOKEN'));
-        static::assertTrue($this->session->has('LASTFM_NAME'));
+        self::assertTrue($this->session->has('LASTFM_TOKEN'));
+        self::assertTrue($this->session->has('LASTFM_NAME'));
     }
 
     public function testClear(): void
@@ -83,8 +83,8 @@ final class SessionManagerTest extends TestCase
         $manager = new SessionManager($this->requestStack);
         $manager->clear();
 
-        static::assertFalse($this->session->has('LASTFM_TOKEN'));
-        static::assertFalse($this->session->has('LASTFM_NAME'));
+        self::assertFalse($this->session->has('LASTFM_TOKEN'));
+        self::assertFalse($this->session->has('LASTFM_NAME'));
     }
 
     public function testGetSession(): void
@@ -96,15 +96,15 @@ final class SessionManagerTest extends TestCase
 
         $lastfmSession = $manager->getSession();
 
-        static::assertNotNull($lastfmSession);
-        static::assertSame('MyUser', $lastfmSession->getName());
-        static::assertSame('TheToken', $lastfmSession->getKey());
+        self::assertNotNull($lastfmSession);
+        self::assertSame('MyUser', $lastfmSession->getName());
+        self::assertSame('TheToken', $lastfmSession->getKey());
     }
 
     public function testGetSessionWithNoAuth(): void
     {
         $manager = new SessionManager($this->requestStack);
 
-        static::assertNull($manager->getSession());
+        self::assertNull($manager->getSession());
     }
 }

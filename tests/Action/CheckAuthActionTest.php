@@ -36,7 +36,7 @@ final class CheckAuthActionTest extends TestCase
 
     public function testExecute(): void
     {
-        $this->sessionManager->expects(static::once())->method('store');
+        $this->sessionManager->expects(self::once())->method('store');
 
         $this->router->method('generate')->with('nucleos_lastfm_success')
             ->willReturn('/success')
@@ -57,7 +57,7 @@ final class CheckAuthActionTest extends TestCase
 
         $response = $action($request);
 
-        static::assertSame('/success', $response->getTargetUrl());
+        self::assertSame('/success', $response->getTargetUrl());
     }
 
     public function testExecuteWithNoToken(): void
@@ -77,7 +77,7 @@ final class CheckAuthActionTest extends TestCase
 
         $response = $action($request);
 
-        static::assertSame('/auth', $response->getTargetUrl());
+        self::assertSame('/auth', $response->getTargetUrl());
     }
 
     public function testExecuteWithNoSession(): void
@@ -100,6 +100,6 @@ final class CheckAuthActionTest extends TestCase
 
         $response = $action($request);
 
-        static::assertSame('/error', $response->getTargetUrl());
+        self::assertSame('/error', $response->getTargetUrl());
     }
 }
