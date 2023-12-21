@@ -1,6 +1,11 @@
 parameters:
 	ignoreErrors:
 		-
+			message: "#^Method Nucleos\\\\LastFmBundle\\\\NucleosLastFmBundle\\:\\:getContainerExtension\\(\\) should return Symfony\\\\Component\\\\DependencyInjection\\\\Extension\\\\ExtensionInterface\\|null but returns Symfony\\\\Component\\\\DependencyInjection\\\\Extension\\\\ExtensionInterface\\|false\\.$#"
+			count: 1
+			path: src/NucleosLastFmBundle.php
+
+		-
 			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$router has no type specified\\.$#"
 			count: 1
 			path: tests/Action/AuthErrorActionTest.php
