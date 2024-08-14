@@ -2,27 +2,28 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 1.4.0 - TBD
+## 1.4.0 - 2024-08-14
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [1.4.0](https://github.com/nucleos/NucleosLastFmBundle/milestone/10)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 1.4.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **2**
+- Total contributors: **2**
 
-### Removed
+#### Enhancement
 
-- Nothing.
+ - [281: Fix symfony deprecation](https://github.com/nucleos/NucleosLastFmBundle/pull/281) thanks to @core23
 
-### Fixed
+#### dependency
 
-- Nothing.
+ - [278: Update dependency psalm/plugin-phpunit to ^0.19.0](https://github.com/nucleos/NucleosLastFmBundle/pull/278) thanks to @renovate[bot]
 
 ## 1.3.0 - 2023-12-21
 
