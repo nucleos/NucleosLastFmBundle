@@ -4,7 +4,8 @@ includes:
 parameters:
     level: 8
 
-    checkMissingIterableValueType: false
+    parallel:
+        maximumNumberOfProcesses: 4
 
     paths:
         - src
@@ -12,3 +13,4 @@ parameters:
 
     bootstrapFiles:
         - vendor-bin/tools/vendor/autoload.php
+
