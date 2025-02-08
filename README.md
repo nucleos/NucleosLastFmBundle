@@ -10,7 +10,6 @@ NucleosLastFmBundle
 
 [![Continuous Integration](https://github.com/nucleos/NucleosLastFmBundle/actions/workflows/continuous-integration.yml/badge.svg?event=push)](https://github.com/nucleos/NucleosLastFmBundle/actions?query=workflow%3A"Continuous+Integration"+event%3Apush)
 [![Code Coverage](https://codecov.io/gh/nucleos/NucleosLastFmBundle/graph/badge.svg)](https://codecov.io/gh/nucleos/NucleosLastFmBundle)
-[![Type Coverage](https://shepherd.dev/github/nucleos/NucleosLastFmBundle/coverage.svg)](https://shepherd.dev/github/nucleos/NucleosLastFmBundle)
 
 This bundle provides a wrapper for using the [Last.fm API] inside symfony.
 
