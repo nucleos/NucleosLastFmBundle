@@ -1,82 +1,98 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Nucleos\\\\LastFmBundle\\\\NucleosLastFmBundle\\:\\:getContainerExtension\\(\\) should return Symfony\\\\Component\\\\DependencyInjection\\\\Extension\\\\ExtensionInterface\\|null but returns Symfony\\\\Component\\\\DependencyInjection\\\\Extension\\\\ExtensionInterface\\|false\\.$#"
+			message: '#^Method Nucleos\\LastFmBundle\\NucleosLastFmBundle\:\:getContainerExtension\(\) should return Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface but returns Symfony\\Component\\DependencyInjection\\Extension\\ExtensionInterface\|false\.$#'
+			identifier: return.type
 			count: 1
 			path: src/NucleosLastFmBundle.php
 
 		-
-			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$router has no type specified\\.$#"
+			message: '#^Property Nucleos\\LastFmBundle\\Tests\\Action\\AuthErrorActionTest\:\:\$router has no type specified\.$#'
+			identifier: missingType.property
 			count: 1
 			path: tests/Action/AuthErrorActionTest.php
 
 		-
-			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$sessionManager has no type specified\\.$#"
+			message: '#^Property Nucleos\\LastFmBundle\\Tests\\Action\\AuthErrorActionTest\:\:\$sessionManager has no type specified\.$#'
+			identifier: missingType.property
 			count: 1
 			path: tests/Action/AuthErrorActionTest.php
 
 		-
-			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthErrorActionTest\\:\\:\\$twig has no type specified\\.$#"
+			message: '#^Property Nucleos\\LastFmBundle\\Tests\\Action\\AuthErrorActionTest\:\:\$twig has no type specified\.$#'
+			identifier: missingType.property
 			count: 1
 			path: tests/Action/AuthErrorActionTest.php
 
 		-
-			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthSuccessActionTest\\:\\:\\$router has no type specified\\.$#"
+			message: '#^Property Nucleos\\LastFmBundle\\Tests\\Action\\AuthSuccessActionTest\:\:\$router has no type specified\.$#'
+			identifier: missingType.property
 			count: 1
 			path: tests/Action/AuthSuccessActionTest.php
 
 		-
-			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthSuccessActionTest\\:\\:\\$sessionManager has no type specified\\.$#"
+			message: '#^Property Nucleos\\LastFmBundle\\Tests\\Action\\AuthSuccessActionTest\:\:\$sessionManager has no type specified\.$#'
+			identifier: missingType.property
 			count: 1
 			path: tests/Action/AuthSuccessActionTest.php
 
 		-
-			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\AuthSuccessActionTest\\:\\:\\$twig has no type specified\\.$#"
+			message: '#^Property Nucleos\\LastFmBundle\\Tests\\Action\\AuthSuccessActionTest\:\:\$twig has no type specified\.$#'
+			identifier: missingType.property
 			count: 1
 			path: tests/Action/AuthSuccessActionTest.php
 
 		-
-			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\CheckAuthActionTest\\:\\:\\$authService has no type specified\\.$#"
+			message: '#^Property Nucleos\\LastFmBundle\\Tests\\Action\\CheckAuthActionTest\:\:\$authService has no type specified\.$#'
+			identifier: missingType.property
 			count: 1
 			path: tests/Action/CheckAuthActionTest.php
 
 		-
-			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\CheckAuthActionTest\\:\\:\\$router has no type specified\\.$#"
+			message: '#^Property Nucleos\\LastFmBundle\\Tests\\Action\\CheckAuthActionTest\:\:\$router has no type specified\.$#'
+			identifier: missingType.property
 			count: 1
 			path: tests/Action/CheckAuthActionTest.php
 
 		-
-			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\CheckAuthActionTest\\:\\:\\$sessionManager has no type specified\\.$#"
+			message: '#^Property Nucleos\\LastFmBundle\\Tests\\Action\\CheckAuthActionTest\:\:\$sessionManager has no type specified\.$#'
+			identifier: missingType.property
 			count: 1
 			path: tests/Action/CheckAuthActionTest.php
 
 		-
-			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\StartAuthActionTest\\:\\:\\$authService has no type specified\\.$#"
+			message: '#^Property Nucleos\\LastFmBundle\\Tests\\Action\\StartAuthActionTest\:\:\$authService has no type specified\.$#'
+			identifier: missingType.property
 			count: 1
 			path: tests/Action/StartAuthActionTest.php
 
 		-
-			message: "#^Property Nucleos\\\\LastFmBundle\\\\Tests\\\\Action\\\\StartAuthActionTest\\:\\:\\$router has no type specified\\.$#"
+			message: '#^Property Nucleos\\LastFmBundle\\Tests\\Action\\StartAuthActionTest\:\:\$router has no type specified\.$#'
+			identifier: missingType.property
 			count: 1
 			path: tests/Action/StartAuthActionTest.php
 
 		-
-			message: "#^Method Nucleos\\\\LastFmBundle\\\\Tests\\\\App\\\\AppKernel\\:\\:configureContainer\\(\\) has parameter \\$container with no type specified\\.$#"
+			message: '#^Method Nucleos\\LastFmBundle\\Tests\\App\\AppKernel\:\:configureContainer\(\) has parameter \$container with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: tests/App/AppKernel.php
 
 		-
-			message: "#^Method Nucleos\\\\LastFmBundle\\\\Tests\\\\App\\\\AppKernel\\:\\:configureContainer\\(\\) has parameter \\$loader with no type specified\\.$#"
+			message: '#^Method Nucleos\\LastFmBundle\\Tests\\App\\AppKernel\:\:configureContainer\(\) has parameter \$loader with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: tests/App/AppKernel.php
 
 		-
-			message: "#^Method Nucleos\\\\LastFmBundle\\\\Tests\\\\App\\\\AppKernel\\:\\:configureRoutes\\(\\) has parameter \\$routes with no type specified\\.$#"
+			message: '#^Method Nucleos\\LastFmBundle\\Tests\\App\\AppKernel\:\:configureRoutes\(\) has parameter \$routes with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: tests/App/AppKernel.php
 
 		-
-			message: "#^Method Nucleos\\\\LastFmBundle\\\\Tests\\\\EventDispatcher\\\\TestEventDispatcher\\:\\:dispatch\\(\\) has parameter \\$eventName with no type specified\\.$#"
+			message: '#^Method Nucleos\\LastFmBundle\\Tests\\EventDispatcher\\TestEventDispatcher\:\:dispatch\(\) has parameter \$eventName with no type specified\.$#'
+			identifier: missingType.parameter
 			count: 1
 			path: tests/EventDispatcher/TestEventDispatcher.php
 
