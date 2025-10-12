@@ -2,27 +2,34 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 1.5.0 - TBD
+## 1.5.0 - 2025-10-12
 
-### Added
 
-- Nothing.
+-----
 
-### Changed
+### Release Notes for [1.5.0](https://github.com/nucleos/NucleosLastFmBundle/milestone/12)
 
-- Nothing.
+Feature release (minor)
 
-### Deprecated
+### 1.5.0
 
-- Nothing.
+- Total issues resolved: **0**
+- Total pull requests resolved: **8**
+- Total contributors: **2**
 
-### Removed
+#### dependency
 
-- Nothing.
+ - [290: Update to phpunit v12](https://github.com/nucleos/NucleosLastFmBundle/pull/290) thanks to @core23
+ - [289: Drop support for PHP 8.2](https://github.com/nucleos/NucleosLastFmBundle/pull/289) thanks to @core23
+ - [282: Update PHPStan packages to v2 (major)](https://github.com/nucleos/NucleosLastFmBundle/pull/282) thanks to @renovate[bot]
+ - [280: Update dependency matthiasnoback/symfony-dependency-injection-test to v6](https://github.com/nucleos/NucleosLastFmBundle/pull/280) thanks to @renovate[bot]
 
-### Fixed
+#### Enhancement
 
-- Nothing.
+ - [288: Remove ci pipeline overrides ](https://github.com/nucleos/NucleosLastFmBundle/pull/288) thanks to @core23
+ - [287: Sync tool config ](https://github.com/nucleos/NucleosLastFmBundle/pull/287) thanks to @core23
+ - [286: Remove infection testing ](https://github.com/nucleos/NucleosLastFmBundle/pull/286) thanks to @core23
+ - [284: Remove psalm in favor of phpstan ](https://github.com/nucleos/NucleosLastFmBundle/pull/284) thanks to @core23
 
 ## 1.4.0 - 2024-08-14
 
